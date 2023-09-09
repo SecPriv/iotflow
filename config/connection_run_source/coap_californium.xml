@@ -1,0 +1,83 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="org.eclipse.californium.core.CoapClient: void put(org.eclipse.californium.core.CoapHandler,java.lang.String,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapHandler: void onLoad(org.eclipse.californium.core.CoapResponse)">
+            <base type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,java.lang.String,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,byte[],int,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(java.lang.String,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapClient setURI(java.lang.String)">
+            <return type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,byte[],int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse put(byte[],int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(byte[],int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void &lt;init&gt;(java.lang.String)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse put(java.lang.String,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,java.lang.String,int,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(byte[],int,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(java.lang.String,int,int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void put(org.eclipse.californium.core.CoapHandler,byte[],int)">
+            <base type="org.eclipse.californium.core.CoapClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

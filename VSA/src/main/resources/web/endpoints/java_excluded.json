@@ -1,0 +1,62 @@
+{
+  "methods":
+    [
+      {
+        "method": "<java.net.Socket: void <init>(java.lang.String,int)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.Socket: void <init>(java.net.InetAddress,int)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.Socket: void <init>(java.lang.String,int,java.net.InetAddress,int)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.Socket: void <init>(java.net.InetAddress,int,java.net.InetAddress,int)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.Socket: void <init>(java.lang.String,int,boolean)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.Socket: void <init>(java.net.InetAddress,int,boolean)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.Socket: void connect(java.net.SocketAddress,int)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method": "<java.net.Socket: void connect(java.net.SocketAddress)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method": "<java.net.URL: void <init>(java.lang.String,java.lang.String,int,java.lang.String)>",
+        "parmIndexs":[0,1,2]
+      },
+      {
+        "method": "<java.net.URL: void <init>(java.lang.String,java.lang.String,java.lang.String)>",
+        "parmIndexs":[0,1]
+      },
+      {
+        "method": "<java.net.URL: void <init>(java.lang.String,java.lang.String,int,java.lang.String,java.net.URLStreamHandler)>",
+        "parmIndexs":[0,1,2]
+      },
+      {
+        "method": "<java.net.URL: void <init>(java.lang.String)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method": "<java.net.URL: void <init>(java.net.URL,java.lang.String)>",
+        "parmIndexs":[1]
+      },
+      {
+        "method": "<java.net.URL: void <init>(java.net.URL,java.lang.String,java.net.URLStreamHandler)>",
+        "parmIndexs":[1]
+      }
+
+    ]
+}

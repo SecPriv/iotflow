@@ -1,0 +1,40 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="java.net.DatagramSocket: void connect(java.net.SocketAddress)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.DatagramSocket: void bind(java.net.SocketAddress)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.DatagramSocket: void connect(java.net.InetAddress,int)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.DatagramSocket: void &lt;init&gt;(int,java.net.InetAddress)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.DatagramSocket: void &lt;init&gt;(int)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.DatagramSocket: void send(java.net.DatagramPacket)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.DatagramSocket: void &lt;init&gt;(java.net.SocketAddress)">
+            <base type="java.net.DatagramSocket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

@@ -1,0 +1,255 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String[],int)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(java.lang.String,int,java.lang.Object,org.eclipse.paho.client.mqttv3.IMqttActionListener,org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String[],int[])">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String[])">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String[],int,org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(String[],int[],java.lang.Object,org.eclipse.paho.client.mqttv3.IMqttActionListener,org.eclipse.paho.client.mqttv3.IMqttMessageListener[])">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String[],int)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttService: void subscribe(java.lang.String,String[],int[],java.lang.String,java.lang.String)">
+            <base type="org.eclipse.paho.android.service.MqttService">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(java.lang.String,int,org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void &lt;init&gt;(java.lang.String,java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String[],int[])">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String[],int[],org.eclipse.paho.client.mqttv5.client.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String[],org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String[])">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String[],int,org.eclipse.paho.client.mqttv5.client.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String[])">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttAsyncClient: void &lt;init&gt;(java.lang.String,java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttAsyncClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttAsyncClient: void &lt;init&gt;(java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.MqttClientPersistence,org.eclipse.paho.client.mqttv3.MqttPingSender)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttAsyncClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(java.lang.String,int)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String[],int)">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(String[],int[])">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttAsyncClient: void &lt;init&gt;(java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.MqttClientPersistence)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttAsyncClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttService: void subscribe(java.lang.String,java.lang.String,int,java.lang.String)">
+            <base type="org.eclipse.paho.android.service.MqttService">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String[],int[],org.eclipse.paho.client.mqttv5.client.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(String[],int[],org.eclipse.paho.client.mqttv3.IMqttMessageListener[])">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String[],int,org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(String[],int[],java.lang.Object,org.eclipse.paho.client.mqttv3.IMqttActionListener)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String[],int)">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String[],int,org.eclipse.paho.client.mqttv5.client.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: void &lt;init&gt;(android.content.Context,java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.MqttClientPersistence)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String[],int[],org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void subscribe(java.lang.String[],org.eclipse.paho.client.mqttv5.client.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv5.client.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void &lt;init&gt;(java.lang.String,java.lang.String,org.eclipse.paho.mqttv5.client.MqttClientPersistence)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: void &lt;init&gt;(android.content.Context,java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.MqttClientPersistence,org.eclipse.paho.android.service.MqttAndroidClient.Ack)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String[],org.eclipse.paho.client.mqttv5.client.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void &lt;init&gt;(java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.MqttClientPersistence)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String[],org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String[],int[])">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void subscribe(java.lang.String[],int[],org.eclipse.paho.client.mqttv3.IMqttMessageListener)">
+            <base type="org.eclipse.paho.client.mqttv3.IMqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttToken subscribe(java.lang.String,int,java.lang.Object,org.eclipse.paho.client.mqttv3.IMqttActionListener)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: void &lt;init&gt;(android.content.Context,java.lang.String,java.lang.String)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void subscribe(java.lang.String[],int[])">
+            <base type="org.eclipse.paho.client.mqttv5.client.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void subscribe(java.lang.String[])">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttService: void subscribe(java.lang.String,String[],int[],java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.IMqttMessageListener[])">
+            <base type="org.eclipse.paho.android.service.MqttService">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: void &lt;init&gt;(android.content.Context,java.lang.String,java.lang.String,org.eclipse.paho.android.service.MqttAndroidClient.Ack)">
+            <base type="org.eclipse.paho.android.service.MqttAndroidClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void &lt;init&gt;(java.lang.String,java.lang.String)">
+            <base type="org.eclipse.paho.client.mqttv3.MqttClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

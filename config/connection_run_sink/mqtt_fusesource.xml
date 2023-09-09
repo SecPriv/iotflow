@@ -1,0 +1,60 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="org.fusesource.mqtt.client.MQTT: void setHost(java.lang.String,int)">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.MQTT: void &lt;init&gt;(org.fusesource.mqtt.client.MQTT)">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.MQTT: void setHost(java.lang.String)">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.MQTT: void setHost(java.net.URI)">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.BlockingConnection: void publish(org.fusesource.hawtbuf.UTF8Buffer,org.fusesource.hawtbuf.Buffer,org.fusesource.mqtt.client.QoS,boolean)">
+            <base  type="org.fusesource.mqtt.client.BlockingConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.MQTT: void setLocalAddress(java.lang.String)">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.FutureConnection: org.fusesource.mqtt.client.Future publish(org.fusesource.hawtbuf.UTF8Buffer,org.fusesource.hawtbuf.Buffer,org.fusesource.mqtt.client.QoS,boolean)">
+            <base  type="org.fusesource.mqtt.client.FutureConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.BlockingConnection: void publish(java.lang.String,byte[],org.fusesource.mqtt.client.QoS,boolean)">
+            <base  type="org.fusesource.mqtt.client.BlockingConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.MQTT: void &lt;init&gt;()">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.MQTT: void setLocalAddress(java.net.URI)">
+            <base type="org.fusesource.mqtt.client.MQTT">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="org.fusesource.mqtt.client.FutureConnection: org.fusesource.mqtt.client.Future publish(java.lang.String,byte[],org.fusesource.mqtt.client.QoS,boolean)">
+            <base  type="org.fusesource.mqtt.client.FutureConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

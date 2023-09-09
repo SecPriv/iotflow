@@ -1,0 +1,47 @@
+{
+    "methods":
+    [
+      {
+        "method":"<com.rabbitmq.client.ConnectionFactory: void setPassword(java.lang.String)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.ConnectionFactory: void setHost(java.lang.String)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.ConnectionFactory: void setPort(int)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.ConnectionFactory: void setUsername(java.lang.String)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.ConnectionFactory: void setVirtualHost(java.lang.String)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.ConnectionFactory: void setUri(java.lang.String)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.Channel: com.rabbitmq.client.AMQP$Queue$DeclareOk queueDeclare(java.lang.String,boolean,boolean,boolean,java.util.Map)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.rabbitmq.client.Channel: void basicPublish(java.lang.String,java.lang.String,com.rabbitmq.client.AMQP$BasicProperties,byte[])>",
+        "parmIndexs":[0,1,3]
+      },
+      {
+        "method":"<com.rabbitmq.client.Channel: com.rabbitmq.client.AMQP$Exchange$DeclareOk exchangeDeclare(java.lang.String,java.lang.String)>",
+        "parmIndexs":[0,1]
+      }
+    ]
+}
+
+
+
+
+
+

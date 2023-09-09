@@ -1,0 +1,115 @@
+
+<android.content.Intent: android.os.Parcelable getParcelableExtra(java.lang.String)> -> _SOURCE_ [<com.renpho.app.renphoOrenpho00oO.renphoOrenpho00o.renphoOrenpho0O0o$renphoOrenpho0O0o: void onReceive(android.content.Context,android.content.Intent)>;33]
+
+
+
+
+% Other sinks
+<javax.servlet.http.HttpServletResponse: void sendRedirect(java.lang.String)> -> _SINK_
+<org.springframework.web.servlet.tags.UrlTag: java.lang.String createUrl)> -> _SINK_
+<org.apache.xmlrpc.webserver.XmlRpcServletServer: void execute(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)> -> _SINK_
+<org.apache.xmlrpc.webserver.ServletOutputStreamImpl: void write(byte[],int,int)> -> _SINK_
+<org.apache.xmlrpc.webserver.ConnectionServer: void writeResponse(org.apache.xmlrpc.common.XmlRpcStreamRequestConfig,java.io.OutputStream,java.lang.Object)> -> _SINK_
+<org.apache.xmlrpc.webserver.Connection: void writeResponseHeader(org.apache.xmlrpc.webserver.RequestData,int)> -> _SINK_
+<org.apache.xmlrpc.server.XmlRpcServerWorker: java.lang.Object execute(org.apache.xmlrpc.XmlRpcRequest)> -> _SINK_
+<org.springframework.web.socket.sockjs.transport.session.WebSocketServerSockJsSession: void handleMessage(org.springframework.web.socket.TextMessage,org.springframework.web.socket.WebSocketSession)> -> _SINK_
+<org.apache.http.impl.conn.DefaultClientConnection: void sendRequestHeader(org.apache.http.HttpRequest)> -> _SINK_
+<org.apache.xmlrpc.client.XmlRpcClient: java.lang.Object execute(java.lang.String,java.lang.Object[])> -> _SINK_
+<javax.servlet.http.HttpServletResponseWrapper: void sendRedirect(java.lang.String)> -> _SINK_
+
+<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
+<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
+
+
+
+% java.net.URL
+<java.net.URLConnection: void connect()> -> _SINK_
+<java.net.URLConnection: java.io.InputStream getInputStream()> -> _SINK_
+<java.net.URLConnection: java.io.OutputStream getOutputStream()> -> _SINK_
+
+
+<java.net.URL: java.io.InputStream openStream()> -> _SINK_
+<java.net.URL: java.lang.Object getContent()> -> _SINK_
+<java.net.URL: java.lang.Object getContent(java.lang.Class[])> -> _SINK_
+
+<java.net.URL: void set(java.lang.String,java.lang.String,int,java.lang.String,java.lang.String)> -> _SINK_
+<java.net.URL: void set(java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)> -> _SINK_
+
+
+<java.io.OutputStream: void write(byte[])> -> _SINK_
+<java.io.OutputStream: void write(byte[],int,int)> -> _SINK_
+<java.io.OutputStream: void write(int)> -> _SINK_
+
+
+<java.io.Writer: void write(char[])> -> _SINK_
+<java.io.Writer: void write(char[],int,int)> -> _SINK_
+<java.io.Writer: void write(int)> -> _SINK_
+<java.io.Writer: void write(java.lang.String)> -> _SINK_
+<java.io.Writer: void write(java.lang.String,int,int)> -> _SINK_
+<java.io.Writer: java.io.Writer append(java.lang.CharSequence)> -> _SINK_
+
+<java.io.OutputStreamWriter: java.io.Writer append(java.lang.CharSequence)> -> _SINK_
+
+<java.net.Socket: void connect(java.net.SocketAddress)> -> _SINK_
+
+% Sms
+<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)> android.permission.SEND_SMS -> _SINK_
+<android.telephony.SmsManager: void sendDataMessage(java.lang.String,java.lang.String,short,byte[],android.app.PendingIntent,android.app.PendingIntent)> android.permission.SEND_SMS -> _SINK_
+<android.telephony.SmsManager: void sendMultipartTextMessage(java.lang.String,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)> android.permission.SEND_SMS -> _SINK_
+
+
+
+% okhttp3
+<okhttp3.Call: okhttp3.Response execute​()> -> _SINK_
+<okhttp3.Call: okhttp3.Response enqueue​(okhttp3.Callback)> -> _SINK_
+
+
+
+% volley - Not sure about the response type
+<com.android.volley.RequestQueue: com.android.volley.Request add(com.android.volley.Request)> -> _SINK_
+
+
+% loopj
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle sendRequest(cz.msebera.android.httpclient.impl.client.DefaultHttpClient,cz.msebera.android.httpclient.protocol.HttpContext,cz.msebera.android.httpclient.client.methods.HttpUriRequest,java.lang.String,com.loopj.android.http.ResponseHandlerInterface,android.content.Context)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)> -> _SINK_
+
+
+
+% retrofit
+
+%TODO -> add retrofit sources and sinks -> according to https://www.appbrain.com/stats/libraries/tag/network/android-network-libraries second most used lib
+% To add support -> add annotation sources and sinks
+% Since the lib creates uses reflection to create implementation for the interfaces at runtime
+
+% apache
+
+<org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest)> -> _SINK_
+<org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)> -> _SINK_
+<org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
+<org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)> -> _SINK_
+
+
+

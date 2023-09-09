@@ -1,0 +1,36 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,com.tuya.smart.mqttclient.mqttv3.MqttMessage)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttMessage: void setPayload(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setServerURIs(java.lang.String[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void &lt;init&gt;(java.lang.String,java.lang.String)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttMessage: void &lt;init&gt;(byte[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttMessage">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

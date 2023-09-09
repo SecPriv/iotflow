@@ -1,0 +1,267 @@
+{
+  "methods":
+  [
+    {
+      "method": "<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putBoolean(java.lang.String,boolean)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putFloat(java.lang.String,float)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putLong(java.lang.String,long)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>",
+      "parmIndexs":[0]
+    },
+
+
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,double[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.CharSequence)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,char)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Bundle)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.io.Serializable)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,int[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,float)>",
+      "parmIndexs":[0]
+    },
+
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,byte[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,long[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,float[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,long)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,boolean)>",
+      "parmIndexs":[0]
+    },
+
+
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,boolean[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,short)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,double)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,short[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>",
+      "parmIndexs":[0]
+    },
+
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,byte)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,char[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.CharSequence[])>",
+      "parmIndexs":[0]
+    },
+
+
+    {
+      "method": "<android.os.Bundle: void putBinder(java.lang.String,android.os.IBinder)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putBoolean(java.lang.String,boolean)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putBooleanArray(java.lang.String,boolean[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putBundle(java.lang.String,android.os.Bundle)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putByte(java.lang.String,byte)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putByteArray(java.lang.String,byte[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putChar(java.lang.String,char)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putCharArray(java.lang.String,char[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putCharSequence(java.lang.String,java.lang.CharSequence)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putCharSequenceArray(java.lang.String,java.lang.CharSequence[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putCharSequenceArrayList(java.lang.String,java.util.ArrayList)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putDouble(java.lang.String,double)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putDoubleArray(java.lang.String,double[])>",
+      "parmIndexs":[0]
+    },
+
+
+    {
+      "method": "<android.os.Bundle: void putFloat(java.lang.String,float)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putFloatArray(java.lang.String,float[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putInt(java.lang.String,int)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putIntegerArrayList(java.lang.String,java.util.ArrayList)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putLong(java.lang.String,long)>",
+      "parmIndexs":[0]
+    },
+
+
+    {
+      "method": "<android.os.Bundle: void putSerializable(java.lang.String,java.io.Serializable)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putShort(java.lang.String,short)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putShortArray(java.lang.String,short[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putSparseParcelableArray(java.lang.String,android.util.SparseArray)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putString(java.lang.String,java.lang.String)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putStringArray(java.lang.String,java.lang.String[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putStringArrayList(java.lang.String,java.util.ArrayList)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putAll(android.os.Bundle)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putLongArray(java.lang.String,long[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putParcelable(java.lang.String,android.os.Parcelable)>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putParcelableArray(java.lang.String,android.os.Parcelable[])>",
+      "parmIndexs":[0]
+    },
+    {
+      "method": "<android.os.Bundle: void putParcelableArrayList(java.lang.String,java.util.ArrayList)>",
+      "parmIndexs":[0]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+{
+    "methods": [
+        {
+            "method": "<io.x2ge.mqtt.MqttConnectOptions: void setClientIdentifier(java.lang.String)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttConnectOptions: void setHost(java.lang.String)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttConnectOptions: void setPort(int)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttConnectOptions: void setPassword(byte[])>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttConnectOptions: void setUserName(java.lang.String)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttClient: void publish(java.lang.String,java.lang.String)>",
+            "parmIndexs": [0,1]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttClient: void subscribe(java.lang.String[])>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.x2ge.mqtt.MqttClient: void subscribe(int,java.lang.String[])>",
+            "parmIndexs": [0,1]
+        },
+        {
+            "method": "<io.netty.channel.Channel: io.netty.channel.ChannelFuture write(java.lang.Object)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.netty.channel.Channel: io.netty.channel.ChannelFuture connect(java.net.SocketAddress)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.netty.handler.codec.mqtt.MqttPublishVariableHeader: void <init>(java.lang.String,int)>",
+            "parmIndexs": [0]
+        },
+        {
+            "method": "<io.netty.handler.codec.mqtt.MqttPublishMessage: void <init>(io.netty.handler.codec.mqtt.MqttFixedHeader,io.netty.handler.codec.mqtt.MqttPublishVariableHeader,io.netty.buffer.ByteBuf)>",
+            "parmIndexs": [2]
+        },
+        {
+            "method": "<io.netty.handler.codec.mqtt.MqttSubscribePayload: void <init>(java.util.List)>",
+            "parmIndexs": [0]
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int,boolean)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,int,java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.net.URL,java.lang.String,java.net.URLStreamHandler)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: java.io.InputStream getInputStream()">
+            <base type="java.net.Socket">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.net.URL,java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int,java.net.InetAddress,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int,java.net.InetAddress,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int,boolean)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.HttpURLConnection: java.io.InputStream getInputStream()">
+            <base type="java.net.HttpURLConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,int,java.lang.String,java.net.URLStreamHandler)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

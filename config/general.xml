@@ -1,0 +1,2196 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.content.pm.PackageManager: java.util.List queryBroadcastReceivers(android.content.Intent,int)">
+            <return type="java.util.List">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.content.pm.PackageManager: java.util.List queryContentProviders(java.lang.String,int,int)">
+            <return type="java.util.List">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.telephony.TelephonyManager: java.lang.String getSubscriberId()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.media.AudioRecord: int read(short[],int,int)">
+            <return type="int">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="java.util.Locale: java.lang.String getCountry()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.content.pm.PackageManager: java.util.List getInstalledApplications(int)">
+            <return type="java.util.List">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.accounts.AccountManager: android.accounts.Account[] getAccounts()">
+            <return type="android.accounts.Account[]">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.location.Location: double getLatitude()">
+            <return type="double">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.content.pm.PackageManager: java.util.List queryIntentActivities(android.content.Intent,int)">
+            <return type="java.util.List">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.provider.Browser: android.database.Cursor getAllBookmarks()">
+            <return type="android.database.Cursor">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)">
+            <return type="android.location.Location">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.telephony.gsm.GsmCellLocation: int getLac()">
+            <return type="int">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.media.AudioRecord: int read(byte[],int,int)">
+            <return type="int">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.net.wifi.WifiInfo: java.lang.String getMacAddress()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.provider.Browser: android.database.Cursor getAllVisitedUrls()">
+            <return type="android.database.Cursor">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.telephony.TelephonyManager: java.lang.String getDeviceId()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="java.util.Calendar: java.util.TimeZone getTimeZone()">
+            <return type="java.util.TimeZone">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.location.Location: double getLongitude()">
+            <return type="double">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.bluetooth.BluetoothAdapter: java.lang.String getAddress()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.media.AudioRecord: int read(java.nio.ByteBuffer,int)">
+            <return type="int">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.content.pm.PackageManager: java.util.List queryIntentServices(android.content.Intent,int)">
+            <return type="java.util.List">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.telephony.gsm.GsmCellLocation: int getCid()">
+            <return type="int">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.net.wifi.WifiInfo: java.lang.String getSSID()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.content.pm.PackageManager: java.util.List getInstalledPackages(int)">
+            <return type="java.util.List">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+        <method signature="android.telephony.TelephonyManager: java.lang.String getLine1Number()">
+            <return type="java.lang.String">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+        </method>
+
+
+
+
+
+
+
+
+                <method signature="org.apache.http.HttpHost: void &lt;init&gt;(org.apache.http.HttpHost)">
+            <param index="0" type="org.apache.http.HttpHost">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpDelete: void setURI(java.net.URI)">
+            <param index="0" type="java.net.URI">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="boolean">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpPut: void &lt;init&gt;(java.net.URI)">
+            <param index="0" type="java.net.URI">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.net.URL,java.lang.String,java.net.URLStreamHandler)">
+            <param index="0" type="java.net.URL">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="java.net.URLStreamHandler">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.HttpHost: void &lt;init&gt;(java.lang.String,int,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.HttpHost: void &lt;init&gt;(java.net.InetAddress,java.lang.String,int,java.lang.String)">
+            <param index="0" type="java.net.InetAddress">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int)">
+            <param index="0" type="java.net.InetAddress">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.HttpHost: void &lt;init&gt;(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpPost: void setURI(java.net.URI)">
+            <param index="0" type="java.net.URI">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,int,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpPut: void setURI(java.net.URI)">
+            <param index="0" type="java.net.URI">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.HttpHost: org.apache.http.HttpHost create(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int,java.net.InetAddress,int)">
+            <param index="0" type="java.net.InetAddress">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="java.net.InetAddress">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="3" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.net.URL,java.lang.String)">
+            <param index="0" type="java.net.URL">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpPost: void &lt;init&gt;(java.net.URI)">
+            <param index="0" type="java.net.URI">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.HttpHost: void &lt;init&gt;(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int,java.net.InetAddress,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="java.net.InetAddress">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="3" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int,boolean)">
+            <param index="0" type="java.net.InetAddress">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="boolean">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpPost: void &lt;init&gt;(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="org.apache.http.client.methods.HttpPut: void &lt;init&gt;(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,int,java.lang.String,java.net.URLStreamHandler)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="4" type="java.net.URLStreamHandler">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+        </method>
+
+
+        <method signature="java.io.Writer: void write(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.OutputStream: void write(byte[],int,int)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.OutputStreamWriter: java.io.Writer append(java.lang.CharSequence)">
+            <param index="0" type="java.lang.CharSequence">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.OutputStream: void write(int)">
+            <param index="0" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.Writer: void write(char[])">
+            <param index="0" type="char[]">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.Writer: java.io.Writer append(java.lang.CharSequence)">
+            <param index="0" type="java.lang.CharSequence">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.OutputStream: void write(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.Writer: void write(int)">
+            <param index="0" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.Writer: void write(char[],int,int)">
+            <param index="0" type="char[]">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+        <method signature="java.io.Writer: void write(java.lang.String,int,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true" />
+            </param>
+            <additionalFlowCondition>
+                <signatureOnPath signature="java.net.URL: java.net.URLConnection openConnection()" />
+            </additionalFlowCondition>
+        </method>
+
+
+
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,char[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="char[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putCharSequenceArray(java.lang.String,java.lang.CharSequence[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.CharSequence[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putParcelable(java.lang.String,android.os.Parcelable)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.Parcelable">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="javax.servlet.http.HttpServletResponseWrapper: void sendRedirect(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.AsyncHttpResponseHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishData(byte[],java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.amazonaws.mobileconnectors.iot.AWSIotMqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="io.x2ge.mqtt.MqttClient: void publish(java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,java.lang.String,int,int)">
+            <param index="0" type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Send: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete topic(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.URLConnection: void connect()">
+            <base type="java.net.URLConnection">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putFloatArray(java.lang.String,float[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="float[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttService: org.eclipse.paho.client.mqttv3.IMqttDeliveryToken publish(java.lang.String,java.lang.String,byte[],int,boolean,java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="5" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="6" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putChar(java.lang.String,char)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="char">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete retain(boolean)">
+            <param index="0" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttDeliveryToken publish(java.lang.String,org.eclipse.paho.client.mqttv3.MqttMessage)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.eclipse.paho.client.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)">
+            <param index="0" type="org.apache.http.client.methods.HttpUriRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.xmlrpc.webserver.ConnectionServer: void writeResponse(org.apache.xmlrpc.common.XmlRpcStreamRequestConfig,java.io.OutputStream,java.lang.Object)">
+            <param index="0" type="org.apache.xmlrpc.common.XmlRpcStreamRequestConfig">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.io.OutputStream">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="java.lang.Object">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,double)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="double">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.URL: void set(java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="5" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="6" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="7" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete topic(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putSerializable(java.lang.String,java.io.Serializable)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.io.Serializable">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,byte[],int)">
+            <param index="0" type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void publish(java.lang.String,org.eclipse.paho.client.mqttv3.MqttMessage)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.eclipse.paho.client.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete topic(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void put(org.eclipse.californium.core.CoapHandler,byte[],int)">
+            <param index="0" type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,byte[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.URL: java.lang.Object getContent(java.lang.Class[])">
+            <param index="0" type="java.lang.Class[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putLong(java.lang.String,long)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="long">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.HttpEntity">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.IMqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,short[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="short[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.xmlrpc.server.XmlRpcServerWorker: java.lang.Object execute(org.apache.xmlrpc.XmlRpcRequest)">
+            <param index="0" type="org.apache.xmlrpc.XmlRpcRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.AsyncHttpResponseHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$SendVoid: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete topic(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.xmlrpc.webserver.Connection: void writeResponseHeader(org.apache.xmlrpc.webserver.RequestData,int)">
+            <param index="0" type="org.apache.xmlrpc.webserver.RequestData">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putDouble(java.lang.String,double)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="double">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Send$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete payload(java.nio.ByteBuffer)">
+            <param index="0" type="java.nio.ByteBuffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse put(byte[],int)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+
+                <method signature="android.os.Bundle: void putLongArray(java.lang.String,long[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="long[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,float[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="float[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.springframework.web.socket.sockjs.transport.session.WebSocketServerSockJsSession: void handleMessage(org.springframework.web.socket.TextMessage,org.springframework.web.socket.WebSocketSession)">
+            <param index="0" type="org.springframework.web.socket.TextMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.springframework.web.socket.WebSocketSession">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.fusesource.mqtt.client.BlockingConnection: void publish(java.lang.String,byte[],org.fusesource.mqtt.client.QoS,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="org.fusesource.mqtt.client.QoS">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.xmlrpc.client.XmlRpcClient: java.lang.Object execute(java.lang.String,java.lang.Object[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.Object[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.Parcelable">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+
+
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,java.io.Serializable)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.io.Serializable">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Send$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete payload(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void publish(java.lang.String,org.eclipse.paho.client.mqttv3.MqttMessage)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.eclipse.paho.client.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishData(byte[],java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos,com.amazonaws.mobileconnectors.iot.AWSIotMqttMessageDeliveryCallback,java.lang.Object)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.amazonaws.mobileconnectors.iot.AWSIotMqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.amazonaws.mobileconnectors.iot.AWSIotMqttMessageDeliveryCallback">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.lang.Object">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,long[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="long[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putShort(java.lang.String,short)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="short">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.telephony.SmsManager: void sendMultipartTextMessage(java.lang.String,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.CharSequence[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.CharSequence[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(java.lang.String,int,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.DatagramSocket: void send(java.net.DatagramPacket)">
+            <param index="0" type="java.net.DatagramPacket">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putShortArray(java.lang.String,short[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="short[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,short)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="short">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="javax.servlet.http.HttpServletResponse: void sendRedirect(java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putBoolean(java.lang.String,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete qos(com.hivemq.client.mqtt.datatypes.MqttQos)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.URLConnection: java.io.OutputStream getOutputStream()">
+            <base type="java.net.URLConnection">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,byte[],int,int)">
+            <param index="0" type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Send: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete topic(com.hivemq.client.mqtt.datatypes.MqttTopic)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttTopic">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putCharSequence(java.lang.String,java.lang.CharSequence)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.CharSequence">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.rabbitmq.client: java.lang.String basicPublish(java.lang.String,boolean,java.lang.String,boolean,boolean,java.util.Map,com.rabbitmq.client.Consumer)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="5" type="java.util.Map">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="6" type="com.rabbitmq.client.Consumer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)">
+            <param index="0" type="org.apache.http.client.methods.HttpUriRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.fusesource.mqtt.client.BlockingConnection: void publish(org.fusesource.hawtbuf.UTF8Buffer,org.fusesource.hawtbuf.Buffer,org.fusesource.mqtt.client.QoS,boolean)">
+            <param index="0" type="org.fusesource.hawtbuf.UTF8Buffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.fusesource.hawtbuf.Buffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="org.fusesource.mqtt.client.QoS">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttMessage: void init(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttService: org.eclipse.paho.client.mqttv3.IMqttDeliveryToken publish(java.lang.String,java.lang.String,org.eclipse.paho.client.mqttv3.MqttMessage,java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="org.eclipse.paho.client.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(byte[],int,int)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)">
+            <param index="0" type="org.apache.http.HttpHost">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.apache.http.HttpRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="org.apache.http.protocol.HttpContext">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest)">
+            <param index="0" type="org.apache.http.HttpHost">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.apache.http.HttpRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.xmlrpc.webserver.XmlRpcServletServer: void execute(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)">
+            <param index="0" type="javax.servlet.http.HttpServletRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="javax.servlet.http.HttpServletResponse">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Send$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete qos(com.hivemq.client.mqtt.datatypes.MqttQos)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete topic(com.hivemq.client.mqtt.datatypes.MqttTopic)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttTopic">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putIntegerArrayList(java.lang.String,java.util.ArrayList)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.xmlrpc.webserver.ServletOutputStreamImpl: void write(byte[],int,int)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.AsyncHttpResponseHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,char)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="char">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.rabbitmq.client: java.lang.String basicPublish(java.lang.String,boolean,java.util.Map,com.rabbitmq.client.Consumer)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="java.util.Map">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.rabbitmq.client.Consumer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putIntArray(java.lang.String,int[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.impl.conn.DefaultClientConnection: void sendRequestHeader(org.apache.http.HttpRequest)">
+            <param index="0" type="org.apache.http.HttpRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putSparseParcelableArray(java.lang.String,android.util.SparseArray)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.util.SparseArray">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete retain(boolean)">
+            <param index="0" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete topic(com.hivemq.client.mqtt.datatypes.MqttTopic)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttTopic">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Send$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete retain(boolean)">
+            <param index="0" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.telephony.SmsManager: void sendDataMessage(java.lang.String,java.lang.String,short,byte[],android.app.PendingIntent,android.app.PendingIntent)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="short">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="android.app.PendingIntent">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="5" type="android.app.PendingIntent">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putLong(java.lang.String,long)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="long">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="io.netty.handler.codec.mqtt.MqttPublishVariableHeader: void init(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putDoubleArray(java.lang.String,double[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="double[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="okhttp3.Call: okhttp3.Response enqueue(okhttp3.Callback)">
+            <base type="okhttp3.Call">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse post(byte[],int)">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.MqttClient: void publish(java.lang.String,org.eclipse.paho.client.mqttv5.client.MqttMessage)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.eclipse.paho.client.mqttv5.client.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv3.MqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishString(java.lang.String,java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.amazonaws.mobileconnectors.iot.AWSIotMqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.rabbitmq.client: java.lang.String basicPublish(java.lang.String,boolean,com.rabbitmq.client.Consumer)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.rabbitmq.client.Consumer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttDeliveryToken publish(java.lang.String,byte[],int,boolean,java.lang.Object,org.eclipse.paho.client.mqttv3.IMqttActionListener)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.lang.Object">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="5" type="org.eclipse.paho.client.mqttv3.IMqttActionListener">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.Socket: void connect(java.net.SocketAddress)">
+            <param index="0" type="java.net.SocketAddress">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.android.volley.RequestQueue: com.android.volley.Request add(com.android.volley.Request)">
+            <param index="0" type="com.android.volley.Request">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.URL: java.io.InputStream openStream()">
+            <base type="java.net.URL">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putFloat(java.lang.String,float)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="float">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)">
+            <param index="0" type="org.apache.http.client.methods.HttpUriRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.apache.http.protocol.HttpContext">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.fusesource.mqtt.client.FutureConnection: org.fusesource.mqtt.client.Future publish(org.fusesource.hawtbuf.UTF8Buffer,org.fusesource.hawtbuf.Buffer,org.fusesource.mqtt.client.QoS,boolean)">
+            <param index="0" type="org.fusesource.hawtbuf.UTF8Buffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.fusesource.hawtbuf.Buffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="org.fusesource.mqtt.client.QoS">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$SendVoid$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete retain(boolean)">
+            <param index="0" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttDeliveryToken publish(java.lang.String,byte[],int,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete qos(com.hivemq.client.mqtt.datatypes.MqttQos)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putStringArray(java.lang.String,java.lang.String[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void put(org.eclipse.californium.core.CoapHandler,java.lang.String,int)">
+            <param index="0" type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete payload(java.nio.ByteBuffer)">
+            <param index="0" type="java.nio.ByteBuffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putBundle(java.lang.String,android.os.Bundle)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.Bundle">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putBooleanArray(java.lang.String,boolean[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.CharSequence)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.CharSequence">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.fusesource.mqtt.client.FutureConnection: org.fusesource.mqtt.client.Future publish(java.lang.String,byte[],org.fusesource.mqtt.client.QoS,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="org.fusesource.mqtt.client.QoS">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,int[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete payload(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$SendVoid$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete qos(com.hivemq.client.mqtt.datatypes.MqttQos)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="io.netty.channel.Channel: io.netty.channel.ChannelFuture write(java.lang.Object)">
+            <param index="0" type="java.lang.Object">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.client.mqttv5.client.IMqttClient: void publish(java.lang.String,org.eclipse.paho.client.mqttv5.client.MqttMessage)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.eclipse.paho.client.mqttv5.client.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putInt(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,double[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="double[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishString(java.lang.String,java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos,com.amazonaws.mobileconnectors.iot.AWSIotMqttMessageDeliveryCallback,java.lang.Object)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.amazonaws.mobileconnectors.iot.AWSIotMqttQos">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.amazonaws.mobileconnectors.iot.AWSIotMqttMessageDeliveryCallback">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.lang.Object">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5PublishBuilderBase$Complete payload(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete payload(java.nio.ByteBuffer)">
+            <param index="0" type="java.nio.ByteBuffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putByteArray(java.lang.String,byte[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="android.app.PendingIntent">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="android.app.PendingIntent">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$SendVoid: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete topic(com.hivemq.client.mqtt.datatypes.MqttTopic)">
+            <param index="0" type="com.hivemq.client.mqtt.datatypes.MqttTopic">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: void post(org.eclipse.californium.core.CoapHandler,java.lang.String,int)">
+            <param index="0" type="org.eclipse.californium.core.CoapHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.apache.http.client: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)">
+            <param index="0" type="org.apache.http.client.methods.HttpUriRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.AsyncHttpResponseHandler">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttMessage: void setPayload(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="io.netty.handler.codec.mqtt.MqttPublishMessage: void init(io.netty.handler.codec.mqtt.MqttFixedHeader,io.netty.handler.codec.mqtt.MqttPublishVariableHeader,io.netty.buffer.ByteBuf)">
+            <param index="0" type="io.netty.handler.codec.mqtt.MqttFixedHeader">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="io.netty.handler.codec.mqtt.MqttPublishVariableHeader">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="io.netty.buffer.ByteBuf">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putCharSequenceArrayList(java.lang.String,java.util.ArrayList)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putCharArray(java.lang.String,char[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="char[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.HttpEntity">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putParcelableArrayList(java.lang.String,java.util.ArrayList)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Bundle)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.Bundle">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,byte)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,boolean[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putStringArrayList(java.lang.String,java.util.ArrayList)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.util.ArrayList">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putByte(java.lang.String,byte)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="byte">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,long)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="long">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putAll(android.os.Bundle)">
+            <param index="0" type="android.os.Bundle">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="java.net.URL: java.lang.Object getContent()">
+            <base type="java.net.URL">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putString(java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="okhttp3.Call: okhttp3.Response execute()">
+            <base type="okhttp3.Call">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$SendVoid$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete payload(byte[])">
+            <param index="0" type="byte[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putParcelableArray(java.lang.String,android.os.Parcelable[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.Parcelable[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle sendRequest(cz.msebera.android.httpclient.impl.client.DefaultHttpClient,cz.msebera.android.httpclient.protocol.HttpContext,cz.msebera.android.httpclient.client.methods.HttpUriRequest,java.lang.String,com.loopj.android.http.ResponseHandlerInterface,android.content.Context)">
+            <param index="0" type="cz.msebera.android.httpclient.impl.client.DefaultHttpClient">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="cz.msebera.android.httpclient.protocol.HttpContext">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.client.methods.HttpUriRequest">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="5" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,float)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="float">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putFloat(java.lang.String,float)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="float">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.paho.android.service.MqttAndroidClient: org.eclipse.paho.client.mqttv3.IMqttDeliveryToken publish(java.lang.String,org.eclipse.paho.client.mqttv3.MqttMessage,java.lang.Object,org.eclipse.paho.client.mqttv3.IMqttActionListener)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="org.eclipse.paho.client.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="java.lang.Object">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="org.eclipse.paho.client.mqttv3.IMqttActionListener">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putBoolean(java.lang.String,boolean)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="boolean">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilder$SendVoid$Complete: com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3PublishBuilderBase$Complete payload(java.nio.ByteBuffer)">
+            <param index="0" type="java.nio.ByteBuffer">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle delete(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.HttpEntity">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.eclipse.californium.core.CoapClient: org.eclipse.californium.core.CoapResponse put(java.lang.String,int)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,com.tuya.smart.mqttclient.mqttv3.MqttMessage)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.tuya.smart.mqttclient.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.HttpEntity">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(java.lang.String,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.RequestParams">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable[])">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.Parcelable[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)">
+            <param index="0" type="android.content.Context">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="cz.msebera.android.httpclient.Header[]">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="com.loopj.android.http.ResponseHandlerInterface">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="org.springframework.web.servlet.tags.UrlTag: java.lang.String createUrl()">
+            <base type="org.springframework.web.servlet.tags.UrlTag">
+                <accessPath isSource="false" isSink="true"/>
+            </base>
+        </method>
+        <method signature="java.net.URL: void set(java.lang.String,java.lang.String,int,java.lang.String,java.lang.String)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="2" type="int">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="3" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="4" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+        <method signature="android.os.Bundle: void putBinder(java.lang.String,android.os.IBinder)">
+            <param index="0" type="java.lang.String">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+            <param index="1" type="android.os.IBinder">
+                <accessPath isSource="false" isSink="true"/>
+            </param>
+        </method>
+
+    </category>
+</sinkSources>

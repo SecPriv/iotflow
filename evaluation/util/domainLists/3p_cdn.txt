@@ -1,0 +1,179 @@
+# MANUALLY COMPILED LIST
+alicdn.com
+intercomcdn.com
+ytimg.com
+akadns.net
+akam.net
+akamai.com
+akamai.net
+akamaiedge.net
+akamaihd.net
+akamaistream.net
+akamaitech.net
+akamaitechnologies.com
+akamaitechnologies.fr
+akamaized.net
+edgekey.net
+edgesuite.net
+srip.net
+cloudflare.com
+cloudfront.net
+compute-1.amazonaws.com
+ssl-images-amazon.com
+amazonaws.com
+amazonaws.com.cn
+1e100.net
+1e100cdn.net
+gscdn.com
+linode.com
+members.linode.com
+hosted-by-100tb.com
+setaptr.net
+static.midphase.com
+midphase.com
+static.westdc.net
+westdc.net
+brightcove.com
+edgecastcdn.net
+hiberniacdn.com
+azurewebsites.net
+bootstrapcdn.com
+appspot.com
+aliyuncs.com
+brightcove.net
+dropbox.com
+dropboxusercontent.com
+github.io
+github.com
+vudu.com
+go2cloud.org
+rackcdn.com
+salesforce.com
+siteforce.com
+gstatic.com
+staticflickr.com
+# FROM WPO WebPagetest
+# https://github.com/WPO-Foundation/webpagetest/blob/master/agent/wpthook/cdn.h
+akamai.net,Akamai
+akamaized.net,Akamai
+akamaiedge.net,Akamai
+akamaihd.net,Akamai
+edgesuite.net,Akamai
+edgekey.net,Akamai
+srip.net,Akamai
+akamaitechnologies.com,Akamai
+akamaitechnologies.fr,Akamai
+tl88.net,Akamai China CDN
+llnwd.net,Limelight
+edgecastcdn.net,Edgecast
+systemcdn.net,Edgecast
+transactcdn.net,Edgecast
+v1cdn.net,Edgecast
+v2cdn.net,Edgecast
+v3cdn.net,Edgecast
+v4cdn.net,Edgecast
+v5cdn.net,Edgecast
+hwcdn.net,Highwinds
+simplecdn.net,Simple CDN
+instacontent.net,Mirror Image
+footprint.net,Level 3
+fpbns.net,Level 3
+ay1.b.yahoo.com,Yahoo
+yimg.,Yahoo
+yahooapis.com,Yahoo
+google.,Google
+googlesyndication.,Google
+youtube.,Google
+googleusercontent.com,Google
+bc.googleusercontent.com,Google
+googlehosted.com,Google
+gstatic.com,Google
+doubleclick.net,Google
+insnw.net,Instart Logic
+inscname.net,Instart Logic
+internapcdn.net,Internap
+cloudfront.net,Amazon CloudFront
+netdna-cdn.com,NetDNA
+netdna-ssl.com,NetDNA
+netdna.com,NetDNA
+kxcdn.com,KeyCDN
+cotcdn.net,Cotendo CDN
+cachefly.net,Cachefly
+bo.lt,BO.LT
+cloudflare.com,Cloudflare
+afxcdn.net,afxcdn.net
+lxdns.com,ChinaNetCenter
+wscdns.com,ChinaNetCenter
+wscloudcdn.com,ChinaNetCenter
+ourwebpic.com,ChinaNetCenter
+att-dsa.net,AT&T
+vo.msecnd.net,Microsoft Azure
+azureedge.net,Microsoft Azure
+voxcdn.net,VoxCDN
+bluehatnetwork.com,Blue Hat Network
+swiftcdn1.com,SwiftCDN
+cdngc.net,CDNetworks
+gccdn.net,CDNetworks
+panthercdn.com,CDNetworks
+fastly.net,Fastly
+fastlylb.net,Fastly
+nocookie.net,Fastly
+gslb.taobao.com,Taobao
+gslb.tbcache.com,Alimama
+mirror-image.net,Mirror Image
+yottaa.net,Yottaa
+cubecdn.net,cubeCDN
+cdn77.net,CDN77
+cdn77.org,CDN77
+incapdns.net,Incapsula
+bitgravity.com,BitGravity
+r.worldcdn.net,OnApp
+r.worldssl.net,OnApp
+tbcdn.cn,Taobao
+taobaocdn.com,Taobao
+ngenix.net,NGENIX
+pagerain.net,PageRain
+ccgslb.com,ChinaCache
+cdn.sfr.net,SFR
+azioncdn.net,Azion
+azioncdn.com,Azion
+azion.net,Azion
+cdncloud.net.au,MediaCloud
+rncdn1.com,Reflected Networks
+cdnsun.net,CDNsun
+mncdn.com,Medianova
+mncdn.net,Medianova
+mncdn.org,Medianova
+cdn.jsdelivr.net,jsDelivr
+nyiftw.net,NYI FTW
+nyiftw.com,NYI FTW
+resrc.it,ReSRC.it
+zenedge.net,Zenedge
+lswcdn.net,LeaseWeb CDN
+lswcdn.eu,LeaseWeb CDN
+revcn.net,Rev Software
+revdn.net,Rev Software
+caspowa.com,Caspowa
+twimg.com,Twitter
+facebook.com,Facebook
+facebook.net,Facebook
+fbcdn.net,Facebook
+cdninstagram.com,Facebook
+rlcdn.com,Reapleaf
+wp.com,WordPress
+aads1.net,Aryaka
+aads-cn.net,Aryaka
+aads-cng.net,Aryaka
+squixa.net,section.io
+bisongrid.net,Bison Grid
+cdn.gocache.net,GoCache
+hiberniacdn.com,HiberniaCDN
+cdntel.net,Telenor
+raxcdn.com,Rackspace
+unicorncdn.net,UnicornCDN
+optimalcdn.com,Optimal CDN
+kinxcdn.com,KINX CDN
+kinxcdn.net,KINX CDN
+stackpathdns.com,StackPath
+hosting4cdn.com,Hosting4CDN
+netlify.com,Netlify

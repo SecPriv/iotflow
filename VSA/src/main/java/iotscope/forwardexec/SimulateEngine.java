@@ -1,0 +1,451 @@
+package iotscope.forwardexec;
+
+import iotscope.backwardslicing.StmtPath;
+import iotscope.base.ParameterTransferStmt;
+import iotscope.base.StmtPoint;
+import iotscope.forwardexec.objectSimulation.SimulationObjects;
+import iotscope.forwardexec.objectSimulation.SimulationUtil;
+import iotscope.forwardexec.objectSimulation.cloud.AwsCredentialSimulation;
+import iotscope.forwardexec.objectSimulation.coap.CaliforniumCoapClientSimulation;
+import iotscope.forwardexec.objectSimulation.coap.CoapMediaTypeSimulation;
+import iotscope.forwardexec.objectSimulation.coap.CoapRequestCodeSimulation;
+import iotscope.forwardexec.objectSimulation.general.*;
+import iotscope.forwardexec.objectSimulation.json.GoogleGsonSimulation;
+import iotscope.forwardexec.objectSimulation.json.JacksonJsonSimulation;
+import iotscope.forwardexec.objectSimulation.json.MoshiSimulation;
+import iotscope.forwardexec.objectSimulation.json.OrgJSONObjectSimulation;
+import iotscope.forwardexec.objectSimulation.mqtt.*;
+import iotscope.forwardexec.objectSimulation.network.*;
+import iotscope.forwardexec.objectSimulation.xmpp.JiveSoftwareSmackConstants;
+import iotscope.forwardexec.objectSimulation.xmpp.JxmppJidSimulation;
+import iotscope.graph.DataDependenceGraph;
+import iotscope.graph.HeapObject;
+import iotscope.utility.TimeWatcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import soot.Local;
+import soot.SootMethod;
+import soot.Unit;
+import soot.Value;
+import soot.jimple.*;
+import soot.jimple.internal.AbstractFloatBinopExpr;
+
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
+
+/**
+ * computes the string functionalities forward
+ */
+public class SimulateEngine extends AbstractStmtSwitch {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimulateEngine.class);
+
+    private final DataDependenceGraph dataGraph;
+    private final StmtPath stmtPath;
+    private final HashMap<Value, HashSet<?>> currentValues = new HashMap<>();
+    private final List<SimulationObjects> simulationList;
+    private static final Set<SootMethod> notSimulatable = new HashSet<>();
+
+
+    public SimulateEngine(DataDependenceGraph dataGraph, StmtPath stmtPath) {
+        this.dataGraph = dataGraph;
+        this.stmtPath = stmtPath;
+        simulationList = new LinkedList<>();
+        simulationList.add(new JavaNetUrlSimulation());
+        simulationList.add(new StringSimulation());
+        simulationList.add(new OkHttpSimulation());
+        simulationList.add(new IntegerSimulation());
+        simulationList.add(new JavaNetUriSimulation());
+        simulationList.add(new JavaNetSocketAddressSimulation());
+        simulationList.add(new JavaNetInetAddressSimulation());
+        simulationList.add(new JavaxSocketFactorySimulation());
+
+        simulationList.add(new MapSimulation());
+        simulationList.add(new ListSimulation());
+        simulationList.add(new SetSimulation());
+
+
+        simulationList.add(new GoogleGsonSimulation());
+        simulationList.add(new OrgJSONObjectSimulation());
+        simulationList.add(new MoshiSimulation());
+        simulationList.add(new JacksonJsonSimulation());
+
+        simulationList.add(new AndroidSpecificSimulation());
+        simulationList.add(new DoubleSimulation());
+        simulationList.add(new FloatSimulation());
+        simulationList.add(new LongSimulation());
+        simulationList.add(new AndroidNetUriSimulation());
+        simulationList.add(new ByteSimulation());
+        simulationList.add(new HiveMqttClient());
+        simulationList.add(new HiveMqttTopic());
+        simulationList.add(new HiveMqttDatabaseBasic());
+        simulationList.add(new PahoMqtt3Message());
+        simulationList.add(new FuesourceMqttClientTopicSimulation());
+
+        simulationList.add(new CaliforniumCoapClientSimulation());
+        simulationList.add(new CoapMediaTypeSimulation());
+        simulationList.add(new CoapRequestCodeSimulation());
+
+        simulationList.add(new JiveSoftwareSmackConstants());
+        simulationList.add(new JxmppJidSimulation());
+        simulationList.add(new AwsCredentialSimulation());
+
+
+        simulationList.add(new ApacheSimulation());
+        simulationList.add(new LoopjSimulation());
+        simulationList.add(new FileSimulation());
+
+
+    }
+
+
+    public StmtPath getStmtPath() {
+        return stmtPath;
+    }
+
+    public HashMap<Value, HashSet<?>> getCurrentValues() {
+        return currentValues;
+    }
+
+
+    public void simulate() {
+        Unit lastUnit = getStmtPath().getStmtPathTail();
+        for (StmtPoint stmtPoint : getStmtPath().getStmtPath()) {
+            Stmt stmt = (Stmt) stmtPoint.getInstructionLocation();
+            if (stmt == lastUnit) {
+                return;
+            }
+            if (TimeWatcher.getTimeWatcher().getTimeoutForwardIsUP()) {
+                TimeWatcher.getTimeWatcher().markTimeoutForwardUsed();
+                return;
+            }
+            LOGGER.debug("[SIMULATE]" + this.hashCode() + ": " + stmt + " " + stmt.getClass());
+            if (stmt instanceof ParameterTransferStmt) {
+                caseAssignStmt((AssignStmt) stmt);
+            } else {
+                stmt.apply(this);
+            }
+
+        }
+    }
+
+
+    @Override
+    public void caseInvokeStmt(InvokeStmt stmt) {
+        String signature = stmt.getInvokeExpr().getMethod().toString();
+        InvokeExpr invokeExpr = stmt.getInvokeExpr();
+        Value base = null;
+        if (invokeExpr instanceof InstanceInvokeExpr) {
+            base = ((InstanceInvokeExpr) invokeExpr).getBase();
+        }
+
+        for (SimulationObjects simulation : simulationList) {
+            HashSet<?> result = simulation.handleInvokeStmt(stmt, signature, invokeExpr, currentValues);
+            if (result != null && result.size() > 0) {
+                // assign Value
+                copyValueTo(result, base);
+                return;
+            }
+        }
+
+        HashSet<?> result = executeInvokeExpr(invokeExpr, true);
+        if (result != null && result.size() > 0) {
+            copyValueTo(result, base);
+            return;
+        }
+
+        super.caseInvokeStmt(stmt);
+    }
+
+    private static ExecutorService executor = Executors.newSingleThreadExecutor();
+    public static Thread executorThread = null;
+
+
+    private HashSet<?> executeInvokeExpr(InvokeExpr invokeExpr, boolean returnBase) {
+
+        if (notSimulatable.contains(invokeExpr.getMethod())) {
+            return new HashSet<>();
+        }
+        try {
+
+            ReflectionHandling reflectionHandling = new ReflectionHandling(currentValues, invokeExpr, returnBase);
+
+            List<Future<HashSet<?>>> excecution = executor.invokeAll(List.of(reflectionHandling), 2, TimeUnit.SECONDS);
+            HashSet<?> result = new HashSet<>();
+            Future<HashSet<?>> exec = excecution.get(0);
+            try {
+                if (exec.isCancelled()) {
+                    LOGGER.debug("Reflection execution did not finish in time for {}", invokeExpr);
+                    notSimulatable.add(invokeExpr.getMethod());
+                    try {
+                        executor.shutdownNow();
+                        Thread.sleep(2);
+                        executorThread.stop();
+                        Thread.sleep(2);
+                    } catch (Throwable e) {
+
+                    }
+                    executor = Executors.newSingleThreadExecutor();
+                }
+                result = exec.get(2, TimeUnit.SECONDS);
+            } catch (ExecutionException | TimeoutException e) {
+
+                LOGGER.debug("Reflection result collection did not finish in time for {}", invokeExpr);
+                notSimulatable.add(invokeExpr.getMethod());
+                try {
+                    executor.shutdownNow();
+                    Thread.sleep(2);
+                    executorThread.stop();
+                    Thread.sleep(2);
+                } catch (Throwable e2) {
+                }
+                executor = Executors.newSingleThreadExecutor();
+            }
+
+            if (result == null || result.size() == 0) {
+                result = reflectionHandling.getResult();
+            }
+            return result;
+        } catch (Throwable e) {
+            LOGGER.debug("Invoke expr could not be executed due to {}", e.getLocalizedMessage());
+            return new HashSet<>();
+        }
+    }
+
+
+    private HashSet<?> handleDefaultInvokeStmt(InvokeExpr invokeExpr) {
+        if (invokeExpr instanceof InstanceInvokeExpr) {
+            HashSet<?> baseValues = SimulationUtil.getCurrentValues(((InstanceInvokeExpr) invokeExpr).getBase(), currentValues);
+            if (baseValues != null && baseValues.size() > 0) {
+                return baseValues;
+            }
+        }
+
+        for (Value arg : invokeExpr.getArgs()) {
+            HashSet<?> current = SimulationUtil.getCurrentValues(arg, currentValues);
+            if (current != null && current.size() > 0) {
+                return current;
+            }
+        }
+        return new HashSet<>();
+    }
+
+    @Override
+    public void caseAssignStmt(AssignStmt stmt) {
+        Value leftop = stmt.getLeftOp();
+        Value rightop = stmt.getRightOp();
+        HashSet<?> result = null;
+        if (leftop instanceof Local || leftop instanceof ParameterRef || leftop instanceof ArrayRef) {
+
+            if (rightop instanceof InvokeExpr) {
+                InvokeExpr virtualInvokeExpr = (InvokeExpr) rightop;
+                String methodSignature = virtualInvokeExpr.getMethod().toString();
+                for (SimulationObjects simulation : simulationList) {
+                    try {
+
+                        result = simulation.handleAssignInvokeExpression(stmt, methodSignature, virtualInvokeExpr, currentValues);
+                        if (result != null && result.size() > 0) {
+                            break;
+                        }
+                    } catch (Exception e) {
+                        LOGGER.error("Assign invokeexpr Simulation through an error");
+                    }
+                }
+                //if we don't handle the expression, try to execute it through reflection
+                if (result == null || result.size() == 0) {
+                    result = executeInvokeExpr(virtualInvokeExpr, false);
+                }
+                if (result == null || result.size() == 0) {
+                    result = handleDefaultInvokeStmt(virtualInvokeExpr);
+                }
+                LOGGER.debug(String.format("[%s] [SIMULATE][right unknown(VirtualInvokeExpr)]: %s (%s)", this.hashCode(), stmt, rightop.getClass()));
+            } else if (rightop instanceof NewExpr) {
+                for (SimulationObjects simulation : simulationList) {
+                    result = simulation.handleAssignNewExpression(stmt, rightop, currentValues);
+                    if (result != null && result.size() > 0) {
+                        break;
+                    }
+                }
+
+                LOGGER.debug(String.format("[%s] [SIMULATE][right unknown(NewExpr)]: %s (%s)", this.hashCode(), stmt, rightop.getClass()));
+
+            } else if (rightop instanceof FieldRef) {
+                HeapObject ho = HeapObject.getInstance(dataGraph, ((FieldRef) rightop).getField());
+                if (ho != null) {
+                    if (ho.inited() && ho.hasSolved()) {
+                        HashSet<Object> nv = new HashSet<>();
+                        Map<Integer, Set<Object>> var = ho.getResult();
+                        try {
+                            nv.addAll(var.get(-1));
+                        } catch (Exception e) {
+                            LOGGER.error("Reflection lead to classcast exception {}", e.getLocalizedMessage());
+                            if (var != null) {
+                                if (var.get(-1) != null) {
+                                    for (Object o : var.get(-1)) {
+                                        if (o != null) {
+                                            nv.add(o.toString());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        copyValueTo(nv, leftop);
+                    } else {
+                        LOGGER.debug(String.format("[%s] [SIMULATE][HeapObject not inited or Solved]: %s (%s)", this.hashCode(), stmt, ho.inited()));
+                    }
+                } else {
+                    LOGGER.debug(String.format("[%s] [SIMULATE][HeapObject not found]: %s (%s)", this.hashCode(), stmt, rightop.getClass()));
+                }
+
+            } else if (rightop instanceof NewArrayExpr) {
+                for (SimulationObjects simulation : simulationList) {
+                    result = simulation.handleAssignNewArrayExpr(stmt, rightop, currentValues);
+
+                    if (result != null && result.size() > 0) {
+                        break;
+                    }
+                }
+                LOGGER.debug(String.format("[%s] [SIMULATE][right unknown(NewArrayExpr)]: %s (%s)", this.hashCode(), stmt, rightop.getClass()));
+            } else if (rightop instanceof AbstractFloatBinopExpr) {
+                for (SimulationObjects simulation : simulationList) {
+                    result = simulation.handleAssignArithmeticExpr(stmt, rightop, currentValues);
+                    if (result != null && result.size() > 0) {
+                        break;
+                    }
+                }
+                LOGGER.debug(String.format("[%s] [SIMULATE][right unknown(ArithmeticExpr)]: %s (%s)", this.hashCode(), stmt, rightop.getClass()));
+            } else if (rightop instanceof Local || rightop instanceof CastExpr || rightop instanceof ArrayRef || rightop instanceof Constant) {
+                result = SimulationUtil.getCurrentValues(rightop, currentValues);
+            }
+        } else {
+            // can we also simulate that with reflection?
+            //FIXME: [SIMULATE][left unknown]: r3.<com.example.mymotivation.DeviceDTO: java.lang.String id> = "..." (class soot.jimple.internal.JInstanceFieldRef)
+            LOGGER.warn(String.format("[%s] [SIMULATE][left unknown]: %s (%s)", this.hashCode(), stmt, leftop.getClass()));
+        }
+
+        if (result != null && result.size() > 0) {
+            copyValueTo(result, leftop);
+        }
+
+    }
+
+    @Override
+    public void caseIdentityStmt(IdentityStmt stmt) {
+        //Own this ref handling. If it does not exist already create a new Hashmap
+        if (stmt.getRightOp() instanceof ThisRef && SimulationUtil.getCurrentValues(stmt.getRightOp(), currentValues) == null) {
+            if (SimulationUtil.getCurrentValues(stmt.getLeftOp(), currentValues) == null) {
+                HashSet<Map<String, Object>> thisMap = new HashSet<>();
+                thisMap.add(new HashMap<>());
+                copyValueTo(thisMap, stmt.getLeftOp());
+            }
+        } else {
+            copyValueTo(SimulationUtil.getCurrentValues(stmt.getRightOp(), currentValues), stmt.getLeftOp());
+        }
+    }
+
+    @Override
+    public void defaultCase(Object obj) {
+        LOGGER.warn(String.format("[%s] [SIMULATE][Can't Handle]: %s (%s)", this.hashCode(), obj, obj.getClass()));
+    }
+
+    public void copyValueTo(HashSet<?> values, Value to) {
+        Value key = SimulationUtil.getKeyValue(to);
+        if (to instanceof ArrayRef) {
+            if (values != null) {
+                HashSet<List<?>> result = new HashSet<>();
+
+                int minIndex = SimulationUtil.getMinIndexOfArray(((ArrayRef) to), currentValues);
+                HashSet<List<?>> baseArray;
+                try {
+                    baseArray = (HashSet<List<?>>) currentValues.getOrDefault(((ArrayRef) to).getBase(), new HashSet<>());
+                } catch (ClassCastException e) {
+                    baseArray = new HashSet<>();
+                    baseArray.add(new ArrayList<>());
+                }
+
+                List<Object> baseArrayList = Arrays.asList(baseArray.toArray());
+
+                int i = 0;
+                for (Object value : values) {
+                    List<Object> currentArray;
+                    if (baseArrayList.size() <= i && baseArrayList.size() > 0) {
+                        try {
+                            currentArray = new ArrayList((List) baseArrayList.get(0));
+                        } catch (ClassCastException | IndexOutOfBoundsException | NullPointerException e) {
+                            currentArray = new ArrayList<>();
+                            LOGGER.error(String.format("Is not an Array %s at index 0", baseArrayList));
+                        }
+                    } else if (baseArrayList.size() == 0) {
+                        currentArray = new LinkedList<>();
+                    } else {
+                        try {
+                            currentArray = new ArrayList((List) baseArrayList.get(i));
+                        } catch (ClassCastException | IndexOutOfBoundsException | NullPointerException e) {
+                            currentArray = new ArrayList<>();
+                            LOGGER.error(String.format("Is not an Array %s at index %d", baseArrayList, i));
+                        }
+                    }
+                    if (minIndex < 0) {
+                        minIndex = currentArray.size();
+                    }
+                    if (minIndex > 1000) {
+                        minIndex = 1000;
+                    }
+                    while (currentArray.size() <= minIndex) {
+                        currentArray.add(new Object());
+                    }
+                    currentArray.remove(minIndex);
+                    currentArray.add(minIndex, value);
+                    result.add(currentArray);
+                    i++;
+                }
+
+                if (result.size() != 0) {
+                    currentValues.put(key, (HashSet<?>) result.clone());
+                }
+            }
+        } else {
+            if (values != null) {
+                try {
+                    currentValues.put(key, (HashSet<?>) values.clone());
+                } catch (Exception e) {
+                    currentValues.put(key,  values);
+                }
+            }
+        }
+    }
+
+
+    public String getPrintableValues() {
+        StringBuilder sb = new StringBuilder();
+        for (Value var : this.getCurrentValues().keySet()) {
+            sb.append("    ");
+            sb.append(var);
+            sb.append('(');
+            sb.append(var.hashCode());
+            sb.append(')');
+            sb.append(':');
+            for (Object content : this.getCurrentValues().get(var)) {
+                sb.append(content == null ? "" : content.toString());
+                sb.append(",");
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Own clone method for map since normal clone does not work properly if the map contains objects
+     *
+     * @param original map to clone
+     * @param <K>      key
+     * @param <V>      value
+     * @return cloned map
+     */
+    public static <K, V> Map<K, V> clone(Map<K, V> original) {
+        return original.entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+}

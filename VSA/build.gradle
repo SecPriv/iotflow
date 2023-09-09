@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+mainClassName = 'iotscope.main.Main'
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'iotscope.main.Main'
+        )
+    }
+}
+
+group 'edu.osu.sec.vsa'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenCentral()
+}
+
+dependencies {
+    implementation files('libs/soot-infoflow-cmd-jar-with-dependencies.jar')
+
+    implementation 'org.json:json:20220320'
+
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.0'
+    implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.17.0"
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+    // https://mvnrepository.com/artifact/org.javatuples/javatuples
+    implementation 'org.javatuples:javatuples:1.2'
+
+
+    implementation 'guru.nidi:graphviz-java:0.18.1'
+    implementation 'org.graalvm.js:js:21.2.0'
+    implementation 'com.github.ajalt:clikt:2.8.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+
+    // packages for the forward computation
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation('com.hivemq:hivemq-mqtt-client-reactor:1.3.0')
+    implementation 'org.eclipse.californium:californium-core:3.0.0'
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'org.json:json:20211205'
+}
+
+test {
+    useJUnitPlatform()
+}

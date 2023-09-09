@@ -1,0 +1,21 @@
+{
+    "methods":
+    [
+      {
+        "method":"<org.eclipse.paho.client.mqttv3.MqttConnectOptions: void setSSLProperties(java.util.Properties)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<org.eclipse.paho.client.mqttv3.MqttConnectOptions: void setSocketFactory(javax.net.SocketFactory)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.hivemq.client.mqtt.MqttClientSslConfigBuilder$Nested: com.hivemq.client.mqtt.MqttClientSslConfigBuilderBase cipherSuites(java.util.Collection)>",
+        "parmIndexs":[0]
+      },
+      {
+        "method":"<com.hivemq.client.mqtt.MqttClientSslConfigBuilder$Nested: com.hivemq.client.mqtt.MqttClientSslConfigBuilderBase protocols(java.util.Collection)>",
+        "parmIndexs":[0]
+      }
+    ]
+}
