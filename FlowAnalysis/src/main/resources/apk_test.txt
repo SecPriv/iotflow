@@ -1,4 +1,0 @@
-
-<java.net.URL: void <init>(java.lang.String)> -> _SOURCE_ [<com.example.leakscopeokhttp3.MainActivity: void second()>;40]
-
-<java.io.PrintStream: void println(java.lang.String)> -> _SINK_

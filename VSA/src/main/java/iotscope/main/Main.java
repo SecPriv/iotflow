@@ -385,17 +385,16 @@ public class Main {
         exclusionList.add("org.junit.*");
         exclusionList.add("junit.*");
         exclusionList.add("androidx.*");
-        exclusionList.add("kotlinx.*"); 
+        exclusionList.add("kotlinx.*");
         exclusionList.add("org.bouncycastle.*");
         exclusionList.add("org.spongycastle.*");
 
         exclusionList.add("com.google.*");
-        //added pre calc for flowdroid  to remove them from here
-        exclusionList.add("okhttp3.*"); 
-        exclusionList.add("okio.*");  
+        exclusionList.add("okhttp3.*");
+        exclusionList.add("okio.*");
         exclusionList.add("com.bumptech.glide.*");
-        exclusionList.add("com.google.gson.*");    
-        exclusionList.add("com.google.protobuf.*");    
+        exclusionList.add("com.google.gson.*");
+        exclusionList.add("com.google.protobuf.*");
         exclusionList.add("retrofit.*");
         exclusionList.add("retrofit2.*");
         exclusionList.add("com.fasterxml.jackson.*");
