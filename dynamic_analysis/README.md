@@ -21,8 +21,7 @@
 | Wiz Colour          | Light Bulb        | com.tao.wiz                 |
 
 
-
-# Unique Domains and Paths
+## Unique Domains and Paths
 Comparison of unique domains and paths reconstructed to the ones extracted from the network traffic during automatic and manual testing. The numbers represent unique domains and paths over all apps. The Overlap % compares the domains extracted from the manual testing to the ones the VSA found, and Monkey triggered.
 
 |               | **IoTFlow**       | **Monkey**      | **Manual Testing**     |
@@ -34,8 +33,25 @@ Comparison of unique domains and paths reconstructed to the ones extracted from 
 
 
 
+
 ## Manual Matching
-We report the list of the 13 IoT devices with the total numbers of domains and paths we found in the traffic captures (**DA** columns) and reconstructed statically (**IF** columns). Further, the columns **Matches** show the **Exact** and **Manual** matches among the two. We compute the exact matches by performing a full string match and, secondly, manually verify cases where a full match might have failed to identify a valid pair. Finally, the **IoT related** columns represent the findings we manually labeled IoT related. We report the numbers of IoT-related domains and paths across uniquely IoTFlow's values, uniquely dynamic ones, and shared across the two. For further information about the matching see the [spreadsheet](manual_matching_iotflow_vs_dynamic.xlsx).
+
+We extract domains from IoTFlow's reconstructed values using the Python library [tldextract](https://github.com/john-
+kurkowski/tldextract) while we extract them from the mitmproxy dumps for the dynamic analysis. Further, for paths, we filter out from IoTFlow the values that do not contain a `/`. We repeat this process for each of the 13 apps.
+
+Before starting our evaluation on matching values between statically- and dynamically-obtained ones, we manually filtered out invalid and artifact domains and paths. Specifically, we removed a total of 49 domains (45 from IoTFlow's values and four from traffic captures). We removed mostly localhost domains (127.0.0.1) and analysis artifacts that do not follow the correct domain/IP structure. Further, we removed seven paths from IoTFlow's values as they represented Java classes or null values.
+
+
+After the pre-filtering, we start with our matching process described in Section 5. We adopt a full-string match to find the exact matching. Despite already yielding results, this approach is not particularly suited in this context as domains and paths might often rely on dynamically generated data (e.g., product codes) that we will not find in our static data. For example, we found the following path while dynamically interacting with the Soundcore app`/v1/speaker/sound_core/A3027/firmware/update` while we statically reconstructed `/v1/speaker/sound_core/Intent\_GetExtra java.lang.String -> "productCode"-[productCode]/firmware/update`.
+Thus, a group of three experts individually manually labeled the domains and paths, looking for additional pairs. In case of disagreements, we figured those out till all results converged.
+The result of our matching process are available in the [spreadsheet](manual_matching_iotflow_vs_dynamic.xlsx).
+
+
+
+
+
+### Table: Manual Matching of Apps
+We report the list of the 13 IoT devices with the total numbers of domains and paths we found in the traffic captures (**DA** columns) and reconstructed statically (**IF** columns). Further, the columns **Matches** show the **Exact** and **Manual** matches among the two. We compute the exact matches by performing a full string match and, secondly, manually verify cases where a full match might have failed to identify a valid pair.  Finally, the **IoT related** columns represent the findings we manually labeled IoT related. We report the numbers of IoT-related domains and paths across uniquely IoTFlow's values, uniquely dynamic ones, and shared across the two. For further information about the matching see the [spreadsheet](manual_matching_iotflow_vs_dynamic.xlsx).
 
 |                     |     **Domains** |||||||                                                                                                                    **Paths**   |||||||
 |---------------------|-----------------:|-----------------:|--------------------:|---------------------:|-----------------:|-----------------:|-------------------:|-----------------:|-----------------:|--------------------:|---------------------:|-----------------:|-----------------:|-------------------:|
