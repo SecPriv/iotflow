@@ -28,7 +28,6 @@ Comparison of unique domains and paths reconstructed to the ones extracted from 
 |               | **IoTFlow**       | **Monkey**      | **Manual Testing**     |
 |---------------|-------------------|-----------------|------------------------|
 | Total Domains | 152               | 88              | 179                    |
-| %Subdomains   | 122               | 75              | 161                    |
 | Valid Domains | 126               | -               | -                      |
 | Overlap (%)   | 35 (19.55%)       | 62 (34.64%)     | 179 (100%)             |
 | Total Paths   | 469               | 224             | 736                    |
