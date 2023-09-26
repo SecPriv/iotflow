@@ -1,0 +1,4 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+,glm/mmap/api,,,,,
+collection/collectData,,,,,,maps
+v3/place/around,,,,,,maps

@@ -1,0 +1,16 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+firebaseinstallations.googleapis.com,firebaseinstallations.googleapis.com,exact,,,,
+h1.iot-dns.com,h1.iot-dns.com,exact,,b,b,vendor
+,a1.tuyaeu.com,,,d,d,vendor
+,images.tuyaeu.com,,,d,d,vendor
+,fonts.loli.net,,,,,
+,gstatic.loli.net,,,,,
+,clientservices.googleapis.com,,,,,
+,sailormoon.tuyaeu.com,,,d,d,vendor
+,tuya-private-eu.s3.eu-west-1.amazonaws.com,,,d,d,vendor
+accounts.google.com,,,,,,
+api.amazon.com,,,,,,
+wap.cmpassport.com,,,,,,
+opencloud.wostore.cn,,,,,,
+e.189.cn,,,,,,
+www.bouncycastle.org,,,,,,

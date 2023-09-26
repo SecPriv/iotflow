@@ -1,0 +1,37 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+hosted.lifx.co,hosted.lifx.co,exact,,b,b,vendor
+cloud.lifx.com,cloud.lifx.com,exact,,b,b,vendor
+google-analytics.com,google-analytics.com,exact,,,,
+,lifx.api.kustomerapp.com,,,,,customer service
+,firebaseinstallations.googleapis.com,,,,,
+,mnum1hy0-android.mobile-messenger.intercom.com,,,,,ads
+,nexus-websocket-a.intercom.io,,,,,ads
+,api.lifx.com,,,d,d,vendor
+,lifx.com,,,,,vendor shop
+,fonts.shopifycdn.com,,,,,
+,assets.kochava.com,,,,,js
+,use.typekit.net,,,,,css
+,d3g420rgevyqxw.cloudfront.net,,,,,js
+,web-sdk.control.kochava.com,,,,,tracking
+,str.rise-ai.com,,,,,
+,facebook.com,,,,,
+,strn.rise-ai.com,,,,,
+,stats.g.doubleclick.net,,,,,
+,monorail-edge.shopifysvc.com,,,,,
+,google.com,,,,,
+,google.at,,,,,
+,widget.intercom.io,,,,,js
+,js.intercomcdn.com,,,,,js
+,api-iam.intercom.io,,,,,
+,discover-webview.lifx.com,,,,,
+,clients4.google.com,,,,,
+sdk.hockeyapp.net,,,,,,crash logs
+pagead2.googlesyndication.com,,,,,,
+a.eu-identity.swrve.com,,,,,,marketing
+a.identity.swrve.com,,,,,,marketing
+a.content.swrve.com,,,,,,marketing
+a.eu-content.swrve.com,,,,,,marketing
+ssl.google-analytics.com,,,,,,
+a.eu-api.swrve.com,,,,,,marketing
+a.api.swrve.com,,,,,,marketing
+nest-control.lifx.com,,,,i,i,vendor

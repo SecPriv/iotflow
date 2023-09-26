@@ -1,0 +1,53 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+ulogs.umeng.com,ulogs.umeng.com,exact,,,,logs
+api.find.nutspace.com,api.find.nutspace.com,exact,,b,b,vendor
+h5.nutspace.com,h5.nutspace.com,exact,,b,b,vendor
+dualstack-arestapi.amap.com,dualstack-arestapi.amap.com,exact,,,,maps
+restsdk.amap.com,restsdk.amap.com,exact,,,,
+,connectivitycheck.gstatic.com,,,,,
+,google.com,,,,,
+,play.googleapis.com,,,,,
+,dualstack-a.apilocate.amap.com,,,,,
+,apilocate.amap.com,,,,,
+,dualstack-mpsapi.amap.com,,,,,
+,dualstack-logs.amap.com,,,,,
+,mpsapi.amap.com,,,,,
+,h.trace.qq.com,,,,,messaging
+,cgi.connect.qq.com,,,,,
+103.235.46.40,,,,,,search
+msg.umengcloud.com,,,,,,ads
+offmsg.umeng.com,,,,,,ads
+dorangesource.alicdn.com,,,,,,alibaba unrelated
+guide-acs.m.taobao.com,,,,,,shopping
+ossgw.alicdn.com,,,,,,
+gw.alicdn.com,,,,,,
+login.sina.com.cn,,,,,,
+app-measurement.com,,,,,,
+adash.man.aliyuncs.com,,,,i,i,alibaba iot
+accounts.google.com,,,,,,
+aaid.umeng.com,,,,,,
+pslog.umeng.com,,,,,,
+openmobile.qq.com,,,,,,
+cgicol.amap.com,,,,,,
+apiinit.amap.com,,,,,,
+fr.register.xmpush.global.xiaomi.com,,,,i,i,xiaomi iot
+register.xmpush.xiaomi.com,,,,i,i,xiaomi iot
+cn.register.xmpush.xiaomi.com,,,,i,i,xiaomi iot
+10.237.14.141,,,,,,
+register.xmpush.global.xiaomi.com,,,,i,i,xiaomi iot
+sandbox.xmpush.xiaomi.com,,,,i,i,xiaomi iot
+idmb.register.xmpush.global.xiaomi.com,,,,i,i,xiaomi iot
+ru.register.xmpush.global.xiaomi.com,,,,i,i,xiaomi iot
+resolver.msg.xiaomi.net,,,,i,i,xiaomi iot
+resolver.msg.global.xiaomi.net,,,,i,i,xiaomi iot
+firebaseinstallations.googleapis.com,,,,,,
+firebaselogging.googleapis.com,,,,,,
+googleadservices.com,,,,,,
+203.119.206.64,,,,,,
+amdc.m.taobao.com,,,,,,
+open.weixin.qq.com,,,,,,
+long.open.weixin.qq.com,,,,,,
+errlog.umeng.com,,,,,,
+errlogos.umeng.com,,,,,,
+pagead2.googlesyndication.com,,,,,,
+api.twitter.com,,,,,,

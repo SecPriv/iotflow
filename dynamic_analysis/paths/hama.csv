@@ -1,0 +1,21 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+v1/dns_query,v1/dns_query,exact,,b,b,
+v1/projects/null/installations,v1/projects/hama-smart/installations,manual,placeholder,b,b,
+,api.json,,,d,d,
+,api/2/store,,,d,d,
+,app/pAs/not.receive.email.en1.html,,,,,
+,log.json,,,,,
+,mage/languageUpdate/language_6151703_28_44314_103_1643035580887.tar,,,d,d,vendor
+,smart/connect-scheme-v3/help/linght_network_slow_en.html,,,,,
+,smart/ui/1629122221146087128-android_5.1_1.2.39.tar.gz,,,d,d,vendor
+auth/O2/token,,,,i,i,
+authz/resource/html/disclaimer.html,,,,,,
+installations/null/authTokens:generate,,,,i,i,
+o/oauth2/revoke,,,,i,i,
+resources/html/contract.html,,,,,,
+sdk/agreement/detail.do,,,,,,
+status,,,,,,
+tyTheme/ui_theme_config.json,,,,,,
+v1/projects/class,,,,i,i,
+v1/projects/null/installations/null,,,,i,i,
+v2/certs_query,,,,i,i,

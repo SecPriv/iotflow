@@ -1,0 +1,24 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+cdn-settings.segment.com,cdn-settings.segment.com,exact,,,,
+downloads.bose.com,downloads.bose.com,exact,,b,b,vendor
+worldwide.bose.com,worldwide.bose.com,exact,,b,b,vendor
+firebaseinstallations.googleapis.com,firebaseinstallations.googleapis.com,exact,,,,
+api.segment.io,api.segment.io,exact,,,,
+cdns._config,cdns.us1.gigya.com,manual,placeholder,b,b,authentication
+accounts._config,accounts.us1.gigya.com,manual,placeholder,b,b,authentication
+socialize._config,socialize.us1.gigya.com,manual,placeholder,b,b,authentication
+,remote-data.urbanairship.com,,,,,
+,device-api.urbanairship.com,,,,,
+,combine.urbanairship.com,,,,,
+,graph.facebook.com,,,,,
+,firebase-settings.crashlytics.com,,,,,
+,media.bose.io,,,d,d,vendor
+,bose.my.onetrust.com,,,,,third party consent tracking
+,update.googleapis.com,,,,,
+,edgedl.me.gvt1.com,,,,,
+googleadservices.com,,,,,,
+mobile-service.segment.com,,,,,,
+pagead2.googlesyndication.com,,,,,,
+boseconnectdev.azurewebsites.net,,,,i,i,vendor
+boseconnect.azurewebsites.net,,,,i,i,vendor
+gigya.com,,,,,,

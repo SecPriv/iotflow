@@ -36,22 +36,19 @@ Comparison of unique domains and paths reconstructed to the ones extracted from 
 
 ## Manual Matching
 
-We extract domains from IoTFlow's reconstructed values using the Python library [tldextract](https://github.com/john-
-kurkowski/tldextract) while we extract them from the mitmproxy dumps for the dynamic analysis. Further, for paths, we filter out from IoTFlow the values that do not contain a `/`. We repeat this process for each of the 13 apps.
+We extract domains from IoTFlow's reconstructed values using the Python library [tldextract](https://github.com/john-kurkowski/tldextract) while we extract them from the mitmproxy dumps for the dynamic analysis. Further, for paths, we filter out from IoTFlow the values that do not contain a `/`. We repeat this process for each of the 13 apps.
 
 Before starting our evaluation on matching values between statically- and dynamically-obtained ones, we manually filtered out invalid and artifact domains and paths. Specifically, we removed a total of 49 domains (45 from IoTFlow's values and four from traffic captures). We removed mostly localhost domains (127.0.0.1) and analysis artifacts that do not follow the correct domain/IP structure. Further, we removed seven paths from IoTFlow's values as they represented Java classes or null values.
 
 
 After the pre-filtering, we start with our matching process described in Section 5. We adopt a full-string match to find the exact matching. Despite already yielding results, this approach is not particularly suited in this context as domains and paths might often rely on dynamically generated data (e.g., product codes) that we will not find in our static data. For example, we found the following path while dynamically interacting with the Soundcore app`/v1/speaker/sound_core/A3027/firmware/update` while we statically reconstructed `/v1/speaker/sound_core/Intent\_GetExtra java.lang.String -> "productCode"-[productCode]/firmware/update`.
 Thus, a group of three experts individually manually labeled the domains and paths, looking for additional pairs. In case of disagreements, we figured those out till all results converged.
-The result of our matching process are available in the [spreadsheet](matching.xlsx).
-
 
 
 
 
 ### Table: Manual Matching of Apps
-We report the list of the 13 IoT devices with the total numbers of domains and paths we found in the traffic captures (**DA** columns) and reconstructed statically (**IF** columns). Further, the columns **Matches** show the **Exact** and **Manual** matches among the two. We compute the exact matches by performing a full string match and, secondly, manually verify cases where a full match might have failed to identify a valid pair.  Finally, the **IoT related** columns represent the findings we manually labeled IoT related. We report the numbers of IoT-related domains and paths across uniquely IoTFlow's values, uniquely dynamic ones, and shared across the two. For further information about the matching see the [spreadsheet](matching.xlsx).
+We report the list of the 13 IoT devices with the total numbers of domains and paths we found in the traffic captures (**DA** columns) and reconstructed statically (**IF** columns). Further, the columns **Matches** show the **Exact** and **Manual** matches among the two. We compute the exact matches by performing a full string match and, secondly, manually verify cases where a full match might have failed to identify a valid pair.  Finally, the **IoT related** columns represent the findings we manually labeled IoT related. We report the numbers of IoT-related domains and paths across uniquely IoTFlow's values, uniquely dynamic ones, and shared across the two. For further information about the matching see the spreadsheets in the [domain](domain/) and [path](path/) directories.
 
 |                     |     **Domains** |||||||                                                                                                                    **Paths**   |||||||
 |---------------------|-----------------:|-----------------:|--------------------:|---------------------:|-----------------:|-----------------:|-------------------:|-----------------:|-----------------:|--------------------:|---------------------:|-----------------:|-----------------:|-------------------:|
@@ -68,12 +65,12 @@ We report the list of the 13 IoT devices with the total numbers of domains and p
 | Anti-Lost           | 3               | 1               | -                  | -                   | -               | -               | -                 | 2               | 1               | -                  | -                   | -               | -               | -                 |
 | LIFX A60            | 13              | 26              | 3                  | -                   | 1               | 1               | 2                 | 44              | 34              | 5                  | 3                   | 19              | 10              | 7                 |
 | Nut Find3           | 42              | 15              | 5                  | -                   | 10              | -               | 2                 | 54              | 17              | 2                  | 1                   | 8               | 3               | 2                 |
-| Soundcore Life Q35  | 8               | 19              | 1                  | -                   | -               | 2               | 1                 | 67              | 39              | 8                  | 5                   | 45              | 8               | 12                |
+| Soundcore Life Q35  | 8               | 19              | 1                  | -                   | -               | 2               | 1                 | 66              | 39              | 8                  | 5                   | 45              | 8               | 12                |
 | Wiz Colour          | 9               | 19              | 4                  | 1                   | -               | 2               | 2                 | 16              | 17              | 2                  | 2                   | 1               | 7               | 1                 |
-|        sum          | 214             | 218             | 36                 | 7                   | 33              | 19              | 21                | 497             | 337             | 30                 | 32                  | 231             | 110             | 50                |
+|        sum          | 214             | 218             | 36                 | 7                   | 33              | 19              | 21                | 496             | 337             | 30                 | 32                  | 231             | 110             | 50                |
 |       min           | 3               | 1               | 0                  | 0                   | 0               | 0               | 0                 | 2               | 1               | 0                  | 0                   | 0               | 0               | 0                 |
 |       max           | 42              | 48              | 5                  | 3                   | 10              | 4               | 5                 | 77              | 54              | 8                  | 17                  | 45              | 32              | 17                |
-|       avg           | 16.46           | 16.77           | 2.77               | 0.54                | 2.54            | 1.46            | 1.62              | 38.23           | 25.92           | 2.31               | 2.46                | 17.77           | 8.46            | 3.85              |
+|       avg           | 16.46           | 16.77           | 2.77               | 0.54                | 2.54            | 1.46            | 1.62              | 38.15           | 25.92           | 2.31               | 2.46                | 17.77           | 8.46            | 3.85              |
 
 
 

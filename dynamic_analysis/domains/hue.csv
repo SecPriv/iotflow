@@ -1,0 +1,9 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+firebase-settings.crashlytics.com,firebase-settings.crashlytics.com,exact,,,,
+firebaseinstallations.googleapis.com,firebaseinstallations.googleapis.com,exact,,,,
+firebaseremoteconfig.googleapis.com,firebaseremoteconfig.googleapis.com,exact,,,,
+api2.amplitude.com,api2.amplitude.com,exact,,b,b,hue sync domain
+,phillateemis.iad-03.braze.com,,,,,"not IoT, customer/brand mangement"
+,firebaselogging-pa.googleapis.com,,,,,
+regionconfig.amplitude.com,,,,i,i,hue sync domain
+github.com,,,,,,

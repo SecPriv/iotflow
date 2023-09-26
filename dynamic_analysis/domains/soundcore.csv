@@ -1,0 +1,27 @@
+IOTFLOW,DYNAMIC,MATCH,REASON,IoT-RELATED,IoT-RELATED 2,IoT-RELATED REASON
+speaker.eufylife.com,speaker.eufylife.com,exact,,b,b,vendor
+,connectivitycheck.gstatic.com,,,,,
+,google.com,,,,,
+,log.eufylife.com,,,d,d,vendor
+,d2htfo7ft368vg.cloudfront.net,,,d,d,firmware 
+,update.googleapis.com,,,,,
+,edgedl.me.gvt1.com,,,,,webview extensions
+,community.soundcore.com,,,,,
+,cdnjs.cloudflare.com,,,,,js
+,cdn.jsdelivr.net,,,,,"css, js"
+,googletagmanager.com,,,,,
+,content-autofill.googleapis.com,,,,,
+,forumus-uploads-production.s3.dualstack.us-west-2.amazonaws.com,,,,,media
+,dz02g1kgtiysz.cloudfront.net,,,,,media
+,google-analytics.com,,,,,
+,analytics.google.com,,,,,
+,stats.g.doubleclick.net,,,,,
+,beta-tt.krpax.com,,,,,
+,d2211byn0pk9fi.cloudfront.net,,,,,media
+firebaseinstallations.googleapis.com,,,,,,
+googleadservices.com,,,,,,
+pagead2.googlesyndication.com,,,,,,
+update.crashlytics.com,,,,,,
+reports.crashlytics.com,,,,,,
+firebase-settings.crashlytics.com,,,,,,
+slf4j.org,,,,,,
