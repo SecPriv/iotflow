@@ -17,15 +17,6 @@ public class BackwardRule {
         sysApiSrc = new ArrayList<>();
     }
 
-    public BackwardRule(boolean isBaseInteresting, List<Integer> interestingArgs, List<String> except, boolean taintAll, List<String> sysApiSrc) {
-        this.isBaseInteresting = isBaseInteresting;
-        this.interestingArgs = interestingArgs;
-        this.except = except;
-        this.taintAll = taintAll;
-        this.sysApiSrc = sysApiSrc;
-    }
-
-
     public boolean isBaseInteresting() {
         return isBaseInteresting;
     }
@@ -56,10 +47,6 @@ public class BackwardRule {
 
     public void setTaintAll(boolean taintAll) {
         this.taintAll = taintAll;
-    }
-
-    public List<String> getSysApiSrc() {
-        return sysApiSrc;
     }
 
     public void setSysApiSrc(List<String> sysApiSrc) {

@@ -159,8 +159,8 @@ public class AndroidSpecificSimulation implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        if (rightop.getType().toString().contains("android.widget.EditText")) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        if (rightValue.getType().toString().contains("android.widget.EditText")) {
             HashSet<String> result = new HashSet<>();
             result.add("New<->EditText");
             return result;
@@ -169,17 +169,17 @@ public class AndroidSpecificSimulation implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 

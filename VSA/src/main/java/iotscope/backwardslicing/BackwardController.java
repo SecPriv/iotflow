@@ -1,6 +1,6 @@
 package iotscope.backwardslicing;
 
-import iotscope.graph.DataDependenceGraph;
+import iotscope.graph.DataDependenciesGraph;
 import iotscope.graph.ValuePoint;
 import iotscope.main.Config;
 import iotscope.utility.TimeWatcher;
@@ -32,7 +32,7 @@ public class BackwardController {
      * @param dataGraph  for backward tracing
      * @return All backward Context
      */
-    public List<BackwardContext> doBackWard(ValuePoint valuePoint, DataDependenceGraph dataGraph) {
+    public List<BackwardContext> doBackWard(ValuePoint valuePoint, DataDependenciesGraph dataGraph) {
         List<BackwardContext> resultContexts = new ArrayList<>();
         resultContexts.add(new BackwardContext(valuePoint, dataGraph));
         while (true) {

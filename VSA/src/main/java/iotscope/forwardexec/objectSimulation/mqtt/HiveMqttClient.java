@@ -29,10 +29,10 @@ public class HiveMqttClient implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        if (rightop.getType().toString().equals("com.hivemq.client.mqtt.MqttClientBuilder") ||
-                rightop.getType().toString().equals("com.hivemq.client.mqtt.mqtt3.Mqtt3Client") ||
-                rightop.getType().toString().equals("com.hivemq.client.mqtt.mqtt5.Mqtt5Client")
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        if (rightValue.getType().toString().equals("com.hivemq.client.mqtt.MqttClientBuilder") ||
+                rightValue.getType().toString().equals("com.hivemq.client.mqtt.mqtt3.Mqtt3Client") ||
+                rightValue.getType().toString().equals("com.hivemq.client.mqtt.mqtt5.Mqtt5Client")
         ) {
             return initBuilder();
         }
@@ -116,18 +116,18 @@ public class HiveMqttClient implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
 
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 

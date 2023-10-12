@@ -26,8 +26,6 @@ repositories {
 dependencies {
     implementation files('libs/soot-infoflow-cmd-jar-with-dependencies.jar')
 
-    implementation 'org.json:json:20220320'
-
     implementation 'org.apache.logging.log4j:log4j-api:2.17.0'
     implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.17.0"
     implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
@@ -50,7 +48,7 @@ dependencies {
     implementation 'org.eclipse.californium:californium-core:3.0.0'
 
     implementation 'com.google.code.gson:gson:2.8.9'
-    implementation 'org.json:json:20211205'
+    implementation 'org.json:json:20230227'
 }
 
 test {

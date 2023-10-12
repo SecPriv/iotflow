@@ -16,8 +16,6 @@ import java.util.Objects;
 
 public class ParameterTransferStmt implements AssignStmt {
 
-    private static final long serialVersionUID = 1L;
-
     private final Value left;
     private final Value right;
 

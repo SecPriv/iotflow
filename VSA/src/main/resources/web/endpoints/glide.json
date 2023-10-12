@@ -3,15 +3,15 @@
     [
       {
         "method": "<com.bumptech.glide.RequestManager: com.bumptech.glide.RequestBuilder load(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<com.bumptech.glide.RequestManager: com.bumptech.glide.RequestBuilder load(android.net.URI)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<com.bumptech.glide.RequestManager: com.bumptech.glide.RequestBuilder load(java.net.URL)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       }
     ]
 }

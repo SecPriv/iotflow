@@ -1,6 +1,6 @@
 package iotscope.backwardslicing;
 
-import iotscope.graph.DataDependenceGraph;
+import iotscope.graph.DataDependenciesGraph;
 import iotscope.graph.HeapObject;
 import iotscope.utility.ReflectionHelper;
 import org.slf4j.Logger;
@@ -21,17 +21,17 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
 
     private final HashSet<Value> interestingVariables;
     private final HashSet<HeapObject> dependentHeapObjects;
-    private final DataDependenceGraph dataGraph;
+    private final DataDependenciesGraph dataGraph;
     HashSet<Stmt> visited;
 
 
-    public BackwardStmtSwitch(DataDependenceGraph dataGraph) {
+    public BackwardStmtSwitch(DataDependenciesGraph dataGraph) {
         this.dataGraph = dataGraph;
         interestingVariables = new HashSet<>();
         dependentHeapObjects = new HashSet<>();
     }
 
-    public BackwardStmtSwitch(HashSet<Value> interestingVariables, HashSet<HeapObject> dependentHeapObjects, DataDependenceGraph dataGraph) {
+    public BackwardStmtSwitch(HashSet<Value> interestingVariables, HashSet<HeapObject> dependentHeapObjects, DataDependenciesGraph dataGraph) {
         this.interestingVariables = interestingVariables;
         this.dependentHeapObjects = dependentHeapObjects;
         this.dataGraph = dataGraph;
@@ -57,7 +57,7 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
             getInterestingVariables().add(v);
         } else {
             if (v != null) {
-                LOGGER.warn(String.format("[%s] [unknow addIntrestedVariableIfNotConstant] %s(%s)", this.hashCode(), v, v.getClass()));
+                LOGGER.warn(String.format("[%s] [unknown addInterestingVariableIfNotConstant] %s(%s)", this.hashCode(), v, v.getClass()));
             }
         }
     }
@@ -71,13 +71,10 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
         return dependentHeapObjects;
     }
 
-    public DataDependenceGraph getDataGraph() {
+    public DataDependenciesGraph getDataGraph() {
         return dataGraph;
     }
 
-
-    ////////////////////////////////////////////////////////
-    //////////////////////// StmtSwitch/////////////////////
     @Override
     public void caseAssignStmt(AssignStmt stmt) {
         Value leftOp = stmt.getLeftOp();
@@ -89,7 +86,7 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
 
         boolean isLeftValueInteresting = interestingVariables.contains(leftOp);
         if (isLeftValueInteresting && !leftOpIsArrayRef) {
-            //keep left op as interesting value if it is an array ref otherwise only the last item is traced, only remove it if there is a new array assigned or it is inited
+            //keep left op as interesting value if it is an array ref otherwise only the last item is traced, only remove it if there is a new array assigned, or it is initialized
             removeInterestingVariable(leftOp);
         }
         //keep leftop interesting if it is an array value
@@ -138,7 +135,7 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
         } else if (rightValue instanceof ArrayRef) {
             this.addInterestingVariableIfNotConstant(((ArrayRef) rightValue).getBase());
         } else if (rightValue instanceof Constant) {
-            //Returning to avoid logging, nothing to do here because rightvalue is constant and not needed to trace further
+            //Returning to avoid logging, nothing to do here because right value is constant, and we don't need to trace it further
             // added the if to avoid unnecessary logging
             return;
         } else if (rightValue instanceof BinopExpr) {
@@ -159,54 +156,54 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
         handleInvokeExpr(null, false, stmt.getInvokeExpr());
     }
 
-    private void handleInvokeExpr(Value assignTo, boolean isLeftValueInteresting, InvokeExpr invokExp) {
-        String mthSig = invokExp.getMethod().toString();
+    private void handleInvokeExpr(Value assignTo, boolean isLeftValueInteresting, InvokeExpr invokeExpr) {
+        String mthSig = invokeExpr.getMethod().toString();
         boolean isBaseInteresting = false;
         Value base = null;
 
 
-        if (invokExp instanceof InstanceInvokeExpr) {
-            base = ((InstanceInvokeExpr) invokExp).getBase();
+        if (invokeExpr instanceof InstanceInvokeExpr) {
+            base = ((InstanceInvokeExpr) invokeExpr).getBase();
         } else {
-            LOGGER.debug("HandleInvokeExpression: Value no InstanceInvokeExpr {}", invokExp);
+            LOGGER.debug("HandleInvokeExpression: Value no InstanceInvokeExpr {}", invokeExpr);
         }
 
         isBaseInteresting = interestingVariables.contains(base);
 
         if (!isBaseInteresting && !isLeftValueInteresting) {
-            //otherwise not intresting values are traced and the analysis takes long time
+            //otherwise not interesting values are traced and the analysis takes long time
             LOGGER.debug("HandleInvokeExpression: Left Value and base is not interesting therefore it is not further traced");
             return;
         }
 
 
         if (mthSig.equals("<java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>")) {
-            if (this.getInterestingVariables().contains(invokExp.getArg(2))) {
+            if (this.getInterestingVariables().contains(invokeExpr.getArg(2))) {
 
-                this.addInterestingVariableIfNotConstant(invokExp.getArg(0));
+                this.addInterestingVariableIfNotConstant(invokeExpr.getArg(0));
             }
         } else if (BackwardTracing.getInstance().hasRuleFor(mthSig)) {
 
-            if (invokExp instanceof InstanceInvokeExpr && BackwardTracing.getInstance().isBaseIntrested(mthSig)) {
-                this.addInterestingVariableIfNotConstant(((InstanceInvokeExpr) invokExp).getBase());
+            if (invokeExpr instanceof InstanceInvokeExpr && BackwardTracing.getInstance().isBaseInteresting(mthSig)) {
+                this.addInterestingVariableIfNotConstant(((InstanceInvokeExpr) invokeExpr).getBase());
             }
-            for (int i : BackwardTracing.getInstance().getInterestedArgIndexes(mthSig, invokExp.getArgCount())) {
-                this.addInterestingVariableIfNotConstant(invokExp.getArg(i));
+            for (int i : BackwardTracing.getInstance().getInterestedArgIndexes(mthSig, invokeExpr.getArgCount())) {
+                this.addInterestingVariableIfNotConstant(invokeExpr.getArg(i));
             }
 
         } else {
             // if we are not handling it concrete try to dive into the method if it contains interesting soot fields
             //              Or handle it through reflection
-            Class<?> clazz = ReflectionHelper.getClass(invokExp.getMethodRef().getDeclaringClass().toString());
+            Class<?> clazz = ReflectionHelper.getClass(invokeExpr.getMethodRef().getDeclaringClass().toString());
             if (clazz != null) {
                 boolean matchesMethod = false;
-                if (invokExp.getMethod().isConstructor()) {
-                    Constructor<?> c = ReflectionHelper.findMatchingConstructor(clazz, invokExp);
+                if (invokeExpr.getMethod().isConstructor()) {
+                    Constructor<?> c = ReflectionHelper.findMatchingConstructor(clazz, invokeExpr);
                     if (c != null) {
                         matchesMethod = true;
                     }
                 } else {
-                    Method m = ReflectionHelper.findMatchingMethod(clazz, invokExp);
+                    Method m = ReflectionHelper.findMatchingMethod(clazz, invokeExpr);
                     if (m != null) {
                         matchesMethod = true;
                     }
@@ -215,14 +212,14 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
                     if (base != null) {
                         this.addInterestingVariableIfNotConstant(base);
                     }
-                    for (int i = 0; i < invokExp.getArgCount(); i++) {
-                        this.addInterestingVariableIfNotConstant(invokExp.getArg(i));
+                    for (int i = 0; i < invokeExpr.getArgCount(); i++) {
+                        this.addInterestingVariableIfNotConstant(invokeExpr.getArg(i));
                     }
                     return;
                 }
             }
-            if (!diveIntoMethodCall(assignTo, isLeftValueInteresting, invokExp)) {
-                LOGGER.warn(String.format("[%s] [Can't Handle handleInvokeExpr->VirtualInvokeExpr]: %s (%s)", this.hashCode(), invokExp, invokExp.getClass()));
+            if (!diveIntoMethodCall(assignTo, isLeftValueInteresting, invokeExpr)) {
+                LOGGER.warn(String.format("[%s] [Can't Handle handleInvokeExpr->VirtualInvokeExpr]: %s (%s)", this.hashCode(), invokeExpr, invokeExpr.getClass()));
             }
         }
 
@@ -239,7 +236,7 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
                 LOGGER.warn(String.format("[%s] [Can't Handle caseIdentityStmt->RightOpUnrecognized]: %s (%s)", this.hashCode(), stmt, stmt.getLeftOp().getClass()));
             }
         } else {
-            LOGGER.debug(String.format("[%s] [Can't Handle caseIdentityStmt->LeftOpNotIntrested]: %s (%s)", this.hashCode(), stmt, stmt.getLeftOp().getClass()));
+            LOGGER.debug(String.format("[%s] [Can't Handle caseIdentityStmt->LeftOpNotInteresting]: %s (%s)", this.hashCode(), stmt, stmt.getLeftOp().getClass()));
         }
     }
 
@@ -249,5 +246,5 @@ public abstract class BackwardStmtSwitch extends AbstractStmtSwitch {
     }
 
 
-    public abstract boolean diveIntoMethodCall(Value leftOp, boolean leftisIntrested, InvokeExpr ive);
+    public abstract boolean diveIntoMethodCall(Value leftOp, boolean leftIsInteresting, InvokeExpr ive);
 }

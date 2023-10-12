@@ -56,7 +56,7 @@ public class CommandLineOptions {
         options.addOption(Option.builder(outputGraph).argName("output graph files").desc("If set dot graphs are created").longOpt("output_dot_graph").hasArg(false).build());
         options.addOption(Option.builder(outputGraphPath).argName("output path for dot files").desc("Directory where the dot graphs should be placed").longOpt("output_dot_graph_path").hasArg(true).build());
 
-        options.addOption(Option.builder(maxBackwardSteps).argName("number of steps it should trace backward").desc("if the maximal number is reached for the context the backward tracing finish").longOpt("dex2jar").hasArg(true).build());
+        options.addOption(Option.builder(maxBackwardSteps).argName("number of steps it should trace backward").desc("if the maximal number is reached for the context the backward tracing finish").hasArg(true).build());
         options.addOption(Option.builder(maxBackwardContext).argName("number of backward context it should create").desc("Dex2jar file").longOpt("if the maximum number of backward context per value point is reached no new ones are added").hasArg(true).build());
 
 

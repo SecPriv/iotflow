@@ -23,6 +23,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * Modified XMLSourceSinkParser to allow exact method location
+ */
 public class CustomXMLSourceSinkParser extends CustomAbstractXMLSourceSinkParser implements ISourceSinkDefinitionProvider {
 
     private final static Logger logger = LoggerFactory.getLogger(XMLSourceSinkParser.class);

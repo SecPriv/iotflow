@@ -46,15 +46,15 @@ public class ApacheSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value
             leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>>
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>>
             currentValues) {
-        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightop);
+        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightValue);
         if (newArrayExpr.getBaseType().toString().equals("org.apache.hc.core5.http.HttpEntity")) {
             return SimulationUtil.initArray(null, newArrayExpr, currentValues);
         }
@@ -63,13 +63,13 @@ public class ApacheSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>>
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>>
             currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>>
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>>
             currentValues) {
         return null;
     }

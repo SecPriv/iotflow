@@ -44,7 +44,7 @@ public class StringSimulation implements SimulationObjects {
 
     @Override
     public HashSet<?> handleAssignInvokeExpression(AssignStmt stmt, String signature, InvokeExpr expr, HashMap<Value, HashSet<?>> currentValues) {
-        Value leftop = stmt.getLeftOp();
+        Value leftOperation = stmt.getLeftOp();
         HashSet<String> result = new HashSet<>();
 
         if (signature.equals("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>") ||
@@ -74,7 +74,7 @@ public class StringSimulation implements SimulationObjects {
         } else if (signature.equals("<android.content.Context: java.lang.String getPackageName()>")) {
             result.add(ApkContext.getInstance().getPackageName());
         } else if (signature.equals("<java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>")) {
-            return stringFormat(getStringContent(expr.getArg(0), currentValues), expr.getArg(1), leftop, currentValues);
+            return stringFormat(getStringContent(expr.getArg(0), currentValues), expr.getArg(1), leftOperation, currentValues);
         } else if (signature.equals("<java.lang.String: java.lang.String substring(int,int)>")) {
             for (Integer i1 : getIntContent(expr.getArg(0), currentValues)) {
                 for (Integer i2 : getIntContent(expr.getArg(1), currentValues)) {
@@ -95,7 +95,7 @@ public class StringSimulation implements SimulationObjects {
 
         } else if (signature.equals("<java.lang.String: java.lang.String substring(int)>")) {
             for (Integer i1 : getIntContent(expr.getArg(0), currentValues)) {
-                // left side gets cleared and substing value added
+                // left side gets cleared and substring value added
                 for (String s : getStringContent(((VirtualInvokeExpr) expr).getBase(), currentValues)) {
                     try {
                         result.add(s.substring(i1));
@@ -131,7 +131,7 @@ public class StringSimulation implements SimulationObjects {
 
             for (Character s1 : arg0) {
                 for (Character s2 : arg1) {
-                    // left side gets cleared and substing value added
+                    // left side gets cleared and substring value added
                     for (String sb : base) {
                         if (s1 != null && s2 != null && sb != null && sb.length() > 0) {
                             result.add(sb.replace(s1, s2));
@@ -168,7 +168,7 @@ public class StringSimulation implements SimulationObjects {
 
             for (String s1 : arg0) {
                 for (String s2 : arg1) {
-                    // left side gets cleared and substing value added
+                    // left side gets cleared and substring value added
                     for (String sb : base) {
                         if (s1 != null && s2 != null && sb != null && sb.length() > 0 && s1.length() > 0) {
                             result.add(sb.replace(s1, s2));
@@ -181,7 +181,7 @@ public class StringSimulation implements SimulationObjects {
                 }
             }
         } else if (signature.equals("<java.lang.String: java.lang.String format(java.util.Locale,java.lang.String,java.lang.Object[])>")) {
-            return stringFormat(getStringContent(expr.getArg(1), currentValues), expr.getArg(2), leftop, currentValues);
+            return stringFormat(getStringContent(expr.getArg(1), currentValues), expr.getArg(2), leftOperation, currentValues);
 
         } else if (signature.contains("<java.lang.String: java.lang.String[] split(java.lang.String")) {
             HashSet<ArrayList<String>> strings = new HashSet<>();
@@ -222,8 +222,8 @@ public class StringSimulation implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        if (rightop.getType().toString().equals("java.lang.StringBuilder") || rightop.getType().toString().equals("java.lang.StringBuffer")) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        if (rightValue.getType().toString().equals("java.lang.StringBuilder") || rightValue.getType().toString().equals("java.lang.StringBuffer")) {
             return setInitValue(stmt.getLeftOp(), "", false, currentValues);
         }
         return null;
@@ -231,18 +231,18 @@ public class StringSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
-        if (rightop instanceof StringConstant) {
-            return setInitValue(leftOp, ((StringConstant) rightop).value, false, currentValues);
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+        if (rightValue instanceof StringConstant) {
+            return setInitValue(leftOp, ((StringConstant) rightValue).value, false, currentValues);
         }
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightop);
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightValue);
         if (newArrayExpr.getBaseType() instanceof CharType || newArrayExpr.getBaseType() instanceof WordType) {
-            return setInitValue(stmt.getLeftOp(), ((NewArrayExpr) rightop).getSize() + "", false, currentValues);
+            return setInitValue(stmt.getLeftOp(), ((NewArrayExpr) rightValue).getSize() + "", false, currentValues);
         } else if (newArrayExpr.getBaseType().toString().equals("java.lang.String")) {
             return SimulationUtil.initArray("", newArrayExpr, currentValues);
         }
@@ -251,7 +251,7 @@ public class StringSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
@@ -263,7 +263,7 @@ public class StringSimulation implements SimulationObjects {
         }
 
         if (appends.size() == 0) {
-            LOGGER.warn(String.format("[%s] [SIMULATE][transferValuesAndAppend arg unknow]: %s", this.hashCode(), stmt));
+            LOGGER.warn(String.format("[%s] [SIMULATE][transferValuesAndAppend arg unknown]: %s", this.hashCode(), stmt));
             appends = new HashSet<>();
             appends.add("");
             //return;
@@ -326,14 +326,14 @@ public class StringSimulation implements SimulationObjects {
         return result;
     }
 
-    private HashSet<String> stringFormat(HashSet<String> sformat, Value arg1, Value leftop, HashMap<Value, HashSet<?>> currentValues) {
+    private HashSet<String> stringFormat(HashSet<String> stringFormat, Value arg1, Value leftOperation, HashMap<Value, HashSet<?>> currentValues) {
         HashSet<String> result = new HashSet<>();
         int max = 0;
-        for (String s : sformat) {
+        for (String s : stringFormat) {
             max = Math.max(max, getMatchingCount(s));
         }
         List<String> array = SimulationUtil.getSimulatedArrayOrInit(arg1, max, arg1, currentValues);
-        for (String s : sformat) {
+        for (String s : stringFormat) {
             Object[] toFormat = alignFormatObjectArray(array.toArray(new String[max]), s);
             try {
                 result.add(String.format(s, toFormat));
@@ -407,17 +407,6 @@ public class StringSimulation implements SimulationObjects {
 
         }
         return result;
-
-    }
-
-    public static void main(String[] args) {
-        String s = "/PSIA/PTZ/channels/%1$s/presets/%1$d/goto";
-
-        Object[] toFormat = new Object[8];
-        toFormat[0] = "10";
-        toFormat[1] = -1;
-        System.out.println(String.format(s, toFormat));
-
 
     }
 

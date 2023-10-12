@@ -41,7 +41,7 @@ public class JavaNetUrlSimulation implements SimulationObjects {
                             url.add(new URL(v));
                         } catch (MalformedURLException | NullPointerException e) {
                             try {
-                                url.add(new URL(SimulationUtil.santizeURL(v)));
+                                url.add(new URL(SimulationUtil.sanitizeURL(v)));
                             } catch (MalformedURLException | NullPointerException e2) {
                                 LOGGER.error(e2.getLocalizedMessage());
                             }
@@ -324,13 +324,13 @@ public class JavaNetUrlSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightop);
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightValue);
         if (newArrayExpr.getBaseType().toString().equals("java.net.URL")) {
             return SimulationUtil.initArray(null, newArrayExpr, currentValues);
         }
@@ -339,12 +339,12 @@ public class JavaNetUrlSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 

@@ -1,0 +1,35 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="com.rabbitmq.client.ConnectionFactory: void setHost(java.lang.String)">
+            <base type="com.rabbitmq.client.ConnectionFactory">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client.ConnectionFactory: void setVirtualHost(java.lang.String)">
+            <base type="com.rabbitmq.client.ConnectionFactory">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client.ConnectionFactory: void setUri(java.lang.String)">
+            <base type="com.rabbitmq.client.ConnectionFactory">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client: java.lang.String basicPublish(java.lang.String,boolean,java.util.Map,com.rabbitmq.client.Consumer)">
+            <base type="com.rabbitmq.client">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client: java.lang.String basicPublish(java.lang.String,boolean,com.rabbitmq.client.Consumer)">
+            <base type="com.rabbitmq.client">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client: java.lang.String basicPublish(java.lang.String,boolean,java.lang.String,boolean,boolean,java.util.Map,com.rabbitmq.client.Consumer)">
+            <base type="com.rabbitmq.client">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

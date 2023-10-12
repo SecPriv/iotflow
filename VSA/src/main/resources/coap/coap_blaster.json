@@ -2,15 +2,15 @@
     "methods": [
         {
             "method": "<com.google.iot.coap.Client: void <init>(com.google.iot.coap.LocalEndpointManager,java.lang.String)>",
-            "parmIndexs": [1]
+            "parameterIndexes": [1]
         },
         {
             "method": "<com.google.iot.coap.RequestBuilder: com.google.iot.coap.RequestBuilder setPayload(byte[])>",
-            "parmIndexs": [0]
+            "parameterIndexes": [0]
         },
         {
             "method": "<com.google.iot.coap.RequestBuilder: com.google.iot.coap.RequestBuilder changePath(java.lang.String)>",
-            "parmIndexs": [0]
+            "parameterIndexes": [0]
         }
     ]
 }

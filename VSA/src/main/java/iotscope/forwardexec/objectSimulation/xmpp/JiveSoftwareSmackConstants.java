@@ -22,7 +22,7 @@ public class JiveSoftwareSmackConstants implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
 
         return null;
     }
@@ -62,11 +62,11 @@ public class JiveSoftwareSmackConstants implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
-        if (rightop.toString().contains("org.jivesoftware.smack.packet.Message$Type") ||
-                rightop.toString().contains("org.jivesoftware.smack.ConnectionConfiguration$SecurityMode")) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+        if (rightValue.toString().contains("org.jivesoftware.smack.packet.Message$Type") ||
+                rightValue.toString().contains("org.jivesoftware.smack.ConnectionConfiguration$SecurityMode")) {
             HashSet<String> result = new HashSet<>();
-            switch (rightop.toString()) {
+            switch (rightValue.toString()) {
                 case "<org.jivesoftware.smack.packet.Message$Type: org.jivesoftware.smack.packet.Message$Type chat>": {
                     result.add("chat");
                 }
@@ -100,7 +100,7 @@ public class JiveSoftwareSmackConstants implements SimulationObjects {
                 }
                 break;
                 default:
-                    LOGGER.error("{} is currently not supported by the JiveConstantSimulation", rightop.toString());
+                    LOGGER.error("{} is currently not supported by the JiveConstantSimulation", rightValue.toString());
                     break;
             }
             return result;
@@ -109,13 +109,13 @@ public class JiveSoftwareSmackConstants implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
 
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 

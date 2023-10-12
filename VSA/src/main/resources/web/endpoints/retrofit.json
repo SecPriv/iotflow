@@ -3,15 +3,15 @@
   [
     {
       "method":"<retrofit2.Retrofit$Builder: retrofit2.Retrofit$Builder baseUrl(java.lang.String)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method":"<retrofit2.Retrofit$Builder: retrofit2.Retrofit$Builder baseUrl(okhttp3.HttpUrl)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method":"<retrofit2.Retrofit$Builder: retrofit2.Retrofit$Builder baseUrl(java.net.URL)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     }
   ]
 }

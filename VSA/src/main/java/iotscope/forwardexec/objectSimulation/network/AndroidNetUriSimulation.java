@@ -27,8 +27,6 @@ public class AndroidNetUriSimulation implements SimulationObjects {
 
     @Override
     public HashSet<?> handleInvokeStmt(InvokeStmt stmt, String signature, InvokeExpr expr, HashMap<Value, HashSet<?>> currentValues) {
-        if (signature.contains("android.net.Uri")) {
-        }
             return null;
     }
 
@@ -70,13 +68,13 @@ public class AndroidNetUriSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightop);
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightValue);
         if (newArrayExpr.getBaseType().toString().equals("android.net.Uri")) {
             return SimulationUtil.initArray(null, newArrayExpr, currentValues);
         }
@@ -85,12 +83,12 @@ public class AndroidNetUriSimulation implements SimulationObjects {
 
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 

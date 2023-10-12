@@ -3,31 +3,31 @@
   [
     {
       "method": "<java.net.DatagramSocket: void <init>(int)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method": "<java.net.DatagramSocket: void <init>(int,java.net.InetAddress)>",
-      "parmIndexs":[0,1]
+      "parameterIndexes":[0,1]
     },
     {
       "method": "<java.net.DatagramSocket: void <init>(java.net.SocketAddress)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method": "<java.net.DatagramSocket: void connect(java.net.InetAddress,int)>",
-      "parmIndexs":[0,1]
+      "parameterIndexes":[0,1]
     },
     {
       "method": "<java.net.DatagramSocket: void connect(java.net.SocketAddress)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method": "<java.net.DatagramSocket: void bind(java.net.SocketAddress)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method": "<java.net.DatagramSocket: void send(java.net.DatagramPacket)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     }
   ]
 }

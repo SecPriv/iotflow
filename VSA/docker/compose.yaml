@@ -1,0 +1,21 @@
+services:
+  vsa_docker:
+    build:
+      context: .
+    command: ["sh", "./run.sh"]
+    volumes:
+      - apps_to_analyze:/apps_to_analyze/
+      - results:/results/
+volumes:
+  apps_to_analyze:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './apps_to_analyze/'
+  results:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './results/'

@@ -31,10 +31,8 @@ import java.util.*;
  * calling the function parse. Subclasses may implement parser specifics to
  * different language engines.
  *
- * @author Anna-Katharina Wickert
- * @author Joern Tillmans
- * @author Steven Arzt
- * @author Niklas Vogel
+ * Modified (AbstractXMLSourceSinkParser) XML parser to allow exact method locations.
+ *
  */
 public abstract class CustomAbstractXMLSourceSinkParser {
     private final static Logger logger = LoggerFactory.getLogger(CustomAbstractXMLSourceSinkParser.class);

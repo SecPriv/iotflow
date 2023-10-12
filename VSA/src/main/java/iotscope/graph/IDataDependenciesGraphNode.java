@@ -4,14 +4,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * DataDepenceGraphNode -> Value Point or Heap Objet
+ * DataDependenciesGraphNode -> Value Point or Heap Objet
  */
-public interface IDataDependenceGraphNode {
+public interface IDataDependenciesGraphNode {
 
     /**
      * @return dependent nodes
      */
-    Set<IDataDependenceGraphNode> getDependents();
+    Set<IDataDependenciesGraphNode> getDependents();
 
     /**
      * @return the number of not solve dependents node
@@ -36,7 +36,7 @@ public interface IDataDependenceGraphNode {
     /**
      * Inits the Node if it has not already been initialized
      */
-    void initIfHavenot();
+    void initIfHaveNot();
 
     /**
      * Return true if the node is already inited
@@ -50,5 +50,5 @@ public interface IDataDependenceGraphNode {
      */
     Map<Integer, Set<Object>> getResult();
 
-    Set<IDataDependenceGraphNode> getDirectAndIndirectDependents(Set<IDataDependenceGraphNode> ret);
+    Set<IDataDependenciesGraphNode> getDirectAndIndirectDependents(Set<IDataDependenciesGraphNode> ret);
 }

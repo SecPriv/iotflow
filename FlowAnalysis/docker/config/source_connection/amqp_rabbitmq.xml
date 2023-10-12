@@ -1,0 +1,25 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="com.rabbitmq.client.ConnectionFactory: void setHost(java.lang.String)">
+            <base type="com.rabbitmq.client.ConnectionFactory">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client.ConnectionFactory: void setVirtualHost(java.lang.String)">
+            <base type="com.rabbitmq.client.ConnectionFactory">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client.Delivery: byte[] getBody()">
+            <base type="com.rabbitmq.client.Delivery">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.rabbitmq.client.ConnectionFactory: void setUri(java.lang.String)">
+            <base type="com.rabbitmq.client.ConnectionFactory">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

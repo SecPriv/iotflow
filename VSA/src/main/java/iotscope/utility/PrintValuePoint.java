@@ -3,7 +3,7 @@ package iotscope.utility;
 import iotscope.backwardslicing.BackwardContext;
 import iotscope.base.StmtPoint;
 import iotscope.graph.HeapObject;
-import iotscope.graph.IDataDependenceGraphNode;
+import iotscope.graph.IDataDependenciesGraphNode;
 import iotscope.graph.ValuePoint;
 import iotscope.main.Config;
 import soot.util.dot.DotGraph;
@@ -223,10 +223,10 @@ public class PrintValuePoint {
         if (valuePoint.getBackwardContexts() != null) {
             result.addAll(valuePoint.getBackwardContexts());
         }
-        for (IDataDependenceGraphNode node:valuePoint.getDependents()) {
+        for (IDataDependenciesGraphNode node:valuePoint.getDependents()) {
             if (node instanceof HeapObject && !visited.contains(node)) {
                 visited.add((HeapObject) node);
-                for(IDataDependenceGraphNode heapNode : ((HeapObject) node).getDependents()){
+                for(IDataDependenciesGraphNode heapNode : ((HeapObject) node).getDependents()){
                     if (heapNode instanceof ValuePoint) {
                         List<BackwardContext> bc = getBackwardContexts((ValuePoint) heapNode, visited);
                             result.addAll(bc);

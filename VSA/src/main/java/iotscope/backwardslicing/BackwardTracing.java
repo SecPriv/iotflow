@@ -96,41 +96,41 @@ public class BackwardTracing {
         return backwardTracing;
     }
 
-    //idea -> base -> return -> signature -> arguments
+    // base -> return -> signature -> arguments
     private Map<String, Map<String, Map<String, Map<String, BackwardRule>>>> rules = new HashMap<>();
 
-    public boolean hasRuleFor(String msig) {
-        return getRule(msig) != null;
+    public boolean hasRuleFor(String methodSignature) {
+        return getRule(methodSignature) != null;
     }
 
     private BackwardRule getRule(String signature) {
         List<String[]> toTest = new ArrayList<>();
-        String[] splittedSignature = splitSignature(signature);
+        String[] signatureArray = splitSignature(signature);
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 for (int k = 0; k < 2; k++) {
                     for (int l = 0; l < 2; l++) {
                         String[] tmp = new String[4];
                         if (i == 0) {
-                            tmp[0] = splittedSignature[0];
+                            tmp[0] = signatureArray[0];
                         } else {
                             tmp[0] = "*";
                         }
 
                         if (j == 0) {
-                            tmp[1] = splittedSignature[1];
+                            tmp[1] = signatureArray[1];
                         } else {
                             tmp[1] = "*";
                         }
 
                         if (k == 0) {
-                            tmp[2] = splittedSignature[2];
+                            tmp[2] = signatureArray[2];
                         } else {
                             tmp[2] = "*";
                         }
 
                         if (l == 0) {
-                            tmp[3] = splittedSignature[3];
+                            tmp[3] = signatureArray[3];
                         } else {
                             tmp[3] = "*";
                         }
@@ -149,14 +149,14 @@ public class BackwardTracing {
         return null;
     }
 
-    private BackwardRule getRule(String[] splittedSignature) {
-        Map<String, Map<String, Map<String, BackwardRule>>> returnMap = getReturnFromObject(splittedSignature[0]);
+    private BackwardRule getRule(String[] signatureArray) {
+        Map<String, Map<String, Map<String, BackwardRule>>> returnMap = getReturnFromObject(signatureArray[0]);
         if (returnMap != null) {
-            Map<String, Map<String, BackwardRule>> methodMap = getMethodFromReturn(splittedSignature[1], returnMap);
+            Map<String, Map<String, BackwardRule>> methodMap = getMethodFromReturn(signatureArray[1], returnMap);
             if (methodMap != null) {
-                Map<String, BackwardRule> parameterMap = getParameterFromMethod(splittedSignature[2], methodMap);
+                Map<String, BackwardRule> parameterMap = getParameterFromMethod(signatureArray[2], methodMap);
                 if (parameterMap != null) {
-                    return getRuleFromParameter(splittedSignature[3], parameterMap);
+                    return getRuleFromParameter(signatureArray[3], parameterMap);
                 }
             }
         }
@@ -180,8 +180,8 @@ public class BackwardTracing {
         return rules.get(signature);
     }
 
-    public boolean isBaseIntrested(String msig) {
-        BackwardRule rule = getRule(msig);
+    public boolean isBaseInteresting(String methodSignature) {
+        BackwardRule rule = getRule(methodSignature);
         if (rule == null) {
             return false;
         }
@@ -189,15 +189,15 @@ public class BackwardTracing {
     }
 
 
-    public List<Integer> getInterestedArgIndexes(String msig, int argsLen) {
-        BackwardRule rule = getRule(msig);
+    public List<Integer> getInterestedArgIndexes(String methodSignature, int argsLen) {
+        BackwardRule rule = getRule(methodSignature);
         if (rule == null) {
             return null;
         }
         if (rule.isTaintAll()) {
             List<Integer> results = new LinkedList<>();
             //iterate over breaks
-            String parameters = msig.substring(msig.indexOf("("), msig.indexOf(")"));
+            String parameters = methodSignature.substring(methodSignature.indexOf("("), methodSignature.indexOf(")"));
             String[] parameterArray = parameters.split(",");
             for (int i = 0; i < argsLen; i++) {
                 if (!rule.getExcept().contains(parameterArray[i])) {
@@ -209,14 +209,6 @@ public class BackwardTracing {
 
         return rule.getInterestingArgs();
 
-    }
-
-    public List<String> getDataSrc(String msig) {
-        BackwardRule rule = getRule(msig);
-        if (rule == null) {
-            return null;
-        }
-        return rule.getSysApiSrc();
     }
 
     private String[] splitSignature(String methodSignature) {

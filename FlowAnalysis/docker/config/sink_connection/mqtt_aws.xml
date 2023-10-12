@@ -1,0 +1,40 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void &lt;init&gt;(java.lang.String,java.lang.String)">
+            <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void connect(java.security.KeyStore,com.amazonaws.mobileconnectors.iot.AWSIotMqttClientStatusCallback)">
+            <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishString(java.lang.String,java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos)">
+             <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishData(byte[],java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos,com.amazonaws.mobileconnectors.iot.AWSIotMqttMessageDeliveryCallback,java.lang.Object)">
+             <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void connect(com.amazonaws.auth.AWSCredentialsProvider,com.amazonaws.mobileconnectors.iot.AWSIotMqttClientStatusCallback)">
+            <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishData(byte[],java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos)">
+             <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager: void publishString(java.lang.String,java.lang.String,com.amazonaws.mobileconnectors.iot.AWSIotMqttQos,com.amazonaws.mobileconnectors.iot.AWSIotMqttMessageDeliveryCallback,java.lang.Object)">
+             <base type="com.amazonaws.mobileconnectors.iot.AWSIotMqttManager">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

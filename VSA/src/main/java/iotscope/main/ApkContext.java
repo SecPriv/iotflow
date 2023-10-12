@@ -77,7 +77,7 @@ public class ApkContext {
      */
     public String findResource(int id) {
 
-        String str = String.format("[XML String:%s]", id);
+        String str = "";
         try {
             str = arscFileParser.findResource(id).toString();
         } catch (Exception e) {

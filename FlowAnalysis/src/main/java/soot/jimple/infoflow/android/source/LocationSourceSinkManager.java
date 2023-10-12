@@ -20,7 +20,9 @@ import soot.jimple.infoflow.sourcesSinks.manager.SourceInfo;
 import soot.jimple.infoflow.util.SystemClassHandler;
 
 import java.util.*;
-
+/*
+ Source Sink Manager that consider the location if set in the sources and sinks
+ */
 public class LocationSourceSinkManager extends AccessPathBasedSourceSinkManager{
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -55,7 +57,7 @@ public class LocationSourceSinkManager extends AccessPathBasedSourceSinkManager{
     public LocationSourceSinkManager(Collection<? extends ISourceSinkDefinition> sources,
                                             Collection<? extends ISourceSinkDefinition> sinks, Set<AndroidCallbackDefinition> callbackMethods,
                                             InfoflowAndroidConfiguration config, Map<Integer, AndroidLayoutControl> layoutControls) {
-        super(sources, sinks, callbackMethods, config, layoutControls); //TODO: change
+        super(sources, sinks, callbackMethods, config, layoutControls);
     }
 
 

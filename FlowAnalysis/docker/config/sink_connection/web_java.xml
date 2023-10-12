@@ -1,0 +1,395 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,int,java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.URLConnection: void setRequestProperty(java.lang.String,java.lang.String)">
+            <base type="java.net.URLConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(java.lang.String)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.OutputStream: void write(byte[],int,int)">
+            <base type="java.io.OutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URLConnection: void addRequestProperty(java.lang.String,java.lang.String)">
+            <base type="java.net.URLConnection">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(boolean)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(java.lang.Object)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(double)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.BufferedWriter: void &lt;init&gt;(int)">
+            <base type="java.io.BufferedWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void write(int)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void write(int)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int,boolean)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(java.lang.Object)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void write(byte[],int,int)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeInt(int)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.BufferedWriter: void &lt;init&gt;(char[],int,int)">
+            <base type="java.io.BufferedWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(java.lang.Object)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(int)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeChar(int)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(char[])">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeUTF(java.lang.String)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeBytes(java.lang.String)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(char)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(float)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void write(byte[],int,int)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(boolean)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(char)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeDouble(double)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void write(java.lang.String,int,int)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeShort(int)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(double)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeBoolean(boolean)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.BufferedWriter: void &lt;init&gt;(java.lang.String,int,int)">
+            <base type="java.io.BufferedWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(char[])">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(int)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void write(char[],int,int)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: java.io.PrintWriter append(char)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void write(char[])">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(double)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.OutputStream: void write(byte[])">
+            <base type="java.io.OutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(java.lang.String)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(int)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(char[])">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int,boolean)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void write(java.lang.String)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeLong(long)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeChars(java.lang.String)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.lang.String,java.lang.String,int,java.lang.String,java.net.URLStreamHandler)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeFloat(float)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(long)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int,java.net.InetAddress,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.net.URL,java.lang.String,java.net.URLStreamHandler)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(java.lang.String)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.OutputStream: void write(int)">
+            <base type="java.io.OutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void write(int)">
+            <base type="java.io.OutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(long)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.lang.String,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(boolean)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(double)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.URL: void &lt;init&gt;(java.net.URL,java.lang.String)">
+            <base type="java.net.URL">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(java.lang.Object)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(char)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(java.lang.String)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: java.io.PrintStream append(char)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(char[])">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(long)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(char)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.net.Socket: void &lt;init&gt;(java.net.InetAddress,int,java.net.InetAddress,int)">
+            <base type="java.net.Socket">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void print(boolean)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(float)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void println(int)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.DataOutputStream: void writeByte(int)">
+            <base type="java.io.DataOutputStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(long)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintWriter: void println(float)">
+            <base type="java.io.PrintWriter">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="java.io.PrintStream: void print(float)">
+            <base type="java.io.PrintStream">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

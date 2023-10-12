@@ -1,0 +1,39 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="okhttp3.Call: void enqueue(okhttp3.Callback)">
+            <base type="okhttp3.Call">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="okhttp3.Request$Builder: okhttp3.Request$Builder url(okhttp3.HttpUrl)">
+            <return type="okhttp3.Request$Builder">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+            <base type="okhttp3.Request$Builder">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="okhttp3.Call: okhttp3.Response execute()">
+            <base type="okhttp3.Call">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="okhttp3.Request$Builder: okhttp3.Request$Builder url(java.net.URL)">
+            <return type="okhttp3.Request$Builder">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+            <base type="okhttp3.Request$Builder">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="okhttp3.Request$Builder: okhttp3.Request$Builder url(java.lang.String)">
+            <return type="okhttp3.Request$Builder">
+                <accessPath isSource="true" isSink="false" />
+            </return>
+            <base type="okhttp3.Request$Builder">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+    </category>
+</sinkSources>

@@ -136,12 +136,12 @@ public class HiveMqttTopic implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        if (rightop.getType().toString().equals("com.hivemq.client.mqtt.database.MqttTopicBuilder")) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        if (rightValue.getType().toString().equals("com.hivemq.client.mqtt.database.MqttTopicBuilder")) {
             HashSet<MqttTopicBuilder> tmp = new HashSet<>();
             tmp.add(MqttTopic.builder());
             return tmp;
-        } else if (rightop.getType().toString().equals("com.hivemq.client.mqtt.database.MqttTopicFilterBuilder")) {
+        } else if (rightValue.getType().toString().equals("com.hivemq.client.mqtt.database.MqttTopicFilterBuilder")) {
             HashSet<MqttTopicFilterBuilder> tmp = new HashSet<>();
             tmp.add(MqttTopicFilter.builder());
             return tmp;
@@ -150,18 +150,18 @@ public class HiveMqttTopic implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
 
         return null;
     }

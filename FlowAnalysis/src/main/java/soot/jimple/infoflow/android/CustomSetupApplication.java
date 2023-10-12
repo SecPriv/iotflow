@@ -17,7 +17,9 @@ import soot.jimple.infoflow.sourcesSinks.manager.ISourceSinkManager;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 import java.util.Set;
-
+/*
+ Setup application that uses the custom source sink manager
+ */
 public class CustomSetupApplication extends SetupApplication {
     public CustomSetupApplication(InfoflowAndroidConfiguration config) {
         super(config);

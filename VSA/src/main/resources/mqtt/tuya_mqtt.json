@@ -3,79 +3,79 @@
     [
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void <init>(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[],int[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String,com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String,int,com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[],com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[],int[],com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: com.tuya.smart.mqttclient.mqttv3.MqttTopic getTopic(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttMessage: void <init>(byte[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttMessage: void setPayload(byte[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,com.tuya.smart.mqttclient.mqttv3.MqttMessage)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,byte[],int,boolean)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: com.tuya.smart.mqttclient.mqttv3.IMqttToken subscribeWithResponse(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttClient: com.tuya.smart.mqttclient.mqttv3.IMqttToken subscribeWithResponse(java.lang.String[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setPassword(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setUserName(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setServerURIs(java.lang.String[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       }
     ]
 }

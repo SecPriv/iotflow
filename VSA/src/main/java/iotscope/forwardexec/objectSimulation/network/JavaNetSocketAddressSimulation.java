@@ -109,8 +109,6 @@ public class JavaNetSocketAddressSimulation implements SimulationObjects {
 
             }
             case "<java.net.InetSocketAddress: java.lang.String getHostString()>": {
-                Value to = ((InstanceInvokeExpr) expr).getBase();
-
                 HashSet<InetSocketAddress> p0 = SimulationUtil.getInetSocketAddress(expr.getArg(0), currentValues);
                 HashSet<String> stringResult = new HashSet<>();
 
@@ -121,8 +119,6 @@ public class JavaNetSocketAddressSimulation implements SimulationObjects {
 
             }
             case "<java.net.InetSocketAddress: java.lang.String toString()>": {
-                Value to = ((InstanceInvokeExpr) expr).getBase();
-
                 HashSet<InetSocketAddress> p0 = SimulationUtil.getInetSocketAddress(expr.getArg(0), currentValues);
                 HashSet<String> stringResult = new HashSet<>();
 
@@ -137,19 +133,19 @@ public class JavaNetSocketAddressSimulation implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignNewExpression(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
 
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightop, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignConstant(AssignStmt stmt, Value rightValue, Value leftOp, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 
     @Override
-    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
-        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightop);
+    public HashSet<?> handleAssignNewArrayExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
+        NewArrayExpr newArrayExpr = ((NewArrayExpr) rightValue);
         if (newArrayExpr.getBaseType().toString().equals("java.net.SocketAddress")) {
             return SimulationUtil.initArray(null, newArrayExpr, currentValues);
         }
@@ -157,7 +153,7 @@ public class JavaNetSocketAddressSimulation implements SimulationObjects {
     }
 
     @Override
-    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightop, HashMap<Value, HashSet<?>> currentValues) {
+    public HashSet<?> handleAssignArithmeticExpr(AssignStmt stmt, Value rightValue, HashMap<Value, HashSet<?>> currentValues) {
         return null;
     }
 

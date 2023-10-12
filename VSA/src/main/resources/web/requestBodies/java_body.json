@@ -3,276 +3,276 @@
     [
       {
         "method": "<java.net.URLConnection: void addRequestProperty(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<java.net.URLConnection: void setRequestProperty(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<java.io.BufferedWriter: void <init>(char[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.BufferedWriter: void <init>(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.BufferedWriter: void <init>(java.lang.String,int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: java.io.PrintWriter append(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintWriter: void println(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintWriter: void write(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(char[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(java.lang.String,int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintStream: java.io.PrintStream append(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintStream: void println(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintStream: void write(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void write(byte[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.DataOutputStream: void write(byte[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void write(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeBoolean(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeByte(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeBytes(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeChar(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.DataOutputStream: void writeChars(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeDouble(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeFloat(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeInt(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeLong(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeShort(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
       "method": "<java.io.DataOutputStream: void writeUTF(java.lang.String)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
       },
       {
         "method": "<java.io.OutputStream: void write(byte[])>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "findSubMethods": true
       },
       {
         "method": "<java.io.OutputStream: void write(int)>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "findSubMethods": true
       },
       {
         "method": "<java.io.OutputStream: void write(byte[],int,int)>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "findSubMethods": true
       }
     ]

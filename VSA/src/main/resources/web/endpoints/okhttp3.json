@@ -3,15 +3,15 @@
   [
     {
       "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder url(java.lang.String)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder url(okhttp3.HttpUrl)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     },
     {
       "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder url(java.net.URL)>",
-      "parmIndexs":[0]
+      "parameterIndexes":[0]
     }
   ]
 }

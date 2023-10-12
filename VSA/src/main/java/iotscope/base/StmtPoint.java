@@ -162,22 +162,6 @@ public class StmtPoint {
         return stmtPoints;
     }
 
-    public static List<StmtPoint> findObjectCreationForMissingHeapObjects(HashSet<Object> interestingVariables, List<Stmt> visited) {
-        List<StmtPoint> result = new ArrayList<>();
-        for (Object o : interestingVariables) {
-            if (o instanceof SootField) {
-                for (StmtPoint stmtPoint : findSetter((SootField) o)) {
-                    if (!visited.contains(stmtPoint.getInstructionLocation())) {
-                        result.add(stmtPoint);
-                    }
-                }
-            }
-
-        }
-        return result;
-    }
-
-
     public static List<StmtPoint> findSetter(SootField sootField) {
         List<StmtPoint> stmtPoints = new ArrayList<>();
 

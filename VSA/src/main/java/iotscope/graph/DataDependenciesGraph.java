@@ -8,24 +8,20 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- * Data dependence Graph
- * <p>
+ * DataDependenciesGraph
  * If  there  are  any  variables  that contribute to the computation of v0,
  * we add them to our data dependence  graph  (DDG)  and  meanwhile  push  the  involved instructions
  * and  variables  into  a  string  computation  stack
  */
-public class DataDependenceGraph {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DataDependenceGraph.class);
+public class DataDependenciesGraph {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataDependenciesGraph.class);
 
-    private final HashSet<IDataDependenceGraphNode> nodes = new HashSet<>();
+    private final HashSet<IDataDependenciesGraphNode> nodes = new HashSet<>();
 
-    public void addNode(IDataDependenceGraphNode node) {
+    public void addNode(IDataDependenciesGraphNode node) {
         nodes.add(node);
     }
 
-    public HashSet<IDataDependenceGraphNode> getNodes() {
-        return nodes;
-    }
 
     public void solve(List<ValuePoint> valuePoints) {
         for (ValuePoint valuePoint : valuePoints) {
@@ -34,14 +30,14 @@ public class DataDependenceGraph {
 
         while (true) {
             initAllIfNeed();
-            IDataDependenceGraphNode tnode = getNextSolvableNode();
+            IDataDependenciesGraphNode node = getNextSolvableNode();
 
             if (hasSolvedAllTarget(valuePoints)) {
                 LOGGER.info("[DONE]: Solved All Value Points!");
                 return;
             }
 
-            if (tnode == null) {
+            if (node == null) {
                 LOGGER.info("[DONE]: No Solvable Node Left!");
                 if (partiallySolvableNodesLeft()) {
                     continue;
@@ -50,7 +46,7 @@ public class DataDependenceGraph {
                     return;
                 }
             }
-            tnode.solve();
+            node.solve();
 
         }
     }
@@ -60,8 +56,8 @@ public class DataDependenceGraph {
      */
     private void initAllIfNeed() {
         while (true) {
-            IDataDependenceGraphNode whoNeedInit = null;
-            for (IDataDependenceGraphNode tmp : this.nodes) {
+            IDataDependenciesGraphNode whoNeedInit = null;
+            for (IDataDependenciesGraphNode tmp : this.nodes) {
                 if (!tmp.inited()) {
                     whoNeedInit = tmp;
                     break;
@@ -70,12 +66,12 @@ public class DataDependenceGraph {
             if (whoNeedInit == null) {
                 return;
             }
-            whoNeedInit.initIfHavenot();
+            whoNeedInit.initIfHaveNot();
         }
     }
 
-    private IDataDependenceGraphNode getNextSolvableNode() {
-        for (IDataDependenceGraphNode tmp : this.nodes) {
+    private IDataDependenciesGraphNode getNextSolvableNode() {
+        for (IDataDependenciesGraphNode tmp : this.nodes) {
             if (tmp.getUnsovledDependentsCount() == 0 && !tmp.hasSolved()) {
                 return tmp;
             }
@@ -89,7 +85,7 @@ public class DataDependenceGraph {
      * @return true in case there is such node
      */
     private boolean partiallySolvableNodesLeft() {
-        for (IDataDependenceGraphNode tmp : this.nodes) {
+        for (IDataDependenciesGraphNode tmp : this.nodes) {
             //added not solved check otherwise some results are added twice
             if (!tmp.hasSolved() && tmp.canBePartiallySolve()) {
                 return true;
@@ -112,18 +108,4 @@ public class DataDependenceGraph {
         return true;
     }
 
-    public JSONObject toJson() {
-        JSONObject result = new JSONObject();
-        JSONObject jnodes = new JSONObject();
-        JSONObject jedges = new JSONObject();
-        for (IDataDependenceGraphNode node : nodes) {
-            jnodes.put(node.hashCode() + "", node.getClass().getSimpleName());
-            for (IDataDependenceGraphNode subn : node.getDependents()) {
-                jedges.append(node.hashCode() + "", subn.hashCode() + "");
-            }
-        }
-        result.put("nodes", jnodes);
-        result.put("edges", jedges);
-        return result;
-    }
 }

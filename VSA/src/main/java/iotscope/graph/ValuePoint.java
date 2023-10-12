@@ -19,11 +19,11 @@ import soot.toolkits.graph.Block;
 
 import java.util.*;
 
-public class ValuePoint implements IDataDependenceGraphNode {
+public class ValuePoint implements IDataDependenciesGraphNode {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ValuePoint.class);
 
-    private final DataDependenceGraph dataGraph;
+    private final DataDependenciesGraph dataGraph;
 
     private final SootMethod methodLocation;
     private final Block blockLocation;
@@ -42,13 +42,13 @@ public class ValuePoint implements IDataDependenceGraphNode {
     private boolean solved = false;
 
     /**
-     * @param graph               DataDependenceGrap
+     * @param graph               DataDependenciesGraph
      * @param methodLocation      method of this ValuePoint (same as StmtPoint)
      * @param blockLocation       block of this ValuePoint (same as StmtPoint)
      * @param instructionLocation instruction of this ValuePoint (same as StmtPoint)
      * @param regIndex            parameter index of "interesting" value
      */
-    public ValuePoint(DataDependenceGraph graph, SootMethod methodLocation, Block blockLocation, Unit instructionLocation, List<Integer> regIndex) {
+    public ValuePoint(DataDependenciesGraph graph, SootMethod methodLocation, Block blockLocation, Unit instructionLocation, List<Integer> regIndex) {
         this.dataGraph = graph;
         this.methodLocation = methodLocation;
         this.blockLocation = blockLocation;
@@ -60,10 +60,6 @@ public class ValuePoint implements IDataDependenceGraphNode {
 
     public void setCreatingHeapObject(HeapObject creatingHeapObjects) {
         this.creatingHeapObject = (creatingHeapObjects);
-    }
-
-    public DataDependenceGraph getDataGraph() {
-        return this.dataGraph;
     }
 
     public List<BackwardContext> getBackwardContexts() {
@@ -91,8 +87,8 @@ public class ValuePoint implements IDataDependenceGraphNode {
     }
 
     @Override
-    public Set<IDataDependenceGraphNode> getDependents() {
-        HashSet<IDataDependenceGraphNode> dependents = new HashSet<>();
+    public Set<IDataDependenciesGraphNode> getDependents() {
+        HashSet<IDataDependenciesGraphNode> dependents = new HashSet<>();
         if (backwardContexts != null) {
             for (BackwardContext backwardContext : backwardContexts) {
                 HashSet<HeapObject> heapObjects = backwardContext.getDependentHeapObjects();
@@ -105,12 +101,12 @@ public class ValuePoint implements IDataDependenceGraphNode {
     @Override
     public int getUnsovledDependentsCount() {
         int count = 0;
-        for (IDataDependenceGraphNode node : getDependents()) {
+        for (IDataDependenciesGraphNode node : getDependents()) {
             if (!node.hasSolved()) {
                 count++;
             }
         }
-        LOGGER.debug(this.hashCode() + "[] unsolved dependences" + count + " " + backwardContexts.size());
+        LOGGER.debug(this.hashCode() + "[] unsolved dependencies" + count + " " + backwardContexts.size());
         return count;
     }
 
@@ -126,14 +122,14 @@ public class ValuePoint implements IDataDependenceGraphNode {
         boolean can = false;
         for (BackwardContext bc : backwardContexts) {
             if (!solvedBCs.contains(bc)) {
-                boolean dsolved = true;
+                boolean tmpSolved = true;
                 for (HeapObject ho : bc.getDependentHeapObjects()) {
                     if (!ho.hasSolved() && (creatingHeapObject == null || !creatingHeapObject.equals(ho))) {
-                        dsolved = false;
+                        tmpSolved = false;
                         break;
                     }
                 }
-                if (dsolved) {
+                if (tmpSolved) {
                     solvedBCs.add(bc);
                     can = true;
                     SimulateEngine tmp = new SimulateEngine(dataGraph, bc);
@@ -162,12 +158,12 @@ public class ValuePoint implements IDataDependenceGraphNode {
     }
 
     public void mergeResult(BackwardContext var, SimulateEngine tmp) {
-        HashMap<Value, HashSet<? extends Object>> sval = tmp.getCurrentValues();
+        HashMap<Value, HashSet<? extends Object>> tmpCurrentValues = tmp.getCurrentValues();
         Value reg;
         for (int i : targetParams) {
-            if (i == -1) { //Rightpart
+            if (i == -1) { //Right part
                 reg = ((AssignStmt) var.getStmtPathTail()).getRightOp();
-            } else if (i == -2) { //Baseobject
+            } else if (i == -2) { //Base object
                 if (((Stmt) var.getStmtPathTail()).getInvokeExpr() instanceof InstanceInvokeExpr) {
                     reg = ((InstanceInvokeExpr) ((Stmt) var.getStmtPathTail()).getInvokeExpr()).getBase();
                 } else {
@@ -177,12 +173,12 @@ public class ValuePoint implements IDataDependenceGraphNode {
                 reg = ((Stmt) var.getStmtPathTail()).getInvokeExpr().getArg(i);
             }
             HashSet<?> toAdd = null;
-            if (sval.containsKey(reg)) {
+            if (tmpCurrentValues.containsKey(reg)) {
                 try {
-                    toAdd = (HashSet<?>) sval.get(reg).clone();
+                    toAdd = (HashSet<?>) tmpCurrentValues.get(reg).clone();
                 } catch (Throwable e) {
                     //cannot do much
-                    toAdd = sval.get(reg);
+                    toAdd = tmpCurrentValues.get(reg);
                 }
 
             } else if (reg instanceof StringConstant) {
@@ -208,14 +204,6 @@ public class ValuePoint implements IDataDependenceGraphNode {
             }
 
             if (toAdd != null) {
-              /*  try {
-                    Set<Object> currentSet = result.getOrDefault(i, new HashSet<>());
-                    result.put(i, currentSet);
-                } catch (Throwable e) {
-                    LOGGER.error("Could not add to the result {}", e.getLocalizedMessage());
-
-                }*/
-
                 try {
                     Set<Object> currentSet = result.getOrDefault(i, new HashSet<>());
                     Set<String> currentStringRepresentation = StringHelper.getStringRepresentations(currentSet);
@@ -243,7 +231,7 @@ public class ValuePoint implements IDataDependenceGraphNode {
     }
 
     @Override
-    public void initIfHavenot() {
+    public void initIfHaveNot() {
         inited = true;
 
         backwardContexts = BackwardController.getInstance().doBackWard(this, dataGraph);
@@ -262,11 +250,12 @@ public class ValuePoint implements IDataDependenceGraphNode {
      * @param regIndex  parameter indexes to taint
      * @return matching value points
      */
-    public static Set<ValuePoint> find(DataDependenceGraph dataGraph, String signature, List<Integer> regIndex, boolean finSubMethods) {
+    public static Set<ValuePoint> find(DataDependenciesGraph dataGraph, String signature, List<Integer> regIndex, boolean finSubMethods) {
         Set<ValuePoint> valuePoints = new HashSet<>();
 
         List<StmtPoint> stmtPoints = StmtPoint.findCaller(signature, finSubMethods);
         for (StmtPoint sp : stmtPoints) {
+            // Comment in for debugging and analyze only a specific value point
             //if (sp.getMethodLocation().toString().equals("<com.baidu.lbsapi.auth.LBSAuthManager: void a(java.lang.String,java.lang.String)>")) {
             ValuePoint tmp = new ValuePoint(dataGraph, sp.getMethodLocation(), sp.getBlockLocation(), sp.getInstructionLocation(), regIndex);
             valuePoints.add(tmp);
@@ -305,7 +294,7 @@ public class ValuePoint implements IDataDependenceGraphNode {
         sb.append("Target: ").append(instructionLocation.toString()).append("\n");
         sb.append("Solved: ").append(hasSolved()).append("\n");
         sb.append("Depend: ");
-        for (IDataDependenceGraphNode var : this.getDependents()) {
+        for (IDataDependenciesGraphNode var : this.getDependents()) {
             sb.append(var.hashCode());
             sb.append(", ");
         }
@@ -313,11 +302,11 @@ public class ValuePoint implements IDataDependenceGraphNode {
         sb.append("BackwardContexts: \n");
 
         sb.append("ValueSet: \n");
-        Map<Integer, Set<Object>> resl = result;
+        Map<Integer, Set<Object>> resultMap = result;
         sb.append("  ");
-        for (int i : resl.keySet()) {
+        for (int i : resultMap.keySet()) {
             sb.append(" |").append(i).append(":");
-            for (Object str : resl.get(i)) {
+            for (Object str : resultMap.get(i)) {
                 sb.append(str == null ? "" : str.toString()).append(",");
             }
         }
@@ -352,8 +341,6 @@ public class ValuePoint implements IDataDependenceGraphNode {
         js.put("SootMethod", this.getMethodLocation().toString());
         try {
             js.put("startLineNumber", this.getInstructionLocation().getJavaSourceStartLineNumber());
-            //js.put("startColumnNumber", this.getInstructionLocation().getJavaSourceStartColumnNumber());
-            //js.put("offset", ((BytecodeOffsetTag) this.getMethodLocation().getTag("BytecodeOffsetTag")).getBytecodeOffset());
         } catch (Throwable e) {
             LOGGER.error(String.format("Could not add offset of %s", this.getInstructionLocation().toString()));
         }
@@ -389,9 +376,9 @@ public class ValuePoint implements IDataDependenceGraphNode {
 
 
     @Override
-    public Set<IDataDependenceGraphNode> getDirectAndIndirectDependents
-            (Set<IDataDependenceGraphNode> nodesToGetDependents) {
-        for (IDataDependenceGraphNode node : this.getDependents()) {
+    public Set<IDataDependenciesGraphNode> getDirectAndIndirectDependents
+            (Set<IDataDependenciesGraphNode> nodesToGetDependents) {
+        for (IDataDependenciesGraphNode node : this.getDependents()) {
             if (!nodesToGetDependents.contains(node)) {
                 nodesToGetDependents.add(node);
                 node.getDirectAndIndirectDependents(nodesToGetDependents);

@@ -4,7 +4,7 @@ package soot.jimple.infoflow.android.source.parsers.xml;
  * Class containing the constant attribute and tag names used in the XML-based
  * source and sink definition files
  *
- * @author Steven Arzt
+ * Modified (XMLConstants) XML constants to allow exact method locations.
  *
  */
 public class CustomXMLConstants {

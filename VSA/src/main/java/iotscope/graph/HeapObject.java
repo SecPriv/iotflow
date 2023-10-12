@@ -9,11 +9,11 @@ import soot.tagkit.*;
 
 import java.util.*;
 
-public class HeapObject implements IDataDependenceGraphNode {
+public class HeapObject implements IDataDependenciesGraphNode {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HeapObject.class);
 
-    private final DataDependenceGraph dataGraph;
+    private final DataDependenciesGraph dataGraph;
 
     private final SootField sootField;
     private boolean inited = false;
@@ -25,14 +25,14 @@ public class HeapObject implements IDataDependenceGraphNode {
 
     private final Map<Integer, Set<Object>> result = new HashMap<>();
 
-    private HeapObject(DataDependenceGraph dataGraph, SootField sootField) {
+    private HeapObject(DataDependenciesGraph dataGraph, SootField sootField) {
         this.dataGraph = dataGraph;
         this.sootField = sootField;
     }
 
     private final static HashMap<String, HeapObject> HEAP_OBJECT_HASH_MAP = new HashMap<>();
 
-    public static HeapObject getInstance(DataDependenceGraph dataGraph, SootField sootField) {
+    public static HeapObject getInstance(DataDependenciesGraph dataGraph, SootField sootField) {
         if (sootField == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class HeapObject implements IDataDependenceGraphNode {
 
 
     @Override
-    public Set<IDataDependenceGraphNode> getDependents() {
+    public Set<IDataDependenciesGraphNode> getDependents() {
         return new HashSet<>(valuePoints);
 
     }
@@ -53,7 +53,7 @@ public class HeapObject implements IDataDependenceGraphNode {
     @Override
     public int getUnsovledDependentsCount() {
         int count = 0;
-        for (IDataDependenceGraphNode vp : getDependents()) {
+        for (IDataDependenciesGraphNode vp : getDependents()) {
             if (!vp.hasSolved()) {
                 count++;
             }
@@ -138,7 +138,7 @@ public class HeapObject implements IDataDependenceGraphNode {
     }
 
     @Override
-    public void initIfHavenot() {
+    public void initIfHaveNot() {
         this.valuePoints = new ArrayList<>();
         if (this.sootField.getDeclaringClass().isEnum()) {
             Object toAdd = ReflectionHelper.getEnumObject(sootField, sootField.getDeclaringClass().getName());
@@ -192,15 +192,15 @@ public class HeapObject implements IDataDependenceGraphNode {
     }
 
     @Override
-    public Set<IDataDependenceGraphNode> getDirectAndIndirectDependents
-            (Set<IDataDependenceGraphNode> nodesToGetDependences) {
-        for (IDataDependenceGraphNode i : this.getDependents()) {
-            if (!nodesToGetDependences.contains(i)) {
-                nodesToGetDependences.add(i);
-                i.getDirectAndIndirectDependents(nodesToGetDependences);
+    public Set<IDataDependenciesGraphNode> getDirectAndIndirectDependents
+            (Set<IDataDependenciesGraphNode> nodesToGetDependencies) {
+        for (IDataDependenciesGraphNode i : this.getDependents()) {
+            if (!nodesToGetDependencies.contains(i)) {
+                nodesToGetDependencies.add(i);
+                i.getDirectAndIndirectDependents(nodesToGetDependencies);
             }
         }
-        return nodesToGetDependences;
+        return nodesToGetDependencies;
     }
 
     @Override
@@ -243,17 +243,17 @@ public class HeapObject implements IDataDependenceGraphNode {
         sb.append("Field: ").append(sootField).append("\n");
         sb.append("Solved: ").append(hasSolved()).append("\n");
         sb.append("Depend: ");
-        for (IDataDependenceGraphNode var : this.getDependents()) {
+        for (IDataDependenciesGraphNode var : this.getDependents()) {
             sb.append(var.hashCode());
             sb.append(", ");
         }
         sb.append("\n");
         sb.append("ValueSet: \n");
-        Map<Integer, Set<Object>> resl = result;
+        Map<Integer, Set<Object>> resultMap = result;
         sb.append("  ");
-        for (int i : resl.keySet()) {
+        for (int i : resultMap.keySet()) {
             sb.append(" |").append(i).append(":");
-            for (Object str : resl.get(i)) {
+            for (Object str : resultMap.get(i)) {
                 sb.append(str == null ? "" : str.toString()).append(",");
             }
         }

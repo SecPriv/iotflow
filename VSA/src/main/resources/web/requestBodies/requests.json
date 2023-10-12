@@ -3,456 +3,456 @@
     [
       {
         "method": "<org.apache.http.client.methods.HttpGet: void setEntity(org.apache.hc.core5.http.HttpEntity)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<org.apache.http.client.methods.HttpPost: void setEntity(org.apache.hc.core5.http.HttpEntity)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<org.apache.http.client.methods.HttpDelete: void setEntity(org.apache.hc.core5.http.HttpEntity)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<org.apache.http.client.methods.HttpPut: void setEntity(org.apache.hc.core5.http.HttpEntity)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<org.apache.http.client.methods.HttpGet: void addHeader(java.lang.String,java.lang.Object)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<org.apache.http.client.methods.HttpPost: void addHeader(java.lang.String,java.lang.Object)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<org.apache.http.client.methods.HttpDelete: void addHeader(java.lang.String,java.lang.Object)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<org.apache.http.client.methods.HttpPut: void addHeader(java.lang.String,java.lang.Object)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<java.net.URLConnection: void addRequestProperty(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<java.net.URLConnection: void setRequestProperty(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method": "<java.io.BufferedWriter: void <init>(char[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.BufferedWriter: void <init>(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.BufferedWriter: void <init>(java.lang.String,int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: java.io.PrintWriter append(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void print(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintWriter: void println(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void println(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintWriter: void write(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(char[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintWriter: void write(java.lang.String,int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintStream: java.io.PrintStream append(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void print(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintStream: void println(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(char)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(char[])>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(java.lang.Object)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void println(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.PrintStream: void write(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.PrintStream: void write(byte[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.DataOutputStream: void write(byte[],int,int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void write(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeBoolean(boolean)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeByte(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeBytes(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeChar(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
 
       {
         "method": "<java.io.DataOutputStream: void writeChars(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeDouble(double)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeFloat(float)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeInt(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeLong(long)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeShort(int)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.DataOutputStream: void writeUTF(java.lang.String)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<java.io.OutputStream: void write(byte[])>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "findSubMethods": true
       },
       {
         "method": "<java.io.OutputStream: void write(int)>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "findSubMethods": true
       },
       {
         "method": "<java.io.OutputStream: void write(byte[],int,int)>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "findSubMethods": true
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[3]
+        "parameterIndexes":[3]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)>",
-        "parmIndexs":[1]
+        "parameterIndexes":[1]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3]
+        "parameterIndexes":[2,3]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3,4]
+        "parameterIndexes":[2,3,4]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)>",
-        "parmIndexs":[1]
+        "parameterIndexes":[1]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3]
+        "parameterIndexes":[2,3]
       },
       {
         "method": "<com.loopj.android.http.AsyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3]
+        "parameterIndexes":[2,3]
       },
 
 
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[3]
+        "parameterIndexes":[3]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle get(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)>",
-        "parmIndexs":[1]
+        "parameterIndexes":[1]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle get(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3]
+        "parameterIndexes":[2,3]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle post(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3,4]
+        "parameterIndexes":[2,3,4]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle put(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)>",
-        "parmIndexs":[1]
+        "parameterIndexes":[1]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.Header[],com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3]
+        "parameterIndexes":[2,3]
       },
       {
         "method": "<com.loopj.android.http.SyncHttpClient: com.loopj.android.http.RequestHandle put(android.content.Context,java.lang.String,cz.msebera.android.httpclient.HttpEntity,java.lang.String,com.loopj.android.http.ResponseHandlerInterface)>",
-        "parmIndexs":[2,3]
+        "parameterIndexes":[2,3]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder addHeader(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder delete(okhttp3.RequestBody)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder header(java.lang.String,java.lang.String)>",
-        "parmIndexs":[0,1]
+        "parameterIndexes":[0,1]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder patch(okhttp3.RequestBody)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder post(okhttp3.RequestBody)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder put(okhttp3.RequestBody)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<okhttp3.Request$Builder: okhttp3.Request$Builder headers(okhttp3.Headers)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<retrofit2.Retrofit$Builder: retrofit2.Retrofit$Builder baseUrl(java.lang.String)>",
-        "parmIndexs":[0],
+        "parameterIndexes":[0],
         "todo": "retrofit needs own handling"
       },
       {
         "method":"<retrofit2.Retrofit$Builder: retrofit2.Retrofit$Builder baseUrl(okhttp3.HttpUrl)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method":"<retrofit2.Retrofit$Builder: retrofit2.Retrofit$Builder baseUrl(java.net.URL)>",
-        "parmIndexs":[0]
+        "parameterIndexes":[0]
       },
       {
         "method": "<com.android.volley.Request: byte[] getBody()>",
-        "parmIndexs":[-2]
+        "parameterIndexes":[-2]
       },
       {
         "method": "<com.android.volley.Request: java.util.Map getParams()>",
-        "parmIndexs":[-2]
+        "parameterIndexes":[-2]
       },
       {
         "method": "<com.android.volley.toolbox.JsonObjectRequest: void <init>(int,java.lang.String,org.json.JSONObject,com.android.volley.Response$Listener,com.android.volley.Response$ErrorListener)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.android.volley.toolbox.JsonObjectRequest: void <init>(int,java.lang.String,org.json.JSONArray,com.android.volley.Response$Listener,com.android.volley.Response$ErrorListener)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.android.volley.toolbox.JsonArrayRequest: void <init>(int,java.lang.String,org.json.JSONArray,com.android.volley.Response$Listener,com.android.volley.Response$ErrorListener)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       },
       {
         "method": "<com.android.volley.toolbox.JsonArrayRequest: void <init>(int,java.lang.String,org.json.JSONObject,com.android.volley.Response$Listener,com.android.volley.Response$ErrorListener)>",
-        "parmIndexs":[2]
+        "parameterIndexes":[2]
       }
     ]
 }

@@ -3,7 +3,7 @@ package iotscope.main;
 import iotscope.backwardslicing.BackwardTracing;
 import iotscope.base.StmtPoint;
 import iotscope.graph.CallGraph;
-import iotscope.graph.DataDependenceGraph;
+import iotscope.graph.DataDependenciesGraph;
 import iotscope.graph.ValuePoint;
 import iotscope.utility.*;
 import iotscope.utility.unknownScheme.CustomURLStreamHandlerFactory;
@@ -76,29 +76,29 @@ public class Main {
     private static List<ValuePoint> getAllSolvedValuePoints(JSONObject targetMethods, Thread t, String apk) {
 
         // Data Graph creation
-        DataDependenceGraph dataGraph = new DataDependenceGraph();
+        DataDependenciesGraph dataGraph = new DataDependenciesGraph();
 
         List<ValuePoint> allValuePoints = new ArrayList<>();
         LOGGER.info("looking for method signatures to trace");
-        for (Object jobj : targetMethods.getJSONArray("methods")) {
+        for (Object jsonObject : targetMethods.getJSONArray("methods")) {
 
-            JSONObject tmp = (JSONObject) jobj;
+            JSONObject tmp = (JSONObject) jsonObject;
 
-            String tmpSigantureOfMethod = tmp.getString("method");
+            String tmpSignatureOfMethod = tmp.getString("method");
 
             //param indexes to trace
             List<Integer> regIndex = new ArrayList<>();
-            for (Object tob : tmp.getJSONArray("parmIndexs")) {
+            for (Object tob : tmp.getJSONArray("parameterIndexes")) {
                 regIndex.add((Integer) tob);
             }
 
             boolean findSubMethods = tmp.has("findSubMethods") && tmp.getBoolean("findSubMethods");
             StmtPoint.createAnnotationMap();
             //match method signature and reg index
-            Set<ValuePoint> valuePoints = ValuePoint.find(dataGraph, tmpSigantureOfMethod, regIndex, findSubMethods);
+            Set<ValuePoint> valuePoints = ValuePoint.find(dataGraph, tmpSignatureOfMethod, regIndex, findSubMethods);
             for (ValuePoint valuePoint : valuePoints) {
                 tmp = new JSONObject();
-                tmp.put("sigatureInApp", tmpSigantureOfMethod);
+                tmp.put("signatureInApp", tmpSignatureOfMethod);
                 valuePoint.setAppendix(tmp);
                 LOGGER.info("found ValuePoint {}", valuePoint.getPrintableValuePoint());
             }
@@ -177,7 +177,7 @@ public class Main {
             writer.write("\"timeoutbackward\": \"" + (Config.TIMEOUT_BACKWARDS) + "\", ");
             writer.write("\"timeoutforward\": \"" + (Config.TIMEOUT_FORWARD) + "\", ");
 
-            writer.write("\"pname\": \"" + apk + "\", ");
+            writer.write("\"packagename\": \"" + apk + "\", ");
             writer.write("\"initTime\": \"" + (initTime - startTime) + "\", ");
             writer.write("\"solveTime\": \"" + (endTime - initTime) + "\"}");
 
@@ -300,7 +300,7 @@ public class Main {
         // load exclusion list
         List<String> exclusionList = new ArrayList<>();
         if (cmd.getOptionValue(CommandLineOptions.exclusion) != null) {
-            LOGGER.info("loading exlusion list");
+            LOGGER.info("loading exclusion list");
             JSONObject exclusionJSON = new JSONObject(new String(Files.readAllBytes(Paths.get(cmd.getOptionValue(CommandLineOptions.exclusion)))));
             JSONArray jsonArray = exclusionJSON.getJSONArray("exclude");
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -365,7 +365,6 @@ public class Main {
         } else {
             Options.v().set_output_format(Options.output_format_none);
         }
-        //TODO: test for offset
         Options.v().set_keep_line_number(true);
         //Options.v().set_keep_offset(true);
         Options.v().ignore_resolution_errors();

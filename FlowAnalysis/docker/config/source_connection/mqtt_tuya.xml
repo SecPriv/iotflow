@@ -1,0 +1,100 @@
+<sinkSources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="SourcesAndSinks.xsd">
+    <category id="NO_CATEGORY" customId="WHATEVER" description="Something goes here">
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String,int)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: com.tuya.smart.mqttclient.mqttv3.IMqttToken subscribeWithResponse(java.lang.String)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setPassword(char[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[],com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String,int,com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void &lt;init&gt;(java.lang.String,java.lang.String)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttMessage: void &lt;init&gt;(byte[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[],int[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[],int[],com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,com.tuya.smart.mqttclient.mqttv3.MqttMessage)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: com.tuya.smart.mqttclient.mqttv3.MqttTopic getTopic(java.lang.String)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void publish(java.lang.String,byte[],int,boolean)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: com.tuya.smart.mqttclient.mqttv3.IMqttToken subscribeWithResponse(java.lang.String[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setUserName(java.lang.String)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions: void setServerURIs(java.lang.String[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttConnectOptions">
+                <accessPath isSource="true" isSink="false" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttMessage: void setPayload(byte[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttMessage">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String[])">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+        <method signature="com.tuya.smart.mqttclient.mqttv3.MqttClient: void subscribe(java.lang.String,com.tuya.smart.mqttclient.mqttv3.IMqttMessageListener)">
+            <base type="com.tuya.smart.mqttclient.mqttv3.MqttClient">
+                <accessPath isSource="false" isSink="true" />
+            </base>
+        </method>
+    </category>
+</sinkSources>
