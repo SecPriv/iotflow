@@ -20,7 +20,7 @@ flowdroid_path = "/analysis/iotflow.jar"
 platform = "/analysis/dependencies/android-31.jar"
 easy_taintwrapper = "/analysis/config/easy_tain_wrapper.txt"
 summary_taintwrapper = "/analysis/config/summariesManual/"
-dex2jar = "/analysis/dependencies/dex-tools-2.1/d2j-dex2jar.sh"
+dex2jar = "/analysis/dependencies/dex_tools_2.1/d2j-dex2jar.sh"
 iotscope_sources = "/analysis/config/iotscope/source.json"
 iotscope_sinks = "/analysis/config/iotscope/sink.json"
 sources_sinks_from_ble = "/analysis/config/bl_config.xml"
@@ -522,7 +522,6 @@ def get_local_value_points(data: List[ValuePoint]):
             elif has_local_address(value):
                 result.add(value_point)
                 break
-            # TODO: maybe add UPNP -> look at results
     return result
 
 
@@ -545,7 +544,7 @@ def iot_scope_runs(apk, args):
     ##"iotscope/webview.json"
     for config in configs:
         output = f"{args.output_path}/{config.replace('.json', '')}/{get_package_name(args.apk_path)}.json"
-        process = run_iotscope(apk, f"/home/dschmidt/config/iotscope/{config}",
+        process = run_iotscope(apk, f"/analysis/config/iotscope/{config}",
                                output,
                                args.max_memory_iotscope, args.timeout)
         if process is not None:
@@ -637,9 +636,9 @@ def main():
                         default=sinks_from_icc)
 
     parser.add_argument("-igc", "--iotflow-general-config", help="Path to the iotflow bluetooth source", type=str,
-                        default="/home/dschmidt/config/general.xml")
+                        default="/analysis/config/general.xml")
     parser.add_argument("-ilc", "--iotflow-local-config", help="Path to the iotflow bluetooth source", type=str,
-                        default="/home/dschmidt/config/local.xml")
+                        default="/analysis/config/local.xml")
 
     parser.add_argument("-sd", "--skip-deobfuscation", help="Skip the deobfuscation step", action='store_true')
 

@@ -4,16 +4,16 @@ services:
       context: .
     command: ["sh", "./run.sh"]
     volumes:
-      - apps_to_analyze:/apps_to_analyze/
-      - results:/results/
+      - apps_to_analyze_vsa:/apps_to_analyze/
+      - results_vsa:/results/
 volumes:
-  apps_to_analyze:
+  apps_to_analyze_vsa:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
       device: './apps_to_analyze/'
-  results:
+  results_vsa:
     driver: local
     driver_opts:
       type: 'none'

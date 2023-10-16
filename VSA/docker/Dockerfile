@@ -6,4 +6,3 @@ COPY ./config/ ./config/
 COPY ./execute_vsa.sh ./
 COPY ./run.sh ./
 COPY ./vsa.jar ./
-#CMD ["sh", "run.sh"]

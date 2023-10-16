@@ -1,19 +1,19 @@
 services:
-  vsa_docker:
+  dfa_docker:
     build:
       context: .
     command: ["sh", "./run.sh"]
     volumes:
-      - apps_to_analyze:/apps_to_analyze/
-      - results:/results/
+      - apps_to_analyze_dfa:/apps_to_analyze/
+      - results_dfa:/results/
 volumes:
-  apps_to_analyze:
+  apps_to_analyze_dfa:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
       device: './apps_to_analyze/'
-  results:
+  results_dfa:
     driver: local
     driver_opts:
       type: 'none'

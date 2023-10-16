@@ -21,15 +21,7 @@
 | Wiz Colour          | Light Bulb        | com.tao.wiz                 |
 
 
-## Unique Domains and Paths
-Comparison of unique domains and paths reconstructed to the ones extracted from the network traffic during automatic and manual testing. The numbers represent unique domains and paths over all apps. The Overlap % compares the domains extracted from the manual testing to the ones the VSA found, and Monkey triggered.
 
-|               | **IoTFlow**       | **Monkey**      | **Manual Testing**     |
-|---------------|-------------------|-----------------|------------------------|
-| Total Domains | 152               | 88              | 179                    |
-| Valid Domains | 126               | -               | -                      |
-| Overlap (%)   | 35 (19.55%)       | 62 (34.64%)     | 179 (100%)             |
-| Total Paths   | 469               | 224             | 736                    |
 
 
 
@@ -75,3 +67,12 @@ We report the list of the 13 IoT devices with the total numbers of domains and p
 
 
 
+## Unique Domains and Paths
+Comparison of unique domains and paths reconstructed to the ones extracted from the network traffic during automatic and manual testing. The Overlap % compares the domains extracted from the manual testing to the ones the VSA found, and Monkey triggered.
+The numbers represent *unique* domains and paths *over all apps*.
+
+|               | **IoTFlow**       | **Monkey**      | **Manual Testing**     |
+|---------------|-------------------|-----------------|------------------------|
+| Total Domains | 152               | 88              | 179                    |
+| Overlap (%)   | 35 (19.55%)       | 62 (34.64%)     | 179 (100%)             |
+| Total Paths   | 469               | 224             | 736                    |
