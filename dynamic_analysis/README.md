@@ -76,3 +76,12 @@ The numbers represent *unique* domains and paths *over all apps*.
 | Total Domains | 152               | 88              | 179                    |
 | Overlap (%)   | 35 (19.55%)       | 62 (34.64%)     | 179 (100%)             |
 | Total Paths   | 469               | 224             | 736                    |
+
+## Scripts
+
+1. We perform automated tests on the devices using Frida to bypass certificate pinning both using Monkey (`test_monkey_automated.py`) and by manually interacting (`test_manual_automated.py`) with the companion app installed on an Android Pixel phone. We additionally provide the iptables rules we used to forward the traffic to the proxy (`iptables.sh` and `iptables_stop.sh`)
+2. After capturing the traffic, we convert mitdumps into txt traffic and extract URLs and paths from mitmproxy traffic for both manual and monkey interactions: `extract_urls_paths_bodies_from_mitmproxy_traffic.py`
+3. We extract and filter IoTFlow's URLs and paths: `extract_urls_from_reconstructed_values.py` and `remove_artifacts_from_reconstructed_paths.py`
+4. We perform endpoint categories analysis (e.g., Advertisement) for TLDs and full domains for both endpoints collected while manually interacting with the devices and the ones reconstructed by IoTFlow: all the scripts can be found in the folder `endpoint_categories/`
+5. We perform full string matching between values reconstructed by IoTFlow and values found in our dynamic traffic capture with mitmproxy `compare_full_match.py`
+6. We finally create the CSVs we use for manual analysis: `create_csv.py`
