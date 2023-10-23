@@ -24,6 +24,7 @@ DATASET = 'iotprofiler'
 
 LOCAL_ENDPOINTS = set()
 
+# mqtt_total.json is obtained by manually appending the results of filter_reconstructed_values_for_URLS.py into a single file
 MQTT_TOTAL = json.load(open('../../verified_iot_datasets/mqtt_total.json', 'r'))
 
 
