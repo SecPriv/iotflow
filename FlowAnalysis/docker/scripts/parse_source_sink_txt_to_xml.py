@@ -175,7 +175,3 @@ def create_xml_config(text_config_path: str, output_path: str) -> None:
     to_file(xml_sources_sinks, output_path)
 
 
-if __name__ == "__main__":
-    # test()
-    create_xml_config("/home/david/Downloads/flowdroid_config/general_sources.txt",
-                      "/home/david/Downloads/flowdroid_config/general_sources.xml")

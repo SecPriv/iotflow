@@ -1,0 +1,3 @@
+xmltodict==0.13.0
+pandas==1.5.3
+urlextract==1.8.0

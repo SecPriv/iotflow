@@ -1,0 +1,3 @@
+python-whois==0.8.0
+tld==0.13
+tldextract==5.0.1
