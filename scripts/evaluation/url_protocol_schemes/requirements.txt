@@ -1,2 +1,5 @@
 tldextract==5.0.1
 pandas==1.5.3
+aiocoap==0.4.3
+iocextract==1.15.2
+paho-mqtt==1.6.1
