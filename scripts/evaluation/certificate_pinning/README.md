@@ -1,6 +1,6 @@
 # Certificate Pinning
 
-Certificate pinning evaluation scripts based on the results obtained by the analysis from [Pradeep et al.](https://dl.acm.org/doi/10.1145/3517745.3561439).
+Certificate pinning evaluation scripts based on the results obtained by the [static analysis](https://github.com/NEU-SNS/app-tls-pinning/tree/main/code/certificate-pinning/StaticAnalysis) from [Pradeep et al.](https://dl.acm.org/doi/10.1145/3517745.3561439).
 
 
 ## Download Date
