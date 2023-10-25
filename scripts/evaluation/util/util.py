@@ -50,8 +50,6 @@ class AppAnalysis:
         self.coap = getJsonData(f"{path}/coap/{app}")
         self.endpoints = getJsonData(f"{path}/endpoints/{app}")
         self.mqtt = getJsonData(f"{path}/mqtt/{app}")
-        self.requests = getJsonData(f"{path}/requests/{app}")
-        self.telnet = getJsonData(f"{path}/telnet/{app}")
         self.xmpp = getJsonData(f"{path}/xmpp/{app}")
         self.udp = getJsonData(f"{path}/udp/{app}")
         self.crypto = getJsonData(f"{path}/crypto/{app}")
@@ -73,9 +71,21 @@ def filter_apps(dataset, name, mapping):
     return result
 
 
+def get_all_files(path):
+    result = set()
+    result.update(os.listdir(f"{path}/amqp/"))
+    result.update(os.listdir(f"{path}/coap/"))
+    result.update(os.listdir(f"{path}/endpoints/"))
+    result.update(os.listdir(f"{path}/mqtt/"))
+    result.update(os.listdir(f"{path}/xmpp/"))
+    result.update(os.listdir(f"{path}/udp/"))
+    result.update(os.listdir(f"{path}/webview/"))
+    return result
+
+
 def loadAllData(path, skip=False):
     result = []
-    for app in os.listdir(f"{path}/telnet/"):  # TODO: tmp change to amqp instead of telnet
+    for app in get_all_files(path):
         appAnalysis = AppAnalysis(path, app, skip)
         if not appAnalysis.skip:
             result.append(appAnalysis)
@@ -327,7 +337,6 @@ def getAllDataWithoutRequests(app):
     result.update(getUniqueDomainsFromJson(app.coap))
     result.update(getUniqueDomainsFromJson(app.endpoints))
     result.update(getUniqueDomainsFromJson(app.mqtt))
-    result.update(getUniqueDomainsFromJson(app.telnet))
     result.update(getUniqueDomainsFromJson(app.xmpp))
     result.update(getUniqueDomainsFromJson(app.udp))
     result.update(getUniqueDomainsFromJson(app.webview))
@@ -362,6 +371,5 @@ def getNumberOfValueSets(app):
     result.update(getAllValueSets(app.coap))
     result.update(getAllValueSets(app.endpoints))
     result.update(getAllValueSets(app.mqtt))
-    result.update(getAllValueSets(app.telnet))
     result.update(getAllValueSets(app.xmpp))
     return result

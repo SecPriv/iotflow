@@ -13,7 +13,7 @@ ip = re.compile("\d\d?\d?.\d\d?\d?\.\d\d?\d?\.\d\d?\d?")
 def isLocal(d):
     if localNetwork.match(d) or localIp.match(d):
         return True
-    
+
     return False
 
 
@@ -22,8 +22,8 @@ def getDomainOrIP(d):
     extractedSubdomain = tldextract.extract(d)
     if ip.match(extractedSubdomain.domain):
         return extractedSubdomain.domain
-    return extractedSubdomain.domain + '.' + extractedSubdomain.suffix           
-    
+    return extractedSubdomain.domain + '.' + extractedSubdomain.suffix
+
 
 def getIp(hostname):
     """
@@ -41,19 +41,19 @@ def getIp(hostname):
 
 def generateTotalCount(listApps, previousCounts):
     for app in listApps:
-        
+
         for domain in app.keys():
             countedValue = previousCounts.get(domain, 0)
-            
+
             countedValue = countedValue + app.get(domain)
             previousCounts[domain] = countedValue
-    
+
     return previousCounts
 
 
 def generateTotalCountMapping(listApps, previousCounts, mapping):
     for app in listApps:
-        
+
         for domain in app.keys():
             #print(domain)
             try:
@@ -63,7 +63,7 @@ def generateTotalCountMapping(listApps, previousCounts, mapping):
             except KeyError as e:
                 print(f"could not find {domain}")
 
-    
+
     return previousCounts
 
 def subListAppsToListApps(listApps):
@@ -74,9 +74,9 @@ def subListAppsToListApps(listApps):
             splittedDomain = domain.split('.')
             temp.add(splittedDomain[len(splittedDomain)-2] + '.' + splittedDomain[len(splittedDomain)-1])
         result.append(temp)
-    
+
     return result
-    
+
 
 
 
@@ -93,7 +93,7 @@ def validateSubDomains(subdomains):
             result[sub] = 1
         else:
             notFound.append(sub)
-    
+
     return result
 
 
@@ -107,7 +107,6 @@ def countAndValidateSubDomains(subdomains, countSubdomains):
             domain = extracted.domain + '.'+ extracted.suffix
             if domain.startswith("."):
                 domain = domain[1:len(domain)]
-            #todo: validate if correct
             if domain not in notFound and extracted.suffix != '' and getIp(domain) != None:
                 if countSubdomains:
                     result[domain] = result.get(domain, 0) + 1
@@ -118,7 +117,7 @@ def countAndValidateSubDomains(subdomains, countSubdomains):
         else:
             if not localIp.match(sub) and not localNetwork.match(sub):
                 result[sub] = result.get(sub, 0) + 1
-            
+
     return result
 
 def getSanitzedApps(appList, subdomainStat, countSubDomain):

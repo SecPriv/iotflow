@@ -1,5 +1,5 @@
 # Data Flow Analysis
-
+Parses the results of IoTFlow and evaluate the data flows.
 
 
 ## Geographic Location of Data Flows
