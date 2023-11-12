@@ -18,8 +18,8 @@ group 'edu.osu.sec.vsa'
 version '1.0-SNAPSHOT'
 
 repositories {
-    maven { url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/" }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    //maven { url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/" }
+    //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     mavenCentral()
 }
 
