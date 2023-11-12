@@ -32,5 +32,9 @@ Option arguments
 
 If the analysis run out of memory, reduce the number of backward context `-mbc`, and steps back `-mb`, the available memory to the jvm can be controlled via `-Xmx`.
 
+## Building with Gradle and Java 11
+
+` ./gradlew build -Dorg.gradle.java.home=/usr/lib/jvm/java-11-openjdk/`
+
 ## Instrumentation Agent
 The instrumentation agent is optional. It can add `toString`, `equals`, and `hashCode` methods to classes during the analysis execution. That can help to remove duplicates and reduce the required memory. To execute the value set analysis with the agent add `-javaagent:[path_to_instrumentation_agent.jar]` to the command
