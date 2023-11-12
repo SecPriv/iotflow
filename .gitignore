@@ -150,11 +150,19 @@ target/
 
 
 
+
+!FlowAnalysis/libs/
+!FlowAnalysis/libs/*
+
 !FlowAnalysis/docker/*
 !FlowAnalysis/docker/dependencies/*
 !FlowAnalysis/docker/dependencies/dex_tools_2.1/bin/
 !FlowAnalysis/docker/dependencies/dex_tools_2.1/lib/
 !FlowAnalysis/docker/dependencies/dex_tools_2.1/lib/*.jar
+
+
+!VSA/libs/
+!VSA/libs/*
 
 !VSA/docker/*
 !VSA/docker/dependencies/*
