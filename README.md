@@ -42,3 +42,9 @@ For more details, see [our paper "IoTFlow: Inferring IoT Device Behavior at Scal
 * Carlotta Tagliaro:
     * email: carlotta@seclab.wien
     * twitter: @Pseudorandomico
+* Kevin Borgolte
+    * email: kevin.borgolte@rub.de
+    * twitter: @caovc
+* Martina Lindorfer
+    * email: martina@seclab.wien
+    * twitter: @lindorferin
