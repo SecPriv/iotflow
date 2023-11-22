@@ -33,3 +33,9 @@ For more details, see [our paper "IoTFlow: Inferring IoT Device Behavior at Scal
   publisher = {Association for Computing Machinery (ACM)},
 }
 ```
+
+## Contacts
+* David Schmidt:
+    * email: dschmidt@seclab.wien
+* Carlotta Tagliaro:
+    * email: carlotta@seclab.wien
