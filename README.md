@@ -37,5 +37,8 @@ For more details, see [our paper "IoTFlow: Inferring IoT Device Behavior at Scal
 ## Contacts
 * David Schmidt:
     * email: dschmidt@seclab.wien
+    * bsky: @dschm1dt.bsky.social
+    * twitter: @dschm1dt
 * Carlotta Tagliaro:
     * email: carlotta@seclab.wien
+    * twitter: @Pseudorandomico
