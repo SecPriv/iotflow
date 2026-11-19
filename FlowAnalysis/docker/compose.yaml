@@ -1,6 +1,6 @@
 # Explicit project name: both compose files live in a folder called "docker",
 # which would otherwise put them into the same Compose project
-name: iotflow-dfa
+name: iotflow-dfa-upgrade
 services:
   dfa_docker:
     build:
