@@ -1,0 +1,25 @@
+{
+  "_comment": "Exclusion list for very large apps (Smart Life, Tapo) on machines where the VSA runs out of heap: exclude.json plus libraries unrelated to the device/cloud protocol (reflection, JSON, annotations, image loading, ByteDance/Lynx UI, Stripe payments, Facebook SDK; trackers are covered by Exodus/MobSF). Select with VSA_EXCLUDE=/vsa/config/exclude_large.json or IOTSCOPE_EXCLUDE=/analysis/config/iotscope/exclude_large.json.",
+  "_warning": "Never exclude the app's own code. Its package can differ from the app id (com.rainbow.drone keeps its code in mobi.heyemoji.*): check the Application/Activity class names in the manifest before adding entries. Keep the vendor code (com.tplink.*, com.thingclips.*, com.tuya.*), the Matter SDK (chip.*), networking (okhttp3, netty) and Google Play services in.",
+  "exclude": [
+    "androidx.*",
+    "android.support.*",
+    "io.reactivex.*",
+    "kotlinx.*",
+    "org.bouncycastle.*",
+    "com.google.android.material.*",
+    "com.google.protobuf.*",
+    "com.google.gson.*",
+    "com.google.common.*",
+    "com.google.vr.*",
+    "com.lmax.disruptor.*",
+    "kotlin.reflect.*",
+    "com.fasterxml.*",
+    "org.checkerframework.*",
+    "com.bumptech.*",
+    "com.bytedance.*",
+    "com.lynx.*",
+    "com.stripe.*",
+    "com.facebook.*"
+  ]
+}

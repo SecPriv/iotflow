@@ -1,0 +1,17 @@
+{
+  "_comment": "Third-party libraries the VSA does not analyse (in addition to java.*, android.*, kotlin.*, etc. excluded in Main.configureSoot). Only generic UI, reactive, serialization and crypto-provider libraries; networking (okhttp3, netty), vendor SDKs (e.g. dji.*), maps and Google Play services stay in. javaCrypto.json only targets javax.crypto, so BouncyCastle internals are not needed.",
+  "_warning": "Never exclude the app's own code. Its package can differ from the app id (com.rainbow.drone keeps its code in mobi.heyemoji.*): check the Application/Activity class names in the manifest before adding entries.",
+  "exclude": [
+    "androidx.*",
+    "android.support.*",
+    "io.reactivex.*",
+    "kotlinx.*",
+    "org.bouncycastle.*",
+    "com.google.android.material.*",
+    "com.google.protobuf.*",
+    "com.google.gson.*",
+    "com.google.common.*",
+    "com.google.vr.*",
+    "com.lmax.disruptor.*"
+  ]
+}

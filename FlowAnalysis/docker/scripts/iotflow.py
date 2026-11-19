@@ -20,13 +20,19 @@ flowdroid_path = "/analysis/iotflow.jar"
 platform = "/analysis/dependencies/android-31.jar"
 easy_taintwrapper = "/analysis/config/easy_tain_wrapper.txt"
 summary_taintwrapper = "/analysis/config/summariesManual/"
-dex2jar = "/analysis/dependencies/dex_tools_2.1/d2j-dex2jar.sh"
+dex2jar = "/analysis/dependencies/dex_tools_2.4.38/d2j-dex2jar.sh"
 iotscope_sources = "/analysis/config/iotscope/source.json"
 iotscope_sinks = "/analysis/config/iotscope/sink.json"
 sources_sinks_from_ble = "/analysis/config/bl_config.xml"
 sinks_from_icc = "/analysis/config/template.xml"
 taintrules = "/analysis/config/iotscope/taintrules.json"
 iotscope_path = "/analysis/dependencies/vsa.jar"
+# Libraries the VSA skips (see config/iotscope/exclude.json) and log level: both cut run time
+iotscope_exclude = os.environ.get("IOTSCOPE_EXCLUDE", "/analysis/config/iotscope/exclude.json")
+log_level = "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
+# IoTScope (VSA) loads dex2jar-converted app classes for simulation; some fail Java's bytecode verifier
+# (VerifyError: missing stackmap frames) and abort the analysis, so verification is turned off for IoTScope only.
+no_verify = ["-XX:+UnlockDiagnosticVMOptions", "-XX:-BytecodeVerificationRemote"]
 java = "java"
 
 
@@ -196,7 +202,7 @@ def flowdroid_run(apk_path: str, sources_sinks: str, output_path: str, callback_
         return
     create_dir_if_not_exists(output_path)
 
-    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", "-jar",
+    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, "-jar",
                f"-Xms{max_memory - 2}g", f"-Xmx{max_memory}g", f"{flowdroid_path}", "-a",
                f"{apk_path}", "-d", "-s", f"{sources_sinks}", "-p", f"{platform}", "-cs", "SOURCELIST",
                "-l", "NONE", "-ol", "-o", f"{output_path}", "-tw", "MULTI", "-t", f"{summary_taint_wrapper}", "-t",
@@ -220,9 +226,9 @@ def run_iotscope(apk_path: str, sink_path: str, output_path: str, max_memory: in
         return
     create_dir_if_not_exists(output_path)
 
-    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", "-jar",
-               f"-Xmx{max_memory}g",
-               f"{iotscope_path}", "-d", f"{sink_path}", "-a", f"{apk_path}",
+    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, *no_verify,
+               "-jar", f"-Xmx{max_memory}g",
+               f"{iotscope_path}", "-d", f"{sink_path}", "-a", f"{apk_path}", "-e", f"{iotscope_exclude}",
                "-p", f"{platform}", "-dj", f"{dex2jar}", "-t", f"{taintrules}", "-do", "-o", f"{output_path}"]
     process = subprocess.Popen(command)
     return process

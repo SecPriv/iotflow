@@ -5,7 +5,7 @@
 
 Example usage:
 ```
-java -Xms5g -Xmx16g -jar IoTScope.jar -d config/xmpp.json -p ~/Android/Sdk/platforms/ -o /outputPath/ -t config/taintrules.json -a app.apk -dj dex-tools-2.1/d2j-dex2jar.sh
+java -Xms5g -Xmx16g -jar IoTScope.jar -d config/xmpp.json -p ~/Android/Sdk/platforms/ -o /outputPath/ -t config/taintrules.json -a app.apk -dj dex_tools_2.4.38/d2j-dex2jar.sh
 ```
 
 IoTScope -a <apk to analyse> -d <description of methods (sources)> -dj <dex2jar path>  -p <Android jar file or platform directory>  -t <taint rule file> [-o <output folder>] [-e <exclusion list file>] [-mb <number of steps it should trace backward>] [-mbc <number of backward context it should create>] [-og [-ogp <output path for dot files>]]  [-tb <Timeout backward tracing in minutes>] [-tf <Timeout forward computation in minutes>] [-do] [-obc]  [-oj]

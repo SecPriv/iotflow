@@ -1,8 +1,7 @@
-FROM debian:11-slim
-RUN apt update && apt install -y openjdk-11-jdk
+# Java 11 runtime, preinstalled (debian:11-slim can no longer install OpenJDK: its security repo is gone)
+FROM eclipse-temurin:11-jre
 WORKDIR /vsa
 COPY ./dependencies/ ./dependencies/
 COPY ./config/ ./config/
-COPY ./execute_vsa.sh ./
-COPY ./run.sh ./
 COPY ./vsa.jar ./
+COPY ./execute_vsa.sh ./run.sh ./
