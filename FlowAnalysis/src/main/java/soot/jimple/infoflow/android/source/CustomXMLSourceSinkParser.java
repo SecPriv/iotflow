@@ -11,6 +11,8 @@ import soot.jimple.infoflow.android.source.parsers.xml.ResourceUtils;
 import soot.jimple.infoflow.android.source.parsers.xml.XMLSourceSinkParser;
 import soot.jimple.infoflow.data.AbstractMethodAndClass;
 import soot.jimple.infoflow.sourcesSinks.definitions.*;
+import soot.jimple.infoflow.sourcesSinks.definitions.MethodSourceSinkDefinition.CallType;
+import soot.util.HashMultiMap;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.transform.stream.StreamSource;
@@ -49,6 +51,17 @@ public class CustomXMLSourceSinkParser extends CustomAbstractXMLSourceSinkParser
         }
     }
 
+    public static CustomXMLSourceSinkParser fromFile(File file, AbstractXMLSourceSinkParser.ICategoryFilter categoryFilter) throws IOException {
+        logger.info(String.format("Loading sources and sinks from %s...", file.getAbsolutePath()));
+        try (InputStream is = new FileInputStream(file)) {
+            verifyXML(is);
+        }
+
+        try (InputStream inputStream = new FileInputStream(file)) {
+            return fromStream(inputStream, categoryFilter);
+        }
+    }
+
     protected static InputStream getStream(String fileName) throws IOException {
         File f = new File(fileName);
         if (f.exists())
@@ -78,7 +91,7 @@ public class CustomXMLSourceSinkParser extends CustomAbstractXMLSourceSinkParser
      * @param categoryFilter A filter for excluding certain categories of sources and sinks
      */
     protected CustomXMLSourceSinkParser(AbstractXMLSourceSinkParser.ICategoryFilter categoryFilter) {
-        this.sourcesAndSinks = new HashMap<>();
+        this.sourcesAndSinks = new HashMultiMap<>();
         this.categoryFilter = categoryFilter;
     }
 
@@ -92,12 +105,20 @@ public class CustomXMLSourceSinkParser extends CustomAbstractXMLSourceSinkParser
             if (sourceDef != null && !sourceDef.isEmpty()) {
                 if (sourceDef instanceof MethodSourceSinkDefinition) {
                     MethodSourceSinkDefinition methodSrc = (MethodSourceSinkDefinition) sourceDef;
-                    if (methodSrc.getMethod() instanceof AndroidMethod) {
+                    if (methodSrc.getCallType() == CallType.Return) {
+                        String mname = methodSrc.getMethod().getMethodName();
+                        logger.error(String.format(
+                                "Error while building sources for %s: CallType Return is not "
+                                        + "supported for Source Definitions. The invalid definition is ignored.",
+                                mname));
+                        sourceDef = null;
+                    } else if (methodSrc.getMethod() instanceof AndroidMethod) {
                         AndroidMethod am = (AndroidMethod) methodSrc.getMethod();
                         am.setSourceSinkType(am.getSourceSinkType().addType(SourceSinkType.Source));
                     }
                 }
-                sources.add(sourceDef);
+                if (sourceDef != null)
+                    sources.add(sourceDef);
             }
 
             ISourceSinkDefinition sinkDef = def.getSinkOnlyDefinition();

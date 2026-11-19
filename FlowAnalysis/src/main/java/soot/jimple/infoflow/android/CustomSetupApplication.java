@@ -1,7 +1,6 @@
 package soot.jimple.infoflow.android;
 
 import org.xml.sax.SAXException;
-import org.xmlpull.v1.XmlPullParserException;
 import soot.jimple.infoflow.android.callbacks.AndroidCallbackDefinition;
 import soot.jimple.infoflow.android.resources.LayoutFileParser;
 import soot.jimple.infoflow.android.results.xml.InfoflowResultsSerializer;
@@ -15,6 +14,7 @@ import soot.jimple.infoflow.sourcesSinks.definitions.ISourceSinkDefinitionProvid
 import soot.jimple.infoflow.sourcesSinks.manager.ISourceSinkManager;
 
 import javax.xml.stream.XMLStreamException;
+import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 /*
@@ -25,11 +25,11 @@ public class CustomSetupApplication extends SetupApplication {
         super(config);
     }
 
-    public CustomSetupApplication(String androidJar, String apkFileLocation) {
+    public CustomSetupApplication(File androidJar, File apkFileLocation) {
         super(androidJar, apkFileLocation);
     }
 
-    public CustomSetupApplication(String androidJar, String apkFileLocation, IIPCManager ipcManager) {
+    public CustomSetupApplication(File androidJar, File apkFileLocation, IIPCManager ipcManager) {
         super(androidJar, apkFileLocation, ipcManager);
     }
 
@@ -54,13 +54,14 @@ public class CustomSetupApplication extends SetupApplication {
      *
      * @throws IOException            Thrown if the given source/sink file could not
      *                                be read.
-     * @throws XmlPullParserException Thrown if the Android manifest file could not
-     *                                be read.
      */
-    public InfoflowResults runInfoflow() throws IOException, XmlPullParserException {
+    @Override
+    public InfoflowResults runInfoflow() throws IOException {
         // If we don't have a source/sink file by now, we cannot run the data
         // flow analysis
-        String sourceSinkFile = config.getAnalysisFileConfig().getSourceSinkFile();
+        // FlowDroid 2.14+ passes files as java.io.File; IoTFlow's parsers take path strings
+        File sourceSinkFileObj = config.getAnalysisFileConfig().getSourceSinkFile();
+        String sourceSinkFile = sourceSinkFileObj == null ? null : sourceSinkFileObj.getAbsolutePath();
         if (sourceSinkFile == null || sourceSinkFile.isEmpty())
             throw new RuntimeException("No source/sink file specified for the data flow analysis");
         String fileExtension = sourceSinkFile.substring(sourceSinkFile.lastIndexOf("."));
@@ -74,7 +75,7 @@ public class CustomSetupApplication extends SetupApplication {
             } else if (fileExtension.equals(".txt"))
                 parser = SourceSinkListParser.fromFile(sourceSinkFile);
             else if (fileExtension.equals(".rifl"))
-                parser = new RIFLSourceSinkDefinitionProvider(sourceSinkFile);
+                parser = new RIFLSourceSinkDefinitionProvider(sourceSinkFileObj);
             else
                 throw new UnsupportedSourceSinkFormatException("The Inputfile isn't a .txt or .xml file.");
         } catch (SAXException ex) {

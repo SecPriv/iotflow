@@ -1,16 +1,26 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '6.1.0'
-
+    // Shadow builds the fat jar (docker/iotflow.jar); com.gradleup.shadow is the maintained successor
+    // of com.github.johnrengelman.shadow, needed for Gradle 8 / Java 17
+    id 'com.gradleup.shadow' version '8.3.5'
 }
 
+java {
+    // FlowDroid 2.15 requires Java 17
+    toolchain { languageVersion = JavaLanguageVersion.of(17) }
+}
 
 jar {
     manifest {
-        attributes(
-                'Main-Class': 'soot.jimple.infoflow.cmd.Main'
-        )
+        attributes('Main-Class': 'soot.jimple.infoflow.cmd.Main')
     }
+}
+
+shadowJar {
+    archiveFileName = 'iotflow.jar'
+    // IoTFlow replaces some FlowDroid classes (same names). The project's classes are added first,
+    // so excluding duplicates keeps IoTFlow's versions.
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 group 'org.example'
@@ -21,11 +31,11 @@ repositories {
 }
 
 dependencies {
-
-    implementation files('libs/soot-infoflow-new-build.jar')
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // FlowDroid 2.15.1 command-line jar with all dependencies (Soot 4.7.1), from Maven Central:
+    // de.fraunhofer.sit.sse.flowdroid:soot-infoflow-cmd:2.15.1:jar-with-dependencies
+    implementation files('libs/soot-infoflow-cmd-2.15.1-jar-with-dependencies.jar')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
 }
 
 test {

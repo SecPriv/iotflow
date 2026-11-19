@@ -173,3 +173,7 @@ target/
 
 # Downloaded XAPKs and extracted base APKs
 apps/
+
+# Gradle (built in Docker with GRADLE_USER_HOME inside the project)
+**/.gradle-home/
+**/.gradle/

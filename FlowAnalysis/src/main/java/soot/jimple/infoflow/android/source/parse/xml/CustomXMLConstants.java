@@ -28,7 +28,6 @@ public class CustomXMLConstants {
 
 
     public static final String ID_ATTRIBUTE = "id";
-    public static final String CUSTOM_ID_ATTRIBUTE = "customId";
     public static final String SIGNATURE_ATTRIBUTE = "signature";
     public static final String CALL_TYPE = "callType";
     public static final String TYPE_ATTRIBUTE = "type";

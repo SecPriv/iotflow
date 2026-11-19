@@ -14,8 +14,10 @@ import soot.jimple.infoflow.android.source.parsers.xml.AbstractXMLSourceSinkPars
 import soot.jimple.infoflow.android.source.parsers.xml.ResourceUtils;
 import soot.jimple.infoflow.android.source.parsers.xml.CustomXMLConstants;
 import soot.jimple.infoflow.data.AbstractMethodAndClass;
-import soot.jimple.infoflow.river.AdditionalFlowCondition;
+import soot.jimple.infoflow.river.conditions.SignatureFlowCondition;
 import soot.jimple.infoflow.sourcesSinks.definitions.*;
+import soot.jimple.infoflow.sourcesSinks.definitions.MethodSourceSinkDefinition.CallType;
+import soot.util.MultiMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -148,15 +150,16 @@ public abstract class CustomAbstractXMLSourceSinkParser {
         }
 
         protected void handleStarttagCategory(Attributes attributes) {
-            String strSysCategory = attributes.getValue(CustomXMLConstants.ID_ATTRIBUTE).trim();
-            String strCustomCategory = attributes.getValue(CustomXMLConstants.CUSTOM_ID_ATTRIBUTE);
-            if (strCustomCategory != null && !strCustomCategory.isEmpty())
-                strCustomCategory = strCustomCategory.trim();
-            String strCustomDescription = attributes.getValue(CustomXMLConstants.DESCRIPTION_ATTRIBUTE);
-            if (strCustomDescription != null && !strCustomDescription.isEmpty())
-                strCustomDescription = strCustomDescription.trim();
+            String strCategory = attributes.getValue(CustomXMLConstants.ID_ATTRIBUTE).trim();
+            if (strCategory != null && !strCategory.isEmpty())
+                strCategory = strCategory.trim();
 
-            category = getOrMakeCategory(CategoryDefinition.CATEGORY.valueOf(strSysCategory), strCustomCategory, strCustomDescription);
+            String strDescription = attributes.getValue(CustomXMLConstants.DESCRIPTION_ATTRIBUTE);
+
+            if (strDescription != null && !strDescription.isEmpty())
+                strDescription = strDescription.trim();
+
+            category = getOrMakeCategory(strCategory, strDescription);
 
             // Check for excluded categories
             if (categoryFilter != null && !categoryFilter.acceptsCategory(category)) {
@@ -183,7 +186,9 @@ public abstract class CustomAbstractXMLSourceSinkParser {
                     if (strCallType.equalsIgnoreCase("MethodCall"))
                         callType = MethodSourceSinkDefinition.CallType.MethodCall;
                     else if (strCallType.equalsIgnoreCase("Callback"))
-                        callType = MethodSourceSinkDefinition.CallType.Callback;
+                        callType = CallType.Callback;
+                    else if (strCallType.equalsIgnoreCase("Return"))
+                        callType = CallType.Return;
                 }
             }
         }
@@ -225,7 +230,7 @@ public abstract class CustomAbstractXMLSourceSinkParser {
         }
 
         protected void handleStarttagPathelement(Attributes attributes) {
-            if (methodSignature != null && attributes != null) {
+            if (attributes != null) {
                 String tempStr = attributes.getValue(CustomXMLConstants.FIELD_ATTRIBUTE);
                 if (tempStr != null && !tempStr.isEmpty()) {
                     pathElements.add(tempStr);
@@ -362,53 +367,53 @@ public abstract class CustomAbstractXMLSourceSinkParser {
             String qNameLower = qName.toLowerCase();
             switch (qNameLower) {
 
-                case CustomXMLConstants.CATEGORY_TAG:
-                    category = null;
-                    break;
+            case CustomXMLConstants.CATEGORY_TAG:
+                category = null;
+                break;
 
-                case CustomXMLConstants.METHOD_TAG:
-                    handleEndtagMethod();
-                    break;
+            case CustomXMLConstants.METHOD_TAG:
+                handleEndtagMethod();
+                break;
 
-                case CustomXMLConstants.FIELD_TAG:
-                    handleEndtagField();
-                    break;
+            case CustomXMLConstants.FIELD_TAG:
+                handleEndtagField();
+                break;
 
-                case CustomXMLConstants.ACCESSPATH_TAG:
-                    handleEndtagAccesspath();
-                    break;
+            case CustomXMLConstants.ACCESSPATH_TAG:
+                handleEndtagAccesspath();
+                break;
 
-                case CustomXMLConstants.BASE_TAG:
-                    accessPathParentElement = "";
-                    break;
+            case CustomXMLConstants.BASE_TAG:
+                accessPathParentElement = "";
+                break;
 
-                case CustomXMLConstants.RETURN_TAG:
-                    accessPathParentElement = "";
-                    break;
+            case CustomXMLConstants.RETURN_TAG:
+                accessPathParentElement = "";
+                break;
 
-                case CustomXMLConstants.PARAM_TAG:
-                    accessPathParentElement = "";
-                    paramIndex = -1;
-                    paramTypes.clear();
-                    break;
+            case CustomXMLConstants.PARAM_TAG:
+                accessPathParentElement = "";
+                paramIndex = -1;
+                paramTypes.clear();
+                break;
 
-                case CustomXMLConstants.ADDITIONAL_FLOW_CONDITION_TAG:
-                    if (!classNamesOnPath.isEmpty() || !signaturesOnPath.isEmpty()) {
-                        AdditionalFlowCondition additionalFlowCondition = new AdditionalFlowCondition(classNamesOnPath,
-                                signaturesOnPath, excludedClassNames);
-                        // Reset both for a new condition
-                        classNamesOnPath = new HashSet<>();
-                        signaturesOnPath = new HashSet<>();
+            case CustomXMLConstants.ADDITIONAL_FLOW_CONDITION_TAG:
+                if (!classNamesOnPath.isEmpty() || !signaturesOnPath.isEmpty()) {
+                    SignatureFlowCondition additionalFlowCondition = new SignatureFlowCondition(classNamesOnPath,
+                            signaturesOnPath, excludedClassNames);
+                    // Reset both for a new condition
+                    classNamesOnPath = new HashSet<>();
+                    signaturesOnPath = new HashSet<>();
 
-                        excludedClassNames = new HashSet<>();
+                    excludedClassNames = new HashSet<>();
 
-                        if (conditions == null)
-                            conditions = new HashSet<>();
-                        conditions.add(additionalFlowCondition);
-                    }
-                    break;
-                case CustomXMLConstants.FIXED_LOCATION_TAG:
-                    break;
+                    if (conditions == null)
+                        conditions = new HashSet<>();
+                    conditions.add(additionalFlowCondition);
+                }
+                break;
+            case CustomXMLConstants.FIXED_LOCATION_TAG:
+                break;
 
                 case CustomXMLConstants.PATHELEMENT_TAG:
                     break;
@@ -532,7 +537,7 @@ public abstract class CustomAbstractXMLSourceSinkParser {
 
     }
 
-    protected Map<String, ISourceSinkDefinition> sourcesAndSinks;
+    protected MultiMap<String, ISourceSinkDefinition> sourcesAndSinks;
 
     protected Set<ISourceSinkDefinition> sources = new HashSet<>();
     protected Set<ISourceSinkDefinition> sinks = new HashSet<>();
@@ -545,21 +550,17 @@ public abstract class CustomAbstractXMLSourceSinkParser {
      * category is requested, the respective definition is created. Otherwise, the
      * existing one is returned.
      *
-     * @param systemCategory    The system-defined category name
-     * @param customCategory    The user-defined category name
-     * @param customDescription The human-readable description for the custom
-     *                          category
+     * @param categoryID The user-defined category name
+     * @param desc       The human-readable description
      * @return The category definition object for the given category names
      */
-    private ISourceSinkCategory getOrMakeCategory(CategoryDefinition.CATEGORY systemCategory, String customCategory,
-                                                  String customDescription) {
+    private ISourceSinkCategory getOrMakeCategory(String categoryID, String desc) {
         // For the key in the map, we ignore the description. We do not want to
         // have the
         // same category id just with different descriptions.
 
-        ISourceSinkCategory keyDef = new CategoryDefinition(systemCategory, customCategory);
-        return categories.computeIfAbsent(keyDef,
-                d -> new CategoryDefinition(systemCategory, customCategory, customDescription));
+        ISourceSinkCategory keyDef = new CategoryDefinition(categoryID);
+        return categories.computeIfAbsent(keyDef, d -> new CategoryDefinition(categoryID, desc));
     }
 
     /**
@@ -605,10 +606,7 @@ public abstract class CustomAbstractXMLSourceSinkParser {
      * @param ssd       The source or sink definition
      */
     protected void addSourceSinkDefinition(String signature, IAccessPathBasedSourceSinkDefinition ssd) {
-        if (sourcesAndSinks.containsKey(signature))
-            sourcesAndSinks.get(signature).merge(ssd);
-        else
-            sourcesAndSinks.put(signature, ssd);
+        sourcesAndSinks.put(signature, ssd);
     }
 
     public Set<ISourceSinkDefinition> getSources() {
@@ -635,10 +633,7 @@ public abstract class CustomAbstractXMLSourceSinkParser {
     }
 
     protected void addSourceSinkDefinition(String signature, ISourceSinkDefinition ssd) {
-        if (sourcesAndSinks.containsKey(signature))
-            sourcesAndSinks.get(signature).merge(ssd);
-        else
-            sourcesAndSinks.put(signature, ssd);
+        sourcesAndSinks.put(signature, ssd);
     }
 
     /**

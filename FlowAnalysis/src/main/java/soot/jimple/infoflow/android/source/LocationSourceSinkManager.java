@@ -19,6 +19,8 @@ import soot.jimple.infoflow.sourcesSinks.manager.SinkInfo;
 import soot.jimple.infoflow.sourcesSinks.manager.SourceInfo;
 import soot.jimple.infoflow.util.SystemClassHandler;
 
+import heros.solver.Pair;
+
 import java.util.*;
 /*
  Source Sink Manager that consider the location if set in the sources and sinks
@@ -62,65 +64,59 @@ public class LocationSourceSinkManager extends AccessPathBasedSourceSinkManager{
 
 
 
-    @Override
-    protected SourceInfo createSourceInfo(Stmt sCallSite, InfoflowManager manager, ISourceSinkDefinition def) {
-        if (def instanceof MethodSourceSinkDefinition) {
-            SootMethodAndClass methodAndClass = ((MethodSourceSinkDefinition)def).getMethod();
-           if (methodAndClass instanceof ExcactMethod) {
-                Set<StmtLocation> sourceSinkLocations = ((ExcactMethod) methodAndClass).getLocations();
-                if (sourceSinkLocations != null && sourceSinkLocations.size()>0) {
-                    try {
-                        SootMethod parentMethod = manager.getICFG().getMethodOf(sCallSite);
-                        int lineNumber = sCallSite.getJavaSourceStartLineNumber();
-                        StmtLocation currentLocation = new StmtLocation(lineNumber, parentMethod.toString());
-                        if (!sourceSinkLocations.contains(currentLocation)) {
-                            return null;
-                        }
-                    } catch (RuntimeException e) {
-                        logger.debug(String.format("Could not get parent method of %s", sCallSite));
-                        return null;
-                    }
-                }
-            }
+    /**
+     * Whether a source/sink definition applies at this statement. Definitions created by IoTFlow for
+     * exact statement locations ({@link ExcactMethod}) only match at those locations; all other
+     * definitions always match.
+     */
+    private boolean matchesLocation(Stmt sCallSite, InfoflowManager manager, ISourceSinkDefinition def) {
+        if (!(def instanceof MethodSourceSinkDefinition))
+            return true;
+        SootMethodAndClass methodAndClass = ((MethodSourceSinkDefinition) def).getMethod();
+        if (!(methodAndClass instanceof ExcactMethod))
+            return true;
+        Set<StmtLocation> sourceSinkLocations = ((ExcactMethod) methodAndClass).getLocations();
+        if (sourceSinkLocations == null || sourceSinkLocations.isEmpty())
+            return true;
+        try {
+            SootMethod parentMethod = manager.getICFG().getMethodOf(sCallSite);
+            int lineNumber = sCallSite.getJavaSourceStartLineNumber();
+            return sourceSinkLocations.contains(new StmtLocation(lineNumber, parentMethod.toString()));
+        } catch (RuntimeException e) {
+            logger.debug(String.format("Could not get parent method of %s", sCallSite));
+            return false;
         }
+    }
 
-        return super.createSourceInfo(sCallSite, manager, def);
+    // FlowDroid 2.14+ allows several definitions per statement; filter them by location
+    // (FlowDroid 2.12: createSourceInfo(Stmt, InfoflowManager, ISourceSinkDefinition))
+    @Override
+    protected Collection<Pair<AccessPath, ISourceSinkDefinition>> createSourceInfoPairs(Stmt sCallSite,
+            InfoflowManager manager, Collection<ISourceSinkDefinition> defs) {
+        List<ISourceSinkDefinition> matching = new ArrayList<>();
+        for (ISourceSinkDefinition def : defs)
+            if (matchesLocation(sCallSite, manager, def))
+                matching.add(def);
+        if (matching.isEmpty())
+            return Collections.emptySet();
+        return super.createSourceInfoPairs(sCallSite, manager, matching);
     }
 
     @Override
     public SinkInfo getSinkInfo(Stmt sCallSite, InfoflowManager manager, AccessPath sourceAccessPath) {
-
-        SinkInfo sinkInfo =  super.getSinkInfo(sCallSite, manager, sourceAccessPath);
-
-        if (sinkInfo == null) {
+        SinkInfo sinkInfo = super.getSinkInfo(sCallSite, manager, sourceAccessPath);
+        if (sinkInfo == null)
             return null;
-        }
-
-        ISourceSinkDefinition def = sinkInfo.getDefinition();
-
-        if (def instanceof MethodSourceSinkDefinition) {
-            SootMethodAndClass methodAndClass = ((MethodSourceSinkDefinition)def).getMethod();
-            if (methodAndClass instanceof ExcactMethod) {
-                Set<StmtLocation> sourceSinkLocations = ((ExcactMethod) methodAndClass).getLocations();
-                if (sourceSinkLocations != null && sourceSinkLocations.size()>0) {
-                    try {
-
-                        SootMethod parentMethod = manager.getICFG().getMethodOf(sCallSite);
-                        int lineNumber = sCallSite.getJavaSourceStartLineNumber();
-                        StmtLocation currentLocation = new StmtLocation(lineNumber, parentMethod.toString());
-                        if (!sourceSinkLocations.contains(currentLocation)) {
-                            return null;
-                        }
-                    } catch (RuntimeException e) {
-                        logger.debug(String.format("Could not get parent method of %s", sCallSite));
-                        return null;
-                    }
-                }
-            }
-        }
-
-        return sinkInfo;
-
+        Collection<ISourceSinkDefinition> defs = sinkInfo.getDefinitions();
+        if (defs == null || defs.isEmpty())
+            return sinkInfo;
+        List<ISourceSinkDefinition> matching = new ArrayList<>();
+        for (ISourceSinkDefinition def : defs)
+            if (matchesLocation(sCallSite, manager, def))
+                matching.add(def);
+        if (matching.isEmpty())
+            return null;
+        return matching.size() == defs.size() ? sinkInfo : new SinkInfo(matching, sinkInfo.getUserData());
     }
 
 }
