@@ -16,9 +16,9 @@ echo "Analysing: $1"
 # not repeated here. webview is run by neither stage otherwise.
 ANALYSES="${ANALYSES:-endpoints crypto mqtt udp webview}"
 # Heap and exclusion list can be overridden for large apps (VSA_XMX, VSA_EXCLUDE; see compose.yaml)
-# Bytecode verification off: the simulation loads dex2jar-converted app classes, some of which lack the
-# stackmap frames Java requires (VerifyError, e.g. WiZ kotlin.jvm.internal.x), which aborted the analysis.
-JAVA_OPTS="-Xms5g -Xmx${VSA_XMX:-16g} -Dorg.slf4j.simpleLogger.defaultLogLevel=warn -XX:+UnlockDiagnosticVMOptions -XX:-BytecodeVerificationRemote"
+# Do not turn off bytecode verification (-XX:-BytecodeVerificationRemote): with it, faulty dex2jar classes
+# crashed the JVM (SIGSEGV). VerifyErrors are handled in the VSA instead (patches/vsa-linkage-errors).
+JAVA_OPTS="-Xms5g -Xmx${VSA_XMX:-16g} -Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
 VSA_ARGS="-p /vsa/dependencies/android-31.jar -t /vsa/config/taintrules.json -e ${VSA_EXCLUDE:-/vsa/config/exclude.json} -dj /vsa/dependencies/dex_tools_2.4.38/d2j-dex2jar.sh --dont_overwrite"
 
 run() {  # $1 = analysis name, $2 = extra JVM options, $3 = extra VSA options

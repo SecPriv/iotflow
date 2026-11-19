@@ -57,4 +57,4 @@ java -cp $CP:/tmp/patch PatchCgErrors /tmp/orig/$P /tmp/out/$P
 
 ## Related: `VerifyError` in IoTScope (VSA)
 
-Separate problem, fixed with a JVM flag instead of a patch. IoTScope's simulation loads the dex2jar-converted app classes into the JVM; some lack the stackmap frames Java's verifier requires (`java.lang.VerifyError: Expecting a stackmap frame at branch target 43`, WiZ `kotlin.jvm.internal.x`). `VerifyError` is not caught by the simulation and killed the analysis. Both IoTScope call sites (`VSA/docker/execute_vsa.sh`, `FlowAnalysis/docker/scripts/iotflow.py`) now run with `-XX:+UnlockDiagnosticVMOptions -XX:-BytecodeVerificationRemote`. Verified: the WiZ class fails to load without the flags and loads with them (Java 11 and 17).
+Separate problem, see [../vsa-linkage-errors](../vsa-linkage-errors/).

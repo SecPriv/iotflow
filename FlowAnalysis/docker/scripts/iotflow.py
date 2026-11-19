@@ -30,9 +30,6 @@ iotscope_path = "/analysis/dependencies/vsa.jar"
 # Libraries the VSA skips (see config/iotscope/exclude.json) and log level: both cut run time
 iotscope_exclude = os.environ.get("IOTSCOPE_EXCLUDE", "/analysis/config/iotscope/exclude.json")
 log_level = "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
-# IoTScope (VSA) loads dex2jar-converted app classes for simulation; some fail Java's bytecode verifier
-# (VerifyError: missing stackmap frames) and abort the analysis, so verification is turned off for IoTScope only.
-no_verify = ["-XX:+UnlockDiagnosticVMOptions", "-XX:-BytecodeVerificationRemote"]
 java = "java"
 
 
@@ -227,8 +224,8 @@ def run_iotscope(apk_path: str, sink_path: str, output_path: str, max_memory: in
         return
     create_dir_if_not_exists(output_path)
 
-    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, *no_verify,
-               "-jar", f"-Xmx{max_memory}g",
+    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, "-jar",
+               f"-Xmx{max_memory}g",
                f"{iotscope_path}", "-d", f"{sink_path}", "-a", f"{apk_path}", "-e", f"{iotscope_exclude}",
                "-p", f"{platform}", "-dj", f"{dex2jar}", "-t", f"{taintrules}", "-do", "-o", f"{output_path}"]
     process = subprocess.Popen(command)
