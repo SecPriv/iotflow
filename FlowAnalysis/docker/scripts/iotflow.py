@@ -202,9 +202,10 @@ def flowdroid_run(apk_path: str, sources_sinks: str, output_path: str, callback_
         return
     create_dir_if_not_exists(output_path)
 
+    # FlowDroid 2.15 / Soot 4.7 always load all DEX files of an APK; the former "-d" (--mergedexfiles) option no longer exists
     command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, "-jar",
                f"-Xms{max_memory - 2}g", f"-Xmx{max_memory}g", f"{flowdroid_path}", "-a",
-               f"{apk_path}", "-d", "-s", f"{sources_sinks}", "-p", f"{platform}", "-cs", "SOURCELIST",
+               f"{apk_path}", "-s", f"{sources_sinks}", "-p", f"{platform}", "-cs", "SOURCELIST",
                "-l", "NONE", "-ol", "-o", f"{output_path}", "-tw", "MULTI", "-t", f"{summary_taint_wrapper}", "-t",
                f"{easy_taint_wrapper}"]
     if callback_timeout is not None:
