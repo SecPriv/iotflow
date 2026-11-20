@@ -26,25 +26,28 @@ public class CallGraphNode {
     /**
      * Adds caller information
      *
-     * @param callingStatement Method which call this Method (Node which call this Node)
+     * @param smtd Method which call this Method (Node which call this Node)
      */
-    public void addCallBy(CallGraphNode callingStatement) {
-        callBy.add(callingStatement);
+    public void addCallBy(CallGraphNode smtd) {
+        callBy.add(smtd);
     }
 
     /**
      * Adds methods which are called by the current
      *
-     * @param method method which is callee
+     * @param smtd method which is callse
      */
-    public void addCallTo(CallGraphNode method) {
-        callTo.add(method);
+    public void addCallTo(CallGraphNode smtd) {
+        callTo.add(smtd);
     }
 
     public HashSet<CallGraphNode> getCallBy() {
         return callBy;
     }
 
+    public HashSet<CallGraphNode> getCallTo() {
+        return callTo;
+    }
 
     public SootMethod getSootMethod() {
         return sootMethod;

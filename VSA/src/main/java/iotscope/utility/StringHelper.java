@@ -107,6 +107,7 @@ public class StringHelper {
                     request.writeTo(buffer);
                     return buffer.readUtf8();
                 } catch (IOException e) {
+                    //TODO: add
                 }
                 return "";
 

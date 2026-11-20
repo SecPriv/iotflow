@@ -219,7 +219,7 @@ public class SimulationUtil {
     }
 
     public static HashSet<Request> getOkHttpRequest(Value value, HashMap<Value, HashSet<?>> currentValues) {
-        return getObjects(value, currentValues, Request.class, new Request.Builder().url("https://not_found.com").build());
+        return getObjects(value, currentValues, Request.class, new Request.Builder().url("http://not_found.at").build());
     }
 
     public static HashSet<File> getFile(Value value, HashMap<Value, HashSet<?>> currentValues) {
@@ -459,12 +459,12 @@ public class SimulationUtil {
     }
 
     /**
-     * sanitize a URL string if everything else failed
+     * sanitze an URL string if everything else failed
      *
      * @param url to sanitize
-     * @return sanitized string
+     * @return sanitzed string
      */
-    public static String sanitizeURL(String url) {
+    public static String santizeURL(String url) {
         url = url.replace("[", "").replace("]", "");
         url = url.replace("%d/", "1111/");
         url = url.replace("%d", "1111/");

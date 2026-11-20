@@ -2,7 +2,7 @@ package iotscope.backwardslicing;
 
 import iotscope.base.ParameterTransferStmt;
 import iotscope.base.StmtPoint;
-import iotscope.graph.DataDependenciesGraph;
+import iotscope.graph.DataDependenceGraph;
 import iotscope.graph.HeapObject;
 import iotscope.graph.ValuePoint;
 import iotscope.main.Config;
@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import soot.*;
 import soot.jimple.*;
 import soot.jimple.internal.JAssignStmt;
+import soot.jimple.internal.JStaticInvokeExpr;
 import soot.jimple.internal.JimpleLocal;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.CompleteBlockGraph;
@@ -71,10 +72,10 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
     /**
      * Create new Backward Context
      *
-     * @param startPoint of the backward Context (Instruction from which it gets back traced)
+     * @param startPoint of the backward Context (Instruction from which it get back traced)
      * @param dataGraph  to back trace
      */
-    public BackwardContext(ValuePoint startPoint, DataDependenciesGraph dataGraph) {
+    public BackwardContext(ValuePoint startPoint, DataDependenceGraph dataGraph) {
         super(dataGraph);
         this.startPoint = startPoint;
 
@@ -146,14 +147,14 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
     public List<BackwardContext> oneStepBackWard() {
         backwardSteps++;
 
-        Unit nextInstructionBlock = this.getCurrentBlock().getPredOf(this.currentInstruction);
+        Unit nextInstrctBlock = this.getCurrentBlock().getPredOf(this.currentInstruction);
 
-        if (nextInstructionBlock == null && this.getCurrentBlock().getHead() != this.currentInstruction) {
-            nextInstructionBlock = this.getCurrentBlock().getBody().getUnits().getPredOf(this.currentInstruction);
+        if (nextInstrctBlock == null && this.getCurrentBlock().getHead() != this.currentInstruction) {
+            nextInstrctBlock = this.getCurrentBlock().getBody().getUnits().getPredOf(this.currentInstruction);
         }
 
-        if (nextInstructionBlock != null) {
-            return oneStepBackWard(nextInstructionBlock);
+        if (nextInstrctBlock != null) {
+            return oneStepBackWard(nextInstrctBlock);
         } else {
             List<BackwardContext> newBackwardContext = new ArrayList<>();
 
@@ -188,12 +189,12 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
 
 
                 if (blocks.size() == 0) {
-                    nextInstructionBlock = this.getCurrentBlock().getBody().getUnits().getPredOf(this.currentInstruction);
-                    if (nextInstructionBlock != null && !execTrace.contains(nextInstructionBlock) && !visited.contains(nextInstructionBlock)) {
-                        return oneStepBackWard(nextInstructionBlock);
+                    nextInstrctBlock = this.getCurrentBlock().getBody().getUnits().getPredOf(this.currentInstruction);
+                    if (nextInstrctBlock != null && !execTrace.contains(nextInstrctBlock) && !visited.contains(nextInstrctBlock)) {
+                        return oneStepBackWard(nextInstrctBlock);
                     }
 
-                    LOGGER.debug(String.format("[%s] [No Predecessor Of]: %s", this.hashCode(), this.getCurrentInstruction()));
+                    LOGGER.debug(String.format("[%s] [No PredsOf]: %s", this.hashCode(), this.getCurrentInstruction()));
                     this.finished = true;
                     return newBackwardContext;
                 }
@@ -416,7 +417,7 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
 
 
     @Override
-    public boolean diveIntoMethodCall(Value leftOp, boolean leftIsInteresting, InvokeExpr
+    public boolean diveIntoMethodCall(Value leftOp, boolean leftisIntrested, InvokeExpr
             invokeExpr) {
         if (!invokeExpr.getMethod().getDeclaringClass().isApplicationClass() || !invokeExpr.getMethod().isConcrete())
             return false;
@@ -466,7 +467,7 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
 
             Stmt returnStmt = (Stmt) tempBlock.getTail();
 
-            if ((leftOp != null && leftIsInteresting)) {
+            if ((leftOp != null && leftisIntrested)) {
                 //map param if interesting
                 if (!(tempBlock.getTail() instanceof ReturnStmt)) {
                     LOGGER.error(String.format("[%s] [Tail not ReturnStmt]: %s (%s)", this.hashCode(), tempBlock.getTail(), tempBlock.getTail().getClass()));
@@ -480,8 +481,8 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
                 // parameter
             }
             boolean containsBlock = false;
-            for (Pair<Block, Integer> block : blocks) {
-                if (tempBlock.equals(block.getValue0())) {
+            for (int j = 0; j < blocks.size(); j++) {
+                if (tempBlock.equals(blocks.get(j).getValue0())) {
                     containsBlock = true;
                     break;
                 }
@@ -498,6 +499,8 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
         return true;
     }
 
+    ////////////////////////////////////////////////////////
+    //////////////////////// StmtPath //////////////////////
 
     @Override
     public Unit getStmtPathTail() {
@@ -510,17 +513,18 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
     }
 
 
+    ////////////////////////////////////////////////////////
 
     public JSONObject toJson() {
         JSONObject result = new JSONObject();
         if (methods != null) {
             for (SootMethod sm : methods) {
-                result.append("methods", sm.toString());
+                result.append("methodes", sm.toString());
             }
         }
         if (blocks != null) {
             for (Pair<Block, Integer> blk : blocks) {
-                result.append("blocks", blk.getValue0().hashCode());
+                result.append("blockes", blk.getValue0().hashCode());
             }
         }
 
@@ -531,7 +535,7 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
         }
 
         JSONObject execTraceDetails = new JSONObject();
-        HashSet<ValueBox> boxes = new HashSet<>();
+        HashSet<ValueBox> boxes = new HashSet<ValueBox>();
         if (execTrace != null) {
             for (StmtPoint stmt : execTrace) {
                 boxes.addAll(stmt.getInstructionLocation().getUseAndDefBoxes());

@@ -21,9 +21,9 @@
 
 
         <!--<Logger name="soot.jimple.infoflow.android" level="off">
-        </Logger>-->
-        <Logger name="iotscope" level="off">
         </Logger>
+        <Logger name="soot" level="off">TODO change
+        </Logger>-->
         <Root level="info">
             <AppenderRef ref="Console"/>
             <!--<AppenderRef ref="warnLog"/>

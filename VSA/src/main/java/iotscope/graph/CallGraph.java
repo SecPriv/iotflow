@@ -92,7 +92,7 @@ public class CallGraph {
                 }
             }
         } catch (Throwable e) {
-            LOGGER.error("error init call graph");
+            LOGGER.error("error init callgraph");
         }
 
         LOGGER.info("[CG time]:" + (System.currentTimeMillis() - startTime));

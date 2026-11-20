@@ -3,7 +3,7 @@ package iotscope.main;
 import iotscope.backwardslicing.BackwardTracing;
 import iotscope.base.StmtPoint;
 import iotscope.graph.CallGraph;
-import iotscope.graph.DataDependenciesGraph;
+import iotscope.graph.DataDependenceGraph;
 import iotscope.graph.ValuePoint;
 import iotscope.utility.*;
 import iotscope.utility.unknownScheme.CustomURLStreamHandlerFactory;
@@ -76,29 +76,29 @@ public class Main {
     private static List<ValuePoint> getAllSolvedValuePoints(JSONObject targetMethods, Thread t, String apk) {
 
         // Data Graph creation
-        DataDependenciesGraph dataGraph = new DataDependenciesGraph();
+        DataDependenceGraph dataGraph = new DataDependenceGraph();
 
         List<ValuePoint> allValuePoints = new ArrayList<>();
         LOGGER.info("looking for method signatures to trace");
-        for (Object jsonObject : targetMethods.getJSONArray("methods")) {
+        for (Object jobj : targetMethods.getJSONArray("methods")) {
 
-            JSONObject tmp = (JSONObject) jsonObject;
+            JSONObject tmp = (JSONObject) jobj;
 
-            String tmpSignatureOfMethod = tmp.getString("method");
+            String tmpSigantureOfMethod = tmp.getString("method");
 
             //param indexes to trace
             List<Integer> regIndex = new ArrayList<>();
-            for (Object tob : tmp.getJSONArray("parameterIndexes")) {
+            for (Object tob : tmp.getJSONArray("parmIndexs")) {
                 regIndex.add((Integer) tob);
             }
 
             boolean findSubMethods = tmp.has("findSubMethods") && tmp.getBoolean("findSubMethods");
             StmtPoint.createAnnotationMap();
             //match method signature and reg index
-            Set<ValuePoint> valuePoints = ValuePoint.find(dataGraph, tmpSignatureOfMethod, regIndex, findSubMethods);
+            Set<ValuePoint> valuePoints = ValuePoint.find(dataGraph, tmpSigantureOfMethod, regIndex, findSubMethods);
             for (ValuePoint valuePoint : valuePoints) {
                 tmp = new JSONObject();
-                tmp.put("signatureInApp", tmpSignatureOfMethod);
+                tmp.put("sigatureInApp", tmpSigantureOfMethod);
                 valuePoint.setAppendix(tmp);
                 LOGGER.info("found ValuePoint {}", valuePoint.getPrintableValuePoint());
             }
@@ -177,7 +177,7 @@ public class Main {
             writer.write("\"timeoutbackward\": \"" + (Config.TIMEOUT_BACKWARDS) + "\", ");
             writer.write("\"timeoutforward\": \"" + (Config.TIMEOUT_FORWARD) + "\", ");
 
-            writer.write("\"packagename\": \"" + apk + "\", ");
+            writer.write("\"pname\": \"" + apk + "\", ");
             writer.write("\"initTime\": \"" + (initTime - startTime) + "\", ");
             writer.write("\"solveTime\": \"" + (endTime - initTime) + "\"}");
 
@@ -300,7 +300,7 @@ public class Main {
         // load exclusion list
         List<String> exclusionList = new ArrayList<>();
         if (cmd.getOptionValue(CommandLineOptions.exclusion) != null) {
-            LOGGER.info("loading exclusion list");
+            LOGGER.info("loading exlusion list");
             JSONObject exclusionJSON = new JSONObject(new String(Files.readAllBytes(Paths.get(cmd.getOptionValue(CommandLineOptions.exclusion)))));
             JSONArray jsonArray = exclusionJSON.getJSONArray("exclude");
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -365,6 +365,7 @@ public class Main {
         } else {
             Options.v().set_output_format(Options.output_format_none);
         }
+        //TODO: test for offset
         Options.v().set_keep_line_number(true);
         //Options.v().set_keep_offset(true);
         Options.v().ignore_resolution_errors();
@@ -384,16 +385,17 @@ public class Main {
         exclusionList.add("org.junit.*");
         exclusionList.add("junit.*");
         exclusionList.add("androidx.*");
-        exclusionList.add("kotlinx.*");
+        exclusionList.add("kotlinx.*"); 
         exclusionList.add("org.bouncycastle.*");
         exclusionList.add("org.spongycastle.*");
 
         exclusionList.add("com.google.*");
-        exclusionList.add("okhttp3.*");
-        exclusionList.add("okio.*");
+        //added pre calc for flowdroid  to remove them from here
+        exclusionList.add("okhttp3.*"); 
+        exclusionList.add("okio.*");  
         exclusionList.add("com.bumptech.glide.*");
-        exclusionList.add("com.google.gson.*");
-        exclusionList.add("com.google.protobuf.*");
+        exclusionList.add("com.google.gson.*");    
+        exclusionList.add("com.google.protobuf.*");    
         exclusionList.add("retrofit.*");
         exclusionList.add("retrofit2.*");
         exclusionList.add("com.fasterxml.jackson.*");
