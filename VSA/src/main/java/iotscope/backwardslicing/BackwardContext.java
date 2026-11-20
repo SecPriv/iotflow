@@ -319,12 +319,34 @@ public class BackwardContext extends BackwardStmtSwitch implements StmtPath {
         LOGGER.debug(String.format("                 %s -> %s ", oldString, newString));
     }
 
+    /**
+     * The method's ParameterRefs by index (null where a parameter has no identity statement).
+     * Same behaviour as Body.getParameterRefs() of Soot 4.4.1, which Soot 4.7 removed.
+     */
+    private static List<Value> getParameterRefs(Body body) {
+        Value[] res = new Value[body.getMethod().getParameterCount()];
+        for (Unit u : body.getUnits()) {
+            if (u instanceof IdentityStmt) {
+                Value rightOp = ((IdentityStmt) u).getRightOp();
+                if (rightOp instanceof ParameterRef) {
+                    ParameterRef pr = (ParameterRef) rightOp;
+                    int index = pr.getIndex();
+                    if (index < 0 || index >= res.length) {
+                        throw new RuntimeException("Parameter index " + index + " out of bounds in " + body.getMethod());
+                    }
+                    res[index] = pr;
+                }
+            }
+        }
+        return Arrays.asList(res);
+    }
+
     public void getBackFromACall() {
         CallStackItem citem = this.getCallStack().pop();
 
         Stmt retStmt = (Stmt) citem.getCurrentInstruction();
 
-        for (Value param : this.getCurrentMethod().getActiveBody().getParameterRefs()) {
+        for (Value param : getParameterRefs(this.getCurrentMethod().getActiveBody())) {
             if (this.getInterestingVariables().contains(param)) {
 
                 List<Value> args = retStmt.getInvokeExpr().getArgs();

@@ -42,6 +42,40 @@ public class ParameterTransferStmt implements AssignStmt {
         return right;
     }
 
+    // Methods added to Soot's Stmt/Host interfaces in Soot 4.7; this synthetic statement has no
+    // invoke expression, array or field reference and no tags, like the existing accessors below.
+    @Override
+    public InvokeExpr getInvokeExprUnsafe() {
+        return null;
+    }
+
+    @Override
+    public ArrayRef getArrayRefUnsafe() {
+        return null;
+    }
+
+    @Override
+    public FieldRef getFieldRefUnsafe() {
+        return null;
+    }
+
+    @Override
+    public Tag getOrComputeTag(String aName, java.util.function.Supplier<Tag> supplier) {
+        return supplier.get();
+    }
+
+    private Body containingBody;
+
+    @Override
+    public Body getContainingBody() {
+        return containingBody;
+    }
+
+    @Override
+    public void setContainingBody(Body body) {
+        this.containingBody = body;
+    }
+
     @Override
     public ValueBox getLeftOpBox() {
         return null;

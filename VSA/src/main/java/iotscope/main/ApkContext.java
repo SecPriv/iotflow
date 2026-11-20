@@ -2,7 +2,6 @@ package iotscope.main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xmlpull.v1.XmlPullParserException;
 import soot.jimple.infoflow.android.axml.ApkHandler;
 import soot.jimple.infoflow.android.manifest.ProcessManifest;
 import soot.jimple.infoflow.android.resources.ARSCFileParser;
@@ -40,7 +39,7 @@ public class ApkContext {
         this.arscFileParser.parse(this.apkHandler.getInputStream("resources.arsc"));
         try {
             this.processManifest = new ProcessManifest(apkHandler.getInputStream("AndroidManifest.xml") , this.arscFileParser );
-        } catch (IOException | XmlPullParserException e) {
+        } catch (IOException e) {
             LOGGER.error("init failed: {} ", e.getMessage());
         }
         apkHandler.close();

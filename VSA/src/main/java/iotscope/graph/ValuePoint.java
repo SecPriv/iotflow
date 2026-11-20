@@ -155,8 +155,15 @@ public class ValuePoint implements IDataDependenceGraphNode {
         LOGGER.debug("[SOLVING ME]" + this.hashCode());
         for (BackwardContext backwardContext : backwardContexts) {
             SimulateEngine tmp = new SimulateEngine(dataGraph, backwardContext);
-            tmp.simulate();
-            mergeResult(backwardContext, tmp);
+            // The simulation can load app classes from the dex2jar jar (e.g. via toString() in debug
+            // messages); a class dex2jar emitted without valid stackmap frames throws VerifyError and
+            // would end the whole analysis. Skip only this backward context (patches/vsa-linkage-errors).
+            try {
+                tmp.simulate();
+                mergeResult(backwardContext, tmp);
+            } catch (LinkageError e) {
+                LOGGER.warn("Skipping a backward context of {}: {}", this.hashCode(), e.toString());
+            }
         }
 
     }

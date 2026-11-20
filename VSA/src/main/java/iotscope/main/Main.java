@@ -353,7 +353,7 @@ public class Main {
 
         }
 
-        Options.v().set_process_multiple_dex(true);
+        // Soot 4.7 always processes all DEX files (the process_multiple_dex option was removed)
 
         Options.v().set_whole_program(true);
         Options.v().set_allow_phantom_refs(true);

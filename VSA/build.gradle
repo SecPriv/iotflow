@@ -1,30 +1,50 @@
 plugins {
     id 'java'
     id 'application'
-    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    // Shadow builds the fat jar (vsa.jar); com.gradleup.shadow is the maintained successor of
+    // com.github.johnrengelman.shadow, needed for Gradle 8
+    id 'com.gradleup.shadow' version '8.3.5'
 }
 
-mainClassName = 'iotscope.main.Main'
+// FlowDroid/Soot jar and Java release can be overridden, e.g. to rebuild the old baseline:
+//   gradle shadowJar -PflowdroidJar=libs/soot-infoflow-cmd-jar-with-dependencies.jar -PjavaRelease=11
+// Default: FlowDroid 2.15.1 (Soot 4.7.1), which requires Java 17.
+def flowdroidJar = project.findProperty('flowdroidJar') ?: 'libs/soot-infoflow-cmd-2.15.1-jar-with-dependencies.jar'
+def javaRelease = (project.findProperty('javaRelease') ?: '17') as int
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(17) }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release = javaRelease
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainClass = 'iotscope.main.Main'
+}
 
 jar {
     manifest {
-        attributes(
-                'Main-Class': 'iotscope.main.Main'
-        )
+        attributes('Main-Class': 'iotscope.main.Main')
     }
+}
+
+shadowJar {
+    archiveFileName = 'vsa.jar'
+    // the FlowDroid jar comes first on the classpath; keep its copy of any duplicate file
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 group 'edu.osu.sec.vsa'
 version '1.0-SNAPSHOT'
 
 repositories {
-    //maven { url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/" }
-    //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     mavenCentral()
 }
 
 dependencies {
-    implementation files('libs/soot-infoflow-cmd-jar-with-dependencies.jar')
+    implementation files(flowdroidJar)
 
     implementation 'org.apache.logging.log4j:log4j-api:2.17.0'
     implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.17.0"
