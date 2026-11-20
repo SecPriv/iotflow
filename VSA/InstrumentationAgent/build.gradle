@@ -1,7 +1,13 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow'
+    id 'com.gradleup.shadow'  // version set in the root build.gradle
+}
 
+// the agent is loaded into the VSA's JVM; Java 11 bytecode runs on 11 and 17
+tasks.withType(JavaCompile).configureEach { options.release = 11 }
+
+shadowJar {
+    archiveFileName = 'InstrumentationAgent.jar'
 }
 
 

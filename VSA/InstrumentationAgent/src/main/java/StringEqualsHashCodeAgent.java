@@ -28,7 +28,7 @@ public class StringEqualsHashCodeAgent implements ClassFileTransformer {
                 classNameReplaced.startsWith("androidx.") || classNameReplaced.startsWith("soot.") ||
                 classNameReplaced.startsWith("com.sun.") || classNameReplaced.startsWith("jdk.") ||
                 classNameReplaced.startsWith("org.javatuples.") || classNameReplaced.startsWith("heros.") ||
-                classNameReplaced.startsWith("org.jf.dexlib2.") || classNameReplaced.startsWith("org.objectweb.") ||
+                classNameReplaced.startsWith("org.jf.dexlib2.") || classNameReplaced.startsWith("com.android.tools.smali.") || classNameReplaced.startsWith("org.objectweb.") ||
                 classNameReplaced.startsWith("rx.") || //com.bshg.homeconnect.android -> somehow dependency should be fixed...
                 classNameReplaced.startsWith("com.google.") ||
                 classNameReplaced.startsWith("pxb.android.") || classNameReplaced.startsWith("com.intellij.") ||

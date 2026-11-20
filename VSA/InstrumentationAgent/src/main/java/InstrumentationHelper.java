@@ -234,7 +234,7 @@ public class InstrumentationHelper {
         return currentClazz.isPrimitive() || (currentClazz.getName().startsWith("java.") && !obj.getClass().getName().startsWith("java.util")) || currentClazz.getName().startsWith("sun.") || currentClazz.getName().startsWith("javax.") || currentClazz.getName().startsWith("android.")
                 || currentClazz.getName().startsWith("kotlinx.") || currentClazz.getName().startsWith("kotlin.") ||
                 currentClazz.getName().startsWith("androidx.") || currentClazz.getName().startsWith("com.sun.")
-                || currentClazz.getName().startsWith("jdk.") || currentClazz.getName().startsWith("heros.") || currentClazz.getName().startsWith("org.jf.dexlib2.")
+                || currentClazz.getName().startsWith("jdk.") || currentClazz.getName().startsWith("heros.") || currentClazz.getName().startsWith("org.jf.dexlib2.") || currentClazz.getName().startsWith("com.android.tools.smali.")
                 || currentClazz.getName().startsWith("pxb.android.") || currentClazz.getName().startsWith("com.intellij.") || currentClazz.getName().startsWith("iotscope.");
     }
 
@@ -292,6 +292,9 @@ public class InstrumentationHelper {
                             }else {
                                 fieldString = fieldString + s;
                             }
+                        } else if (currentValue instanceof java.util.Map) {
+                            // maps are skipped (as in the deployed InstrumentationAgent.jar, which was
+                            // built from a version of this file with this branch)
                         } else if (currentValue instanceof Enumeration) {
                             fieldString += "[";
                             while (((Enumeration<?>) currentValue).hasMoreElements()) {
