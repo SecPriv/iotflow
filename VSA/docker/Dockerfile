@@ -1,5 +1,5 @@
-# Java 11 runtime, preinstalled (debian:11-slim can no longer install OpenJDK: its security repo is gone)
-FROM eclipse-temurin:11-jre
+# Java 17 runtime (the VSA uses FlowDroid 2.15.1 / Soot 4.7.1, which require Java 17)
+FROM eclipse-temurin:17-jre
 WORKDIR /vsa
 COPY ./dependencies/ ./dependencies/
 COPY ./config/ ./config/

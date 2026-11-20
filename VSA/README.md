@@ -2,6 +2,8 @@
 
 * [Dockerized](docker/) analysis, for simpler execution.
 
+> **This branch (`vsa-soot-upgrade`):** the VSA runs on FlowDroid 2.15.1 / Soot 4.7.1 and Java 17. `src/` is the revision the original `vsa.jar` was built from (commit `8609458`; the later "cleaned up" source was never used in a run), ported to the new Soot. Details and validation: [`patches/VALIDATION-vsa-soot-4.7.md`](../patches/VALIDATION-vsa-soot-4.7.md).
+
 
 Example usage:
 ```
@@ -32,9 +34,14 @@ Option arguments
 
 If the analysis run out of memory, reduce the number of backward context `-mbc`, and steps back `-mb`, the available memory to the jvm can be controlled via `-Xmx`.
 
-## Building with Gradle and Java 11
+## Building (Gradle 8, Java 17, in Docker)
 
-` ./gradlew build -Dorg.gradle.java.home=/usr/lib/jvm/java-11-openjdk/`
+From `VSA/`:
+```bash
+docker run --rm -u $(id -u):$(id -g) -e GRADLE_USER_HOME=/w/.gradle-home -v $PWD:/w -w /w \
+    gradle:8.10.2-jdk17 gradle --no-daemon shadowJar :InstrumentationAgent:shadowJar
+```
+Results: `build/libs/vsa.jar` and `InstrumentationAgent/build/libs/InstrumentationAgent.jar` (copy them into `docker/` and `docker/dependencies/`). To rebuild the old Soot 4.4.1 version for comparisons, add `-PflowdroidJar=libs/soot-infoflow-cmd-jar-with-dependencies.jar -PjavaRelease=11`.
 
 ## Instrumentation Agent
 The instrumentation agent is optional. It can add `toString`, `equals`, and `hashCode` methods to classes during the analysis execution. That can help to remove duplicates and reduce the required memory. To execute the value set analysis with the agent add `-javaagent:[path_to_instrumentation_agent.jar]` to the command
