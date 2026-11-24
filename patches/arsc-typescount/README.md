@@ -1,5 +1,9 @@
 # Patch: FlowDroid ARSC parser and `ResTable_typeSpec.typesCount`
 
+> **Since 2026-11-19 there is only one copy of `vsa.jar`:** `dependencies/vsa.jar` (shared by both stages). The jar paths below are the ones at the time of patching.
+
+> **Update 2026-11-19:** the flow analysis (`FlowAnalysis/docker/iotflow.jar`, `FlowAnalysis/libs/`) now uses FlowDroid 2.15.1 / Soot 4.7.1, which does not need this patch. The patched FlowDroid 2.12 jars that remain are the VSA ones (`VSA/docker/vsa.jar`, `FlowAnalysis/docker/dependencies/vsa.jar`, `VSA/libs/...`).
+
 ## Problem
 
 All bundled analysis jars contain FlowDroid `soot-infoflow-android` 2.12.0-SNAPSHOT (early 2023). Its resource table parser (`soot.jimple.infoflow.android.resources.ARSCFileParser`) rejects apps built with recent Android build tools:
@@ -36,7 +40,7 @@ Verification on `com.rainbow.drone` 5.15:
 
 ```bash
 P=soot/jimple/infoflow/android/resources/ARSCFileParser.class
-CP=VSA/docker/vsa.jar            # any jar containing ASM (org.objectweb.asm)
+CP=dependencies/vsa.jar            # any jar containing ASM (org.objectweb.asm)
 javac -cp $CP -d /tmp/patch patches/arsc-typescount/PatchArsc.java
 unzip -o <jar> $P -d /tmp/orig
 java -cp $CP:/tmp/patch PatchArsc /tmp/orig/$P /tmp/out/$P   # create /tmp/out/<dir of $P> first

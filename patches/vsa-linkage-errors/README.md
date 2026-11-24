@@ -1,5 +1,7 @@
 # Patch: IoTScope (VSA) skips backward paths that hit a `LinkageError`
 
+> **Since 2026-11-19 there is only one copy of `vsa.jar`:** `dependencies/vsa.jar` (shared by both stages). The jar paths below are the ones at the time of patching.
+
 ## Problem
 
 WiZ (`com.wizconnected.wiz2` 1.38.6), endpoints analysis, 2026-11-19:
@@ -39,7 +41,7 @@ Running the VSA with `-XX:+UnlockDiagnosticVMOptions -XX:-BytecodeVerificationRe
 
 ```bash
 P=iotscope/graph/ValuePoint.class
-J=VSA/docker/vsa.jar
+J=dependencies/vsa.jar
 javac -cp $J -d /tmp/patch patches/vsa-linkage-errors/PatchValuePointSolve.java
 mkdir -p /tmp/orig /tmp/out/iotscope/graph && unzip -o $J $P -d /tmp/orig
 java -cp $J:/tmp/patch PatchValuePointSolve $J /tmp/orig/$P /tmp/out/$P

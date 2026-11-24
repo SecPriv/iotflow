@@ -2,7 +2,7 @@
 
 * [Dockerized](docker/) analysis, for simpler execution.
 
-> **This branch (`vsa-soot-upgrade`):** the VSA runs on FlowDroid 2.15.1 / Soot 4.7.1 and Java 17. `src/` is the revision the original `vsa.jar` was built from (commit `8609458`; the later "cleaned up" source was never used in a run), ported to the new Soot. Details and validation: [`patches/VALIDATION-vsa-soot-4.7.md`](../patches/VALIDATION-vsa-soot-4.7.md).
+> **Source and jars.** `src/` is the revision the original `vsa.jar` was built from (commit `8609458`; the later "cleaned up" source in the original repository was never used in a run), **ported to FlowDroid 2.15.1 / Soot 4.7.1 and Java 17**. Two builds are kept in the repository root's `dependencies/`: `vsa-soot-4.7/` (built from this `src/`) and the original Soot 4.4.1 jar with bytecode patches (`patches/`); `scripts/vsa_version.sh status|4.4|4.7` switches `dependencies/vsa.jar`, which both stages use. Validation of the port: [`patches/VALIDATION-vsa-soot-4.7.md`](../patches/VALIDATION-vsa-soot-4.7.md).
 
 
 Example usage:
@@ -41,7 +41,7 @@ From `VSA/`:
 docker run --rm -u $(id -u):$(id -g) -e GRADLE_USER_HOME=/w/.gradle-home -v $PWD:/w -w /w \
     gradle:8.10.2-jdk17 gradle --no-daemon shadowJar :InstrumentationAgent:shadowJar
 ```
-Results: `build/libs/vsa.jar` and `InstrumentationAgent/build/libs/InstrumentationAgent.jar` (copy them into `docker/` and `docker/dependencies/`). To rebuild the old Soot 4.4.1 version for comparisons, add `-PflowdroidJar=libs/soot-infoflow-cmd-jar-with-dependencies.jar -PjavaRelease=11`.
+Results: `build/libs/vsa.jar` and `InstrumentationAgent/build/libs/InstrumentationAgent.jar`; copy both into `../dependencies/vsa-soot-4.7/` and run `scripts/vsa_version.sh 4.7`. To build against the old FlowDroid 2.12 / Soot 4.4.1 for comparisons, add `-PflowdroidJar=libs/soot-infoflow-cmd-jar-with-dependencies.jar -PjavaRelease=11`. The image runs Java 17 for both versions (the VSA's timeout handling uses `Thread.stop()`, which throws on Java 20+).
 
 ## Instrumentation Agent
 The instrumentation agent is optional. It can add `toString`, `equals`, and `hashCode` methods to classes during the analysis execution. That can help to remove duplicates and reduce the required memory. To execute the value set analysis with the agent add `-javaagent:[path_to_instrumentation_agent.jar]` to the command

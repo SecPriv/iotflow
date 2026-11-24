@@ -1,0 +1,63 @@
+# IoTFlow: both analysis stages in one Compose project.
+#   docker compose up --build vsa     # value set analysis
+#   docker compose up --build dfa     # flow analysis (FlowDroid + IoTScope)
+# scripts/run_pipeline.sh runs vsa, then dfa, detached from the terminal (recommended).
+#
+# Settings: environment variables, unset = default (see VSA/docker/README.md, FlowAnalysis/docker/README.md).
+# The containers run as HOST_UID:HOST_GID (set by run_pipeline.sh; e.g. HOST_UID=$(id -u) HOST_GID=$(id -g)
+# docker compose up ...), so results belong to that user; unset = root, as before.
+name: iotflow
+
+x-common: &common
+  user: "${HOST_UID:-0}:${HOST_GID:-0}"
+  # The analyses log a lot; cap Docker's own log files
+  logging:
+    driver: json-file
+    options:
+      max-size: "200m"
+      max-file: "3"
+
+services:
+  vsa:
+    <<: *common
+    build: ./VSA/docker
+    command: ["bash", "./run.sh"]
+    environment:
+      HOME: /tmp
+      ANALYSES:
+      VSA_XMX:
+      VSA_XMX_SMALL:
+      VSA_PARALLEL:
+      VSA_SMALL_MB:
+      VSA_TIMEOUT:
+      VSA_EXCLUDE:
+      D2J_XMX:
+    volumes:
+      - ./dependencies:/vsa/dependencies:ro
+      - ./VSA/docker/apps_to_analyze:/apps_to_analyze
+      - ./VSA/docker/results:/results
+      # scripts and configs from the folder, so changes apply without rebuilding the image (and an
+      # existing image can be used when the build fails, e.g. without internet; see run_pipeline.sh)
+      - ./VSA/docker/execute_vsa.sh:/vsa/execute_vsa.sh:ro
+      - ./VSA/docker/run.sh:/vsa/run.sh:ro
+      - ./VSA/docker/config:/vsa/config:ro
+
+  dfa:
+    <<: *common
+    build: ./FlowAnalysis/docker
+    command: ["sh", "./run.sh"]
+    environment:
+      HOME: /tmp
+      MMF:
+      MMI:
+      IOTSCOPE_EXCLUDE:
+    volumes:
+      - ./dependencies:/analysis/dependencies:ro
+      - ./FlowAnalysis/docker/apps_to_analyze:/apps_to_analyze
+      - ./FlowAnalysis/docker/results:/results
+      # code from the folder (as for vsa). config/ stays in the image: the flow stage writes generated
+      # FlowDroid configs into it
+      - ./FlowAnalysis/docker/scripts:/analysis/scripts:ro
+      - ./FlowAnalysis/docker/iotflow.jar:/analysis/iotflow.jar:ro
+      - ./FlowAnalysis/docker/run.sh:/analysis/run.sh:ro
+      - ./FlowAnalysis/docker/execute_iotflow.sh:/analysis/execute_iotflow.sh:ro

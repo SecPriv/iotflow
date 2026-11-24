@@ -1,5 +1,9 @@
 # Patch: let Soot's call graph skip methods it cannot process
 
+> **Since 2026-11-19 there is only one copy of `vsa.jar`:** `dependencies/vsa.jar` (shared by both stages). The jar paths below are the ones at the time of patching.
+
+> **Update 2026-11-19:** the flow analysis (`FlowAnalysis/docker/iotflow.jar`, `FlowAnalysis/libs/`) now uses FlowDroid 2.15.1 / Soot 4.7.1, which does not need this patch. The patched FlowDroid 2.12 jars that remain are the VSA ones (`VSA/docker/vsa.jar`, `FlowAnalysis/docker/dependencies/vsa.jar`, `VSA/libs/...`).
+
 ## Problem
 
 FlowDroid runs on Shelly (`cloud.shelly.smartcontrol` 1.58.28) and WiZ (`com.wizconnected.wiz2` 1.38.6) aborted while building the call graph:
@@ -47,7 +51,7 @@ Verification on Shelly (`-s config/general.xml`, 8 GB, data-flow timeout 120 s):
 
 ```bash
 P=soot/jimple/spark/solver/OnFlyCallGraph.class
-CP=VSA/docker/vsa.jar            # any jar containing ASM (org.objectweb.asm)
+CP=dependencies/vsa.jar            # any jar containing ASM (org.objectweb.asm)
 javac -cp $CP -d /tmp/patch patches/allow-cg-errors/PatchCgErrors.java
 mkdir -p /tmp/orig /tmp/out/$(dirname $P)
 unzip -o FlowAnalysis/docker/iotflow.jar $P -d /tmp/orig

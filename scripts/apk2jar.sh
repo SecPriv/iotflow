@@ -14,7 +14,7 @@ set -euo pipefail
 
 APK=$(realpath "$1")
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-D2J="$ROOT/VSA/docker/dependencies/dex_tools_2.4.38/d2j-dex2jar.sh"
+D2J="$ROOT/dependencies/dex_tools_2.4.38/d2j-dex2jar.sh"
 NAME=$(basename "$APK" .apk)
 OUT="$ROOT/VSA/docker/apps_to_analyze/jarFiles/$NAME-dex2jar.jar"
 TMP=$(mktemp -d)

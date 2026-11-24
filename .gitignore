@@ -153,26 +153,28 @@ target/
 
 !FlowAnalysis/libs/
 !FlowAnalysis/libs/*
-
-!FlowAnalysis/docker/*
-!FlowAnalysis/docker/dependencies/*
-!FlowAnalysis/docker/dependencies/dex_tools_2.4.38/lib/
-!FlowAnalysis/docker/dependencies/dex_tools_2.4.38/lib/*.jar
-
-
 !VSA/libs/
 !VSA/libs/*
 
-!VSA/docker/*
-!VSA/docker/dependencies/*
-!VSA/docker/dependencies/dex_tools_2.4.38/lib/
-!VSA/docker/dependencies/dex_tools_2.4.38/lib/*.jar
+# Jars used by the Docker stages (shared top-level folder, see dependencies/README.md)
+!FlowAnalysis/docker/iotflow.jar
+!dependencies/*.jar
+!dependencies/vsa-soot-*/
+!dependencies/vsa-soot-*/*.jar
+!dependencies/dex_tools_2.4.38/lib/
+!dependencies/dex_tools_2.4.38/lib/*
+
+# Analysis results and logs (per machine; only the folders' own .gitignore/.gitkeep are tracked)
+**/docker/results/**
+!**/docker/results/.gitignore
+!**/docker/results/.gitkeep
+**/docker/apps_to_analyze/**
+!**/docker/apps_to_analyze/.gitkeep
+apps/
+
 # Apps under analysis (large, third-party binaries)
 *.xapk
-**/apps_to_analyze/*.apk
-
-# Downloaded XAPKs and extracted base APKs
-apps/
+*.apk
 
 # Gradle (built in Docker with GRADLE_USER_HOME inside the project)
 **/.gradle-home/

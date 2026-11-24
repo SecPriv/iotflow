@@ -1,0 +1,4 @@
+# Keep inputs and outputs out of the build context (several GB of APKs and jars)
+apps_to_analyze/
+results/
+README.md

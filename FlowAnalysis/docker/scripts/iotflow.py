@@ -5,6 +5,9 @@ import json
 import subprocess
 import shutil
 import re
+import signal
+import sys
+import threading
 
 from androguard.misc import APK, AnalyzeAPK
 
@@ -30,6 +33,9 @@ iotscope_path = "/analysis/dependencies/vsa.jar"
 # Libraries the VSA skips (see config/iotscope/exclude.json) and log level: both cut run time
 iotscope_exclude = os.environ.get("IOTSCOPE_EXCLUDE", "/analysis/config/iotscope/exclude.json")
 log_level = "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
+# IoTScope's simulation, backward slicing and resource lookups produced >99 % of all log lines and do not
+# change the results; switched off (iotscope.main, Soot's "Failed Typing" and fatal errors are kept)
+iotscope_quiet = ["-Dorg.slf4j.simpleLogger.log.iotscope.forwardexec=off", "-Dorg.slf4j.simpleLogger.log.iotscope.backwardslicing=off", "-Dorg.slf4j.simpleLogger.log.iotscope.main.ApkContext=off"]
 java = "java"
 
 
@@ -184,6 +190,61 @@ def get_apk_name(apk_path: str):
     return os.path.basename(apk_path).replace(".apk", "")
 
 
+# --- Stop analyses that hit a fatal error -------------------------------------------------------
+# A Java process that hits one of these errors usually writes no results but keeps running (e.g. an
+# uncaught exception kills only the main thread) until its timeout. Such processes are killed at once;
+# the cause is appended to <results>/errors/<package>.log so it can be checked after the run.
+FATAL_PATTERNS = (
+    'Exception in thread "main"',
+    "A fatal error has been detected by the Java Runtime Environment",
+    "java.lang.OutOfMemoryError",
+    "The data flow analysis has failed",
+)
+_print_lock = threading.Lock()
+results_root = "/results"  # set from --output-path in main()
+
+
+def start_guarded(command, label: str, apk_path: str, results_dir: str):
+    """Starts command like subprocess.Popen, echoes its output, kills it on a fatal error."""
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                               start_new_session=True, text=True, errors="replace", bufsize=1)
+
+    def kill():
+        try:
+            # timeout --foreground does not pass signals on to java, so kill the whole group
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+
+    def watch():
+        error_file = None
+        kept = 0
+        for line in process.stdout:
+            with _print_lock:
+                sys.stdout.write(line)
+                sys.stdout.flush()
+            if error_file is not None and kept < 40:
+                # keep the stack trace that follows the error line
+                error_file.write("    " + line)
+                error_file.flush()
+                kept += 1
+            if error_file is None and any(p in line for p in FATAL_PATTERNS):
+                errors_dir = os.path.join(results_dir, "errors")
+                os.makedirs(errors_dir, exist_ok=True)
+                error_file = open(os.path.join(errors_dir, f"{get_package_name(apk_path)}.log"), "a")
+                error_file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} {label}: {line.strip()}\n")
+                error_file.flush()
+                with _print_lock:
+                    print(f"[iotflow] fatal error in {label}, stopping it in 5 s: {line.strip()}", flush=True)
+                # delayed, so the stack trace still reaches the log
+                threading.Timer(5, kill).start()
+        if error_file is not None:
+            error_file.close()
+
+    threading.Thread(target=watch, daemon=True).start()
+    return process
+
+
 def flowdroid_run(apk_path: str, sources_sinks: str, output_path: str, callback_timeout: int,
                   dataflow_analysis_timeout: int, max_memory: int, summary_taint_wrapper: str, easy_taint_wrapper: str,
                   timeout: int, access_path_length: int = None):
@@ -215,21 +276,32 @@ def flowdroid_run(apk_path: str, sources_sinks: str, output_path: str, callback_
         command.append("-al")
         command.append(f"{access_path_length}")
     print(command)
-    process = subprocess.Popen(command)
-    return process
+    return start_guarded(command, f"FlowDroid {os.path.basename(os.path.dirname(output_path))}", apk_path, results_root)
 
 
 def run_iotscope(apk_path: str, sink_path: str, output_path: str, max_memory: int, timeout: int):
+    # an empty file is not a result (a run stopped before writing it): run again
+    if os.path.exists(output_path) and os.path.getsize(output_path) == 0:
+        os.remove(output_path)
     if os.path.exists(output_path):
         return
+    # The VSA stage already had to stop this analysis (scripts/run_pipeline.sh copies its markers):
+    # with less memory here it would only fail again
+    for marker in ("vsa-error", "vsa-timeout"):
+        marker_path = output_path[:-len(".json")] + "." + marker
+        if output_path.endswith(".json") and os.path.exists(marker_path):
+            print(f"Skipping IoTScope {os.path.basename(os.path.dirname(output_path))}: the VSA stage stopped it ({marker_path})", flush=True)
+            return
     create_dir_if_not_exists(output_path)
 
-    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, "-jar",
+    # Parallel GC: when the heap is too small it throws "OutOfMemoryError: GC overhead limit exceeded"
+    # (stopped by start_guarded) instead of spending hours in garbage collection like G1
+    command = ["timeout", "--foreground", f"--kill-after={timeout}m", f"{timeout}m", f"{java}", log_level, *iotscope_quiet,
+               "-XX:+UseParallelGC", "-jar",
                f"-Xmx{max_memory}g",
                f"{iotscope_path}", "-d", f"{sink_path}", "-a", f"{apk_path}", "-e", f"{iotscope_exclude}",
                "-p", f"{platform}", "-dj", f"{dex2jar}", "-t", f"{taintrules}", "-do", "-o", f"{output_path}"]
-    process = subprocess.Popen(command)
-    return process
+    return start_guarded(command, f"IoTScope {os.path.basename(os.path.dirname(output_path))}", apk_path, results_root)
 
 
 def change_to_xml_config(config_path: str) -> str:
@@ -626,12 +698,12 @@ def general_run(apk, args):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-a", "--apk-path", help="Path to apk file", type=str)
-    parser.add_argument("-tfc", "--timeout-flowdroid-callbacks", help="Path to apk file", type=int, default=600)
-    parser.add_argument("-tfa", "--timeout-flowdroid-analysis", help="Path to apk file", type=int, default=300)
+    parser.add_argument("-tfc", "--timeout-flowdroid-callbacks", help="FlowDroid callback collection timeout in seconds", type=int, default=600)
+    parser.add_argument("-tfa", "--timeout-flowdroid-analysis", help="FlowDroid data flow analysis timeout in seconds", type=int, default=300)
 
-    parser.add_argument("-mmf", "--max-memory-flowdroid", help="Max memory for the flowdroid vm in g", type=int,
+    parser.add_argument("-mmf", "--max-memory-flowdroid", help="Max memory for the FlowDroid JVM in GB", type=int,
                         default=32)
-    parser.add_argument("-mmi", "--max-memory-iotscope", help="Max memory for the flowdroid vm in g", type=int,
+    parser.add_argument("-mmi", "--max-memory-iotscope", help="Max memory for each IoTScope (VSA) JVM in GB", type=int,
                         default=12)
 
     parser.add_argument("-ibs", "--iotflow-bluetooth-sources", help="Path to the iotflow bluetooth source", type=str,
@@ -639,34 +711,43 @@ def main():
     parser.add_argument("-it", "--iotflow-template", help="Path to the iotflow template", type=str,
                         default=sinks_from_icc)
 
-    parser.add_argument("-igc", "--iotflow-general-config", help="Path to the iotflow bluetooth source", type=str,
+    parser.add_argument("-igc", "--iotflow-general-config", help="Path to the general sources/sinks configuration", type=str,
                         default="/analysis/config/general.xml")
-    parser.add_argument("-ilc", "--iotflow-local-config", help="Path to the iotflow bluetooth source", type=str,
+    parser.add_argument("-ilc", "--iotflow-local-config", help="Path to the local network sources/sinks configuration", type=str,
                         default="/analysis/config/local.xml")
 
-    parser.add_argument("-sd", "--skip-deobfuscation", help="Skip the deobfuscation step", action='store_true')
+    # Deobfuscation uploads the APK to a third-party web service (apk-deguard.com, plain HTTP), so it is
+    # opt-in. -sd is kept for compatibility with existing scripts (it was required to avoid the upload).
+    parser.add_argument("--deguard", action='store_true',
+                        help="Deobfuscate the APK with the online service apk-deguard.com before the analysis. "
+                             "UPLOADS THE APK to a third party over plain HTTP; off by default")
+    parser.add_argument("-sd", "--skip-deobfuscation", action='store_true',
+                        help="Do not deobfuscate (the default; overrides --deguard)")
 
-    parser.add_argument("-st", "--summary-taint-wrapper", help="Skip the deobfuscation step", type=str,
+    parser.add_argument("-st", "--summary-taint-wrapper", help="Path to the FlowDroid summary taint wrapper folder", type=str,
                         default=summary_taintwrapper)
-    parser.add_argument("-et", "--easy-taint-wrapper", help="Skip the deobfuscation step", type=str,
+    parser.add_argument("-et", "--easy-taint-wrapper", help="Path to the FlowDroid easy taint wrapper file", type=str,
                         default=easy_taintwrapper)
-    parser.add_argument("-t", "--timeout", help="Skip the deobfuscation step", type=int,
+    parser.add_argument("-t", "--timeout", help="Hard time limit in minutes for each FlowDroid and IoTScope process", type=int,
                         default=60)
 
     parser.add_argument("-ap", "--access-path", help="Access path length", type=int,
                         default=5)
 
-    parser.add_argument("-o", "--output-path", help="Skip the deobfuscation step", type=str,
+    parser.add_argument("-o", "--output-path", help="Results folder", type=str,
                         default="./output/")
 
-    parser.add_argument("-br", "--bluetooth-run", help="", action='store_true')
-    parser.add_argument("-lr", "--local-run", help="", action='store_true')
-    parser.add_argument("-gr", "--general-run", help="", action='store_true')
+    parser.add_argument("-br", "--bluetooth-run", help="Only the run with Bluetooth sources", action='store_true')
+    parser.add_argument("-lr", "--local-run", help="Only the run with local network sources", action='store_true')
+    parser.add_argument("-gr", "--general-run", help="Only the run with general Android API sources (without -br/-lr/-gr: all three)", action='store_true')
 
     args = parser.parse_args()
+    global results_root
+    results_root = args.output_path
     apk = args.apk_path
     print(f"start analyzing {apk}")
-    if not args.skip_deobfuscation:
+    if args.deguard and not args.skip_deobfuscation:
+        print("WARNING: --deguard uploads the APK to apk-deguard.com (third party, plain HTTP)")
         apk = deobfuscate(args.output_path, apk)
         print("deobfuscation done")
     elif os.path.exists(f"{get_output_prefix(args.output_path, apk)}_deobfuscated.apk"):
